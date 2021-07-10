@@ -1,10 +1,15 @@
 import React from 'react';
-import Title from './Components/header/Title';
 import icon from './images/icons/icon.svg';
-import ThemeSwitch from './Components/header/ThemeSwitch';
-import Login from './Components/header/Login';
+import avatar from './images/avatar.jpg';
 import './style/main.css';
 import './fonts/stylesheet.css';
+import Title from './Components/header/Title';
+import ThemeSwitch from './Components/header/ThemeSwitch';
+import Login from './Components/header/Login';
+import Avatar from './Components/user/Avatar'
+import Status from './Components/post/Status'
+import UserInfoMain from './Components/user/UserInfoMain'
+
 
 const App = () => {
     return (
@@ -14,6 +19,17 @@ const App = () => {
                 <ThemeSwitch/>
                 <Login/>
             </header>
+            <main className="main">
+                <section className="user">
+                    <Avatar avatar={avatar}/>
+                    <UserInfoMain/>                    
+                </section>
+
+                <section className="post">
+                    <Status/>
+                    
+                </section>
+            </main>
         </div>
     )
 }
