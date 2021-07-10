@@ -1,7 +1,7 @@
 const UserInfoMain = () => {
     return(
-        <article>
-            <ul className="user__info">
+        <article className="user__info">
+            <ul className="user__info-content">
                 <li className="user__info-item user__info-item--login"><span>Login:</span> <span>artur_volokhin</span></li>
                 <li className="user__info-item user__info-item--name"><span>Name:</span> <span>Artur Volokhin</span></li>
                 <li className="user__info-item user__info-item--birthday"><span>Birthday:</span> <span>20.11.1997</span></li>

@@ -401,6 +401,34 @@ body {
   background: #fff;
 }
 
+.subtitle {
+  margin: 0 0 20px;
+  font-size: 25px;
+  text-align: center;
+}
+
+.user {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 50%;
+  border-right: 1px solid #ccc;
+}
+
+.post {
+  padding: 10px 20px;
+  width: 50%;
+  max-height: 800px;
+  overflow: auto;
+}
+
 ::-webkit-scrollbar {
   width: 10px;
 }
@@ -513,96 +541,12 @@ body {
   overflow: auto;
 }
 
-.user {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  width: 50%;
-  border-right: 1px solid #ccc;
-}
-
-.user > article {
+.user__contacts {
   width: 80%;
   margin: 10px;
   padding: 15px 0;
   border-top: 1px solid #ccc;
   border-bottom: 1px solid #ccc;
-}
-
-.user__title {
-  margin: 0 0 20px;
-  font-size: 25px;
-  text-align: center;
-}
-
-.user__info {
-  color: #583737;
-}
-
-.user__info-item {
-  margin: 5px 0;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  font-size: 25px;
-}
-
-.user__info-item:nth-child(1) {
-  margin: 0;
-}
-
-.user__info-item:nth-last-child(1) {
-  margin: 0;
-}
-
-.user__stack-list {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.user__stack-item {
-  display: block;
-  width: 60px;
-  height: 60px;
-}
-
-.user__stack-item--html {
-  background: url(/src/images/icons/html.svg) no-repeat center/contain;
-}
-
-.user__stack-item--css {
-  background: url(/src/images/icons/css.svg) no-repeat center/contain;
-}
-
-.user__stack-item--js {
-  background: url(/src/images/icons/js.svg) no-repeat center/contain;
-}
-
-.user__stack-item--react {
-  background: url(/src/images/icons/react.svg) no-repeat center/contain;
-}
-
-.user__stack-item--webpack {
-  background: url(/src/images/icons/webpack.svg) no-repeat center/contain;
-}
-
-.user__stack-item--git {
-  background: url(/src/images/icons/git.svg) no-repeat center/contain;
-}
-
-.user__stack-item--npm {
-  background: url(/src/images/icons/npm.svg) no-repeat center/contain;
 }
 
 .user__contacts-title {
@@ -665,4 +609,83 @@ body {
 
 .user__contacts-item > a:hover {
   color: #48ff00;
+}
+
+.user__stack {
+  width: 80%;
+  margin: 10px;
+  padding: 15px 0;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+}
+
+.user__stack-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.user__stack-item {
+  display: block;
+  width: 60px;
+  height: 60px;
+}
+
+.user__stack-item--html {
+  background: url(/src/images/icons/html.svg) no-repeat center/contain;
+}
+
+.user__stack-item--css {
+  background: url(/src/images/icons/css.svg) no-repeat center/contain;
+}
+
+.user__stack-item--js {
+  background: url(/src/images/icons/js.svg) no-repeat center/contain;
+}
+
+.user__stack-item--react {
+  background: url(/src/images/icons/react.svg) no-repeat center/contain;
+}
+
+.user__stack-item--webpack {
+  background: url(/src/images/icons/webpack.svg) no-repeat center/contain;
+}
+
+.user__stack-item--git {
+  background: url(/src/images/icons/git.svg) no-repeat center/contain;
+}
+
+.user__stack-item--npm {
+  background: url(/src/images/icons/npm.svg) no-repeat center/contain;
+}
+
+.user__info {
+  width: 80%;
+  margin: 10px;
+  padding: 15px 0;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+}
+
+.user__info-content {
+  color: #583737;
+}
+
+.user__info-item {
+  margin: 5px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  font-size: 25px;
+}
+
+.user__info-item:nth-child(1) {
+  margin: 0;
+}
+
+.user__info-item:nth-last-child(1) {
+  margin: 0;
 }

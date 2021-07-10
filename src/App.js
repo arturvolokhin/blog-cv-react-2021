@@ -4,7 +4,7 @@ import avatar from './images/avatar.jpg';
 import './style/main.css';
 import './fonts/stylesheet.css';
 import Title from './Components/header/Title';
-import ThemeSwitch from './Components/header/ThemeSwitch';
+import ThemeSwitcher from './Components/header/ThemeSwitcher';
 import Login from './Components/header/Login';
 import Avatar from './Components/user/Avatar';
 import Status from './Components/post/Status';
@@ -21,7 +21,7 @@ const App = () => {
                 
                 <div className="header__params">
                     <Login/>
-                    <ThemeSwitch/>
+                    <ThemeSwitcher/>
                 </div>
             </header>
             <main className="main">

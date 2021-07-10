@@ -1,7 +1,7 @@
 const UserContacts = () => {
     return(
         <article className="user__contacts">
-            <h2 className="user__title">My contacts:</h2>
+            <h2 className="subtitle">My contacts:</h2>
             <ul className="user__contacts-content">
                 <li className="user__contacts-item">
                     <a href="https://vk.com/arturvolokhin97" target="_blank">arturvolokhin97</a>
