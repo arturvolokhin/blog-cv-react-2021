@@ -1,0 +1,40 @@
+.switch
+    position: relative
+    display: inline-block
+    width: 60px
+    height: 30px
+    
+    &__checkbox
+        opacity: 0
+
+    &__slider
+        position: absolute
+        top: 0
+        right: 0
+        bottom: 0
+        left: 0
+        background: #212427
+        border-radius: 50px
+        cursor: pointer
+        transition: 0.5s
+        border: 1px solid #4D4D4D
+
+        &::before
+            content: ''
+            position: absolute
+            top: calc(50% - 12px)
+            left: 5px
+            display: block
+            width: 20px
+            height: 20px
+            background: #586ab9
+            border: 2px solid #E9E9E9
+            border-radius: 50px
+            transition: 0.5s
+
+    &__checkbox:checked + .switch__slider
+        background-color: #586ab9
+        border: none
+            
+    &__checkbox:checked + .switch__slider:before 
+        transform: translateX(25px)    
