@@ -11,6 +11,7 @@ import Status from './Components/post/Status';
 import UserInfoMain from './Components/user/UserInfoMain';
 import UserTechStack from './Components/user/UserTechStack';
 import UserContacts from './Components/user/UserContacts';
+import NewPost from './Components/post/NewPost';
 
 
 const App = () => {
@@ -34,7 +35,7 @@ const App = () => {
 
                 <section className="post">
                     <Status/>
-                    
+                    <NewPost/>
                 </section>
             </main>
         </div>

@@ -520,7 +520,7 @@ body {
 }
 
 .login:hover {
-  background: rgba(0, 0, 0, 0.7);
+  background: #000;
   color: #fff;
 }
 
@@ -698,4 +698,33 @@ body {
 
 .post__status-text {
   font-size: 20px;
+}
+
+.post__form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 15px 0;
+}
+
+.post__field {
+  width: 100%;
+  padding: 5px 10px;
+  font-family: 'Gilroy';
+  min-height: 25px;
+  max-height: 50px;
+}
+
+.post__submit {
+  background: transparent;
+  border: 1px solid #000;
+  border-left: none;
+  font-family: 'Gilroy';
+  -webkit-transition: 0.2s linear;
+  transition: 0.2s linear;
+}
+
+.post__submit:hover {
+  background: #000;
+  color: #fff;
 }
