@@ -18,8 +18,11 @@ const App = () => {
         <div className="wrapper">
             <header className="header">
                 <Title icon={icon}/>
-                <ThemeSwitch/>
-                <Login/>
+                
+                <div className="header__params">
+                    <Login/>
+                    <ThemeSwitch/>
+                </div>
             </header>
             <main className="main">
                 <section className="user">

@@ -375,6 +375,19 @@ textarea {
   background: #fff;
 }
 
+.header__params {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  min-width: 200px;
+}
+
 body {
   background: url(/src/images/background/dark.png);
   font-family: Gilroy, 'Times New Roman', Times, serif;
