@@ -132,6 +132,10 @@ a:hover {
   outline: 0;
 }
 
+a {
+  text-decoration: none;
+}
+
 /**
  * 1. Remove border when inside `a` element in IE 6/7/8/9 and Firefox 3.
  * 2. Improve image quality when scaled in IE 7.
@@ -429,6 +433,23 @@ body {
   overflow: auto;
 }
 
+.button {
+  width: 140px;
+  margin: 0 auto;
+  padding: 8px 10px;
+  background: #fff;
+  border: none;
+  border-radius: 5px;
+  font-family: 'Gilroy';
+  -webkit-transition: 0.2s linear;
+  transition: 0.2s linear;
+}
+
+.button:hover {
+  background: #000;
+  color: #fff;
+}
+
 ::-webkit-scrollbar {
   width: 10px;
 }
@@ -517,6 +538,7 @@ body {
   border: 1px solid;
   -webkit-transition: 0.2s linear;
   transition: 0.2s linear;
+  background: #fff;
 }
 
 .login:hover {
@@ -727,4 +749,49 @@ body {
 .post__submit:hover {
   background: #000;
   color: #fff;
+}
+
+.modal__in {
+  position: fixed;
+  top: calc(50% - 150px);
+  left: calc(50% - 250px);
+  display: block;
+  height: 300px;
+  background: rgba(0, 0, 0, 0.9);
+  width: 500px;
+  color: #fff;
+  padding: 20px;
+}
+
+.modal__form {
+  margin: 0 0 20px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  min-height: 150px;
+}
+
+.modal__login {
+  padding: 10px 10px;
+  font-family: Gilroy;
+}
+
+.modal__password {
+  padding: 10px 10px;
+  font-family: Gilroy;
+}
+
+.modal__registration-link {
+  color: #fff;
+}
+
+.modal__registration-link:hover {
+  color: #48ff00;
 }

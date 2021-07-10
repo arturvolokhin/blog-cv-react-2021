@@ -12,6 +12,7 @@ import UserInfoMain from './Components/user/UserInfoMain';
 import UserTechStack from './Components/user/UserTechStack';
 import UserContacts from './Components/user/UserContacts';
 import NewPost from './Components/post/NewPost';
+import ModalIn from './Components/header/ModalIn';
 
 
 const App = () => {
@@ -37,6 +38,7 @@ const App = () => {
                     <Status/>
                     <NewPost/>
                 </section>
+                <ModalIn/>
             </main>
         </div>
     )
