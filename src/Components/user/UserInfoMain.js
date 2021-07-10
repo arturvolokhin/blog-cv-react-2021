@@ -1,6 +1,7 @@
 const UserInfoMain = () => {
     return(
         <article className="user__info">
+            <h2 className="subtitle">Main information</h2>
             <ul className="user__info-content">
                 <li className="user__info-item user__info-item--login"><span>Login:</span> <span>artur_volokhin</span></li>
                 <li className="user__info-item user__info-item--name"><span>Name:</span> <span>Artur Volokhin</span></li>

@@ -534,13 +534,6 @@ body {
           justify-content: space-between;
 }
 
-.post {
-  padding: 10px 20px;
-  width: 50%;
-  max-height: 800px;
-  overflow: auto;
-}
-
 .user__contacts {
   width: 80%;
   margin: 10px;
@@ -629,6 +622,13 @@ body {
   display: block;
   width: 60px;
   height: 60px;
+  -webkit-transition: 0.2s linear;
+  transition: 0.2s linear;
+}
+
+.user__stack-item:hover {
+  -webkit-transform: translateY(-10px);
+          transform: translateY(-10px);
 }
 
 .user__stack-item--html {
@@ -667,10 +667,6 @@ body {
   border-bottom: 1px solid #ccc;
 }
 
-.user__info-content {
-  color: #583737;
-}
-
 .user__info-item {
   margin: 5px 0;
   display: -webkit-box;
@@ -688,4 +684,18 @@ body {
 
 .user__info-item:nth-last-child(1) {
   margin: 0;
+}
+
+.post__status {
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.post__status:hover {
+  background: #ddd;
+}
+
+.post__status-text {
+  font-size: 20px;
 }
