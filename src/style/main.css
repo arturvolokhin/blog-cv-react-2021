@@ -781,11 +781,13 @@ body {
 .modal__login {
   padding: 10px 10px;
   font-family: Gilroy;
+  border: none;
 }
 
 .modal__password {
   padding: 10px 10px;
   font-family: Gilroy;
+  border: none;
 }
 
 .modal__registration-link {
