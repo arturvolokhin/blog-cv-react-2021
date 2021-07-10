@@ -1,8 +1,11 @@
 import React from 'react';
+import './style/main.css';
 
 const App = () => {
     return (
-        <h1>Init app</h1>
+        <div className="wrapper">
+
+        </div>
     )
 }
 
