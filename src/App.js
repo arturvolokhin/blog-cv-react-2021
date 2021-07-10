@@ -6,9 +6,11 @@ import './fonts/stylesheet.css';
 import Title from './Components/header/Title';
 import ThemeSwitch from './Components/header/ThemeSwitch';
 import Login from './Components/header/Login';
-import Avatar from './Components/user/Avatar'
-import Status from './Components/post/Status'
-import UserInfoMain from './Components/user/UserInfoMain'
+import Avatar from './Components/user/Avatar';
+import Status from './Components/post/Status';
+import UserInfoMain from './Components/user/UserInfoMain';
+import UserTechStack from './Components/user/UserTechStack';
+import UserContacts from './Components/user/UserContacts';
 
 
 const App = () => {
@@ -22,7 +24,9 @@ const App = () => {
             <main className="main">
                 <section className="user">
                     <Avatar avatar={avatar}/>
-                    <UserInfoMain/>                    
+                    <UserInfoMain/>
+                    <UserTechStack/>
+                    <UserContacts/>
                 </section>
 
                 <section className="post">
