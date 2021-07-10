@@ -1,6 +1,8 @@
-const ModalIn = () => {
+const ModalIn = ({toggle, toggleModal}) => {
+    
     return(
-        <article className="modal__in">
+        <article className={toggle ? "modal__in visible" : "modal__in"}>
+            <div className="close" onClick={toggleModal}/>
             <h2 className="subtitle">Already Registered? Enter your data:</h2>
             <form className="modal__form">
                 <input className="modal__login" type="login" placeholder="Login"/>

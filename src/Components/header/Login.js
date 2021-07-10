@@ -1,6 +1,6 @@
-const Login = () => {
+const Login = ({toggleModal}) => {
     return(
-        <button className="login">Login</button>
+        <button className="login" onClick={toggleModal}>Login</button>
     )
 }
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState} from 'react';
 import icon from './images/icons/icon.svg';
 import avatar from './images/avatar.jpg';
 import './style/main.css';
@@ -16,13 +16,18 @@ import ModalIn from './Components/header/ModalIn';
 
 
 const App = () => {
+
+    const [toggle, setToggle] = useState(false);
+
+    const toggleModal = () => setToggle(!toggle);
+
     return (
         <div className="wrapper">
             <header className="header">
                 <Title icon={icon}/>
                 
                 <div className="header__params">
-                    <Login/>
+                    <Login toggleModal={toggleModal}/>
                     <ThemeSwitcher/>
                 </div>
             </header>
@@ -38,7 +43,7 @@ const App = () => {
                     <Status/>
                     <NewPost/>
                 </section>
-                <ModalIn/>
+                <ModalIn toggle={toggle} toggleModal={toggleModal}/>
             </main>
         </div>
     )
