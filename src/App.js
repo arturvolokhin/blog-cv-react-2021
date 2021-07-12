@@ -6,6 +6,7 @@ import './fonts/stylesheet.css';
 import Title from './Components/header/Title';
 import ThemeSwitcher from './Components/header/ThemeSwitcher';
 import Login from './Components/header/Login';
+import Logout from './Components/header/Logout'
 import Avatar from './Components/user/Avatar';
 import Status from './Components/post/Status';
 import UserInfoMain from './Components/user/UserInfoMain';
@@ -20,7 +21,7 @@ const App = () => {
 
     const [toggleLoginModal, setToggleLoginModal] = useState(false);
     const [toggleRegistrationModal, setToggleRegistrationModal] = useState(false);
-    const [authorization, setAuthorization] = useState({});
+    const [authorization, setAuthorization] = useState(false);
 
     const toggleLogin = () => setToggleLoginModal(!toggleLoginModal);
     const toggleRegistration = () => setToggleRegistrationModal(!toggleRegistrationModal);
@@ -32,7 +33,8 @@ const App = () => {
                 <Title icon={icon}/>
                 
                 <div className="header__params">
-                    <Login toggleLogin={toggleLogin}/>
+                {authorization ? <Logout setAuthorization={setAuthorization}/> :
+                        <Login toggleLogin={toggleLogin}/>}
                     <ThemeSwitcher/>
                 </div>
             </header>

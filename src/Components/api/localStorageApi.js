@@ -3,6 +3,7 @@ const setLocalStorage = (name, data) => {
 }
 
 const getLocalStorage = (name) => {
+    !localStorage.getItem(name) && setLocalStorage(name, []);
     return JSON.parse(localStorage.getItem(name));
 }
 

@@ -706,9 +706,6 @@ textarea {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -716,14 +713,9 @@ textarea {
   min-height: 150px;
 }
 
-.modal__login {
+.modal__field {
   padding: 10px 10px;
-  font-family: Gilroy;
-  border: none;
-}
-
-.modal__password {
-  padding: 10px 10px;
+  margin: 0 0 20px;
   font-family: Gilroy;
   border: none;
 }
