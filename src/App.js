@@ -12,14 +12,19 @@ import UserInfoMain from './Components/user/UserInfoMain';
 import UserTechStack from './Components/user/UserTechStack';
 import UserContacts from './Components/user/UserContacts';
 import NewPost from './Components/post/NewPost';
-import ModalIn from './Components/header/ModalIn';
-import { setLocalStorage, getLocalStorage } from './Components/api/localStorageApi';
+import ModalLogin from './Components/header/ModalLogin';
+import ModalRegistration from './Components/header/ModalRegistration';
+// import { setLocalStorage, getLocalStorage } from './Components/api/localStorageApi';
 
 const App = () => {
 
-    const [toggle, setToggle] = useState(false);
+    const [toggleLoginModal, setToggleLoginModal] = useState(false);
+    const [toggleRegistrationModal, setToggleRegistrationModal] = useState(false);
+    const [authorization, setAuthorization] = useState({});
 
-    const toggleModal = () => setToggle(!toggle);
+    const toggleLogin = () => setToggleLoginModal(!toggleLoginModal);
+    const toggleRegistration = () => setToggleRegistrationModal(!toggleRegistrationModal);
+
 
     return (
         <div className="wrapper">
@@ -27,7 +32,7 @@ const App = () => {
                 <Title icon={icon}/>
                 
                 <div className="header__params">
-                    <Login toggleModal={toggleModal}/>
+                    <Login toggleLogin={toggleLogin}/>
                     <ThemeSwitcher/>
                 </div>
             </header>
@@ -43,7 +48,17 @@ const App = () => {
                     <Status/>
                     <NewPost/>
                 </section>
-                <ModalIn toggle={toggle} toggleModal={toggleModal}/>
+                <ModalLogin 
+                    toggle={toggleLoginModal} 
+                    toggleLogin={toggleLogin}
+                    toggleRegistration={toggleRegistration}
+                    setAuthorization={setAuthorization}
+                />
+                <ModalRegistration
+                    toggle={toggleRegistrationModal} 
+                    toggleRegistration={toggleRegistration}
+                    toggleLogin={toggleLogin}
+                />
             </main>
         </div>
     )

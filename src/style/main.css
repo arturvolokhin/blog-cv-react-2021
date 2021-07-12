@@ -689,7 +689,7 @@ textarea {
   color: #fff;
 }
 
-.modal__in {
+.modal {
   display: none;
   position: fixed;
   top: calc(50% - 150px);
@@ -729,7 +729,7 @@ textarea {
 }
 
 .modal__registration-link {
-  color: #fff;
+  cursor: pointer;
 }
 
 .modal__registration-link:hover {
