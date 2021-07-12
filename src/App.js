@@ -22,7 +22,7 @@ const App = () => {
 
     const [toggleLoginModal, setToggleLoginModal] = useState(false);
     const [toggleRegistrationModal, setToggleRegistrationModal] = useState(false);
-    const [authorization, setAuthorization] = useState(false);
+    const [authorization, setAuthorization] = useState(getLocalStorage('authorizedUser'));
     const [status, setStatus] = useState(getLocalStorage('status'));
 
     const toggleLogin = () => setToggleLoginModal(!toggleLoginModal);

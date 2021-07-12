@@ -620,11 +620,33 @@ textarea {
 }
 
 .user__info {
+  position: relative;
   width: 80%;
   margin: 10px;
   padding: 15px 0;
   border-top: 1px solid #ccc;
   border-bottom: 1px solid #ccc;
+  overflow: hidden;
+}
+
+.user__info:hover .user__info-edit {
+  right: 0;
+}
+
+.user__info-edit {
+  position: absolute;
+  top: 0;
+  right: -120px;
+  font-size: 15px;
+  color: #ccc;
+  cursor: pointer;
+  -webkit-transition: 0.3s linear;
+  transition: 0.3s linear;
+}
+
+.user__info-edit:hover {
+  color: #927474;
+  border-bottom: 1px solid #927474;
 }
 
 .user__info-item {
