@@ -1,13 +1,24 @@
-const UserInfoMain = () => {
+import { getLocalStorage } from '../api/localStorageApi';
+import UserInfoMainField from './UserInfoMainField'
+
+const UserInfoMain = ({toggleUserInfoEdit, authorization}) => {
+
+    const handleClick = () => {
+        authorization ? toggleUserInfoEdit() : alert('Для редактирования - авторизируйтесь!');
+    }
+
+    const data = getLocalStorage('userInfo');
+
     return(
         <article className="user__info">
-            <p className="user__info-edit">Редактировать</p>
+            <p className="user__info-edit" onClick={handleClick}>Редактировать</p>
             <h2 className="subtitle">Main information</h2>
             <ul className="user__info-content">
-                <li className="user__info-item user__info-item--login"><span>Login:</span> <span>artur_volokhin</span></li>
-                <li className="user__info-item user__info-item--name"><span>Name:</span> <span>Artur Volokhin</span></li>
-                <li className="user__info-item user__info-item--birthday"><span>Birthday:</span> <span>20.11.1997</span></li>
-                <li className="user__info-item user__info-item--location"><span>Live to:</span> <span>Minsk, Belarus</span></li>
+                {
+                    Object.keys(data).map((item, index) => {
+                        return <UserInfoMainField key={index} name={item} value={data[item]}/>
+                    })
+                }
             </ul>
         </article>
     )

@@ -15,8 +15,8 @@ import UserContacts from './Components/user/UserContacts';
 import NewPost from './Components/post/NewPost';
 import ModalLogin from './Components/header/ModalLogin';
 import ModalRegistration from './Components/header/ModalRegistration';
-import { getLocalStorage } from './Components/api/localStorageApi';
-// import { setLocalStorage, getLocalStorage } from './Components/api/localStorageApi';
+import UserInfoMainEdit from './Components/user/UserInfoMainEdit';
+import { getLocalStorage, setLocalStorage } from './Components/api/localStorageApi';
 
 const App = () => {
 
@@ -24,10 +24,19 @@ const App = () => {
     const [toggleRegistrationModal, setToggleRegistrationModal] = useState(false);
     const [authorization, setAuthorization] = useState(getLocalStorage('authorizedUser'));
     const [status, setStatus] = useState(getLocalStorage('status'));
+    const [userInfoMainEdit, setUserInfoMainEdit] = useState(false);
 
-    const toggleLogin = () => setToggleLoginModal(!toggleLoginModal);
-    const toggleRegistration = () => setToggleRegistrationModal(!toggleRegistrationModal);
-
+    const toggleLogin = () => {
+        setToggleLoginModal(!toggleLoginModal);
+    }    
+    
+    const toggleRegistration = () => {
+        setToggleRegistrationModal(!toggleRegistrationModal);
+    }    
+    
+    const toggleUserInfoEdit = () => {
+        authorization && setUserInfoMainEdit(!userInfoMainEdit);
+    }
 
     return (
         <div className="wrapper">
@@ -35,17 +44,26 @@ const App = () => {
                 <Title icon={icon}/>
                 
                 <div className="header__params">
-                {authorization ? <Logout setAuthorization={setAuthorization}/> :
-                        <Login toggleLogin={toggleLogin}/>}
+                {authorization ? 
+                    <Logout 
+                        setAuthorization={setAuthorization}
+                        setUserInfoMainEdit={setUserInfoMainEdit}
+                    /> : 
+                    <Login toggleLogin={toggleLogin}/>
+                }
                     <ThemeSwitcher/>
                 </div>
             </header>
             <main className="main">
                 <section className="user">
                     <Avatar avatar={avatar}/>
-                    <UserInfoMain/>
+                    <UserInfoMain 
+                        toggleUserInfoEdit={toggleUserInfoEdit}
+                        authorization={authorization}
+                    />
                     <UserTechStack/>
                     <UserContacts/>
+                    {userInfoMainEdit && authorization ? <UserInfoMainEdit/> : null};
                 </section>
 
                 <section className="post">

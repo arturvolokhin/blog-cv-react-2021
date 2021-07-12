@@ -1,10 +1,11 @@
 import { setLocalStorage } from "../api/localStorageApi"
 
-const Logout = ({setAuthorization}) => {
+const Logout = ({setAuthorization, setUserInfoMainEdit}) => {
 
     const handleClick = () => {
         setLocalStorage('authorizedUser', false);
         setAuthorization(false);
+        setUserInfoMainEdit(false);
     }
 
     return(

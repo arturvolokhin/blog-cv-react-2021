@@ -7,19 +7,21 @@ const Status = ({authorization, status, setStatus}) => {
     }
  
     return(
-        // <article className="post__status">
             <>
                 {authorization ?
-                    <input className="post__status" 
+                    <input 
+                        className="post__status" 
                         onChange={({target}) => setStatus(target.value)} 
                         onBlur={handleBlur} type="text" value={status}
                         placeholder="This is status" maxlength="40"  
-                        /> :
-                    <input  className="post__status"
-                        readOnly value={status} placeholder="This is status"/>
+                    /> :
+                    <input  
+                        className="post__status" 
+                        onClick={() => alert('Для редактирования - авторизируйтесь')}
+                        readOnly value={status} placeholder="This is status"  
+                    />
                 }
             </>       
-        // </article>
     )
 }
 

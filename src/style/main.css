@@ -377,6 +377,7 @@ textarea {
   top: 0;
   border-bottom: 1px solid #ccc;
   background: #fff;
+  z-index: 15;
 }
 
 .header__params {
@@ -635,7 +636,7 @@ textarea {
 
 .user__info-edit {
   position: absolute;
-  top: 0;
+  top: 5px;
   right: -120px;
   font-size: 15px;
   color: #ccc;
@@ -650,7 +651,7 @@ textarea {
 }
 
 .user__info-item {
-  margin: 5px 0;
+  margin: 10px 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -658,14 +659,6 @@ textarea {
       -ms-flex-pack: justify;
           justify-content: space-between;
   font-size: 25px;
-}
-
-.user__info-item:nth-child(1) {
-  margin: 0;
-}
-
-.user__info-item:nth-last-child(1) {
-  margin: 0;
 }
 
 .post__status {
@@ -751,6 +744,48 @@ textarea {
   color: #48ff00;
 }
 
+.user__edit {
+  position: absolute;
+  top: 435px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 80%;
+  height: 152px;
+  background: #fff;
+  z-index: 5;
+}
+
+.user__edit-field {
+  padding: 3px 10px;
+  font-size: 25px;
+  border: none;
+  border-bottom: 2px solid #ccc;
+  font-family: Gilroy;
+}
+
+.user__edit-field:nth-last-child(1) {
+  border-bottom: none;
+}
+
+.user__edit-buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 50%;
+  margin: 0 auto;
+}
+
 body {
   background: url(/src/images/background/dark.png);
   font-family: Gilroy, 'Times New Roman', Times, serif;
@@ -771,6 +806,7 @@ body {
 }
 
 .user {
+  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
