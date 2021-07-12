@@ -13,7 +13,7 @@ import UserTechStack from './Components/user/UserTechStack';
 import UserContacts from './Components/user/UserContacts';
 import NewPost from './Components/post/NewPost';
 import ModalIn from './Components/header/ModalIn';
-
+import { setLocalStorage, getLocalStorage } from './Components/api/localStorageApi';
 
 const App = () => {
 
