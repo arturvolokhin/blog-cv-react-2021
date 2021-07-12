@@ -1,6 +1,9 @@
+import Button from '../Button'
+
 const Login = ({toggleLogin}) => {
+
     return(
-        <button className="login" onClick={toggleLogin}>Login</button>
+        <Button value={'Login'} onClick={toggleLogin}/>
     )
 }
 

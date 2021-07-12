@@ -63,7 +63,10 @@ const App = () => {
                     />
                     <UserTechStack/>
                     <UserContacts/>
-                    {userInfoMainEdit && authorization ? <UserInfoMainEdit/> : null};
+                    {userInfoMainEdit && authorization ? 
+                        <UserInfoMainEdit toggleUserInfoEdit={toggleUserInfoEdit}/> : 
+                        null
+                    };
                 </section>
 
                 <section className="post">

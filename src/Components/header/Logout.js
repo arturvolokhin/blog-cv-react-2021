@@ -1,4 +1,5 @@
 import { setLocalStorage } from "../api/localStorageApi"
+import Button from '../Button';
 
 const Logout = ({setAuthorization, setUserInfoMainEdit}) => {
 
@@ -9,7 +10,7 @@ const Logout = ({setAuthorization, setUserInfoMainEdit}) => {
     }
 
     return(
-        <button className="login" onClick={handleClick}>Logout</button>
+        <Button onClick={handleClick} value={'Logout'}/>
     )
 }
 

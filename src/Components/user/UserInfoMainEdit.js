@@ -1,26 +1,44 @@
+import React,{useState, useEffect} from 'react';
 import UserInfoMainEditField from './UserInfoMainEditField';
-import { getLocalStorage } from '../api/localStorageApi';
+import { getLocalStorage, setLocalStorage } from '../api/localStorageApi';
+import Button from '../Button';
 
-const UserInfoMainEdit = () => {
+const UserInfoMainEdit = ({toggleUserInfoEdit}) => {
 
     const data = getLocalStorage('userInfo');
+    const [text, setText] = useState(data);
+
+    useEffect(() => {
+        console.log(text);
+    }, [text]);
+    
+    const handleChange = ({target}) => {
+        setText({...text, [target.name]: target.value});
+    }
+
+    const handleClick = (e) => {
+        e.preventDefault();
+        setLocalStorage('userInfo', text);
+        toggleUserInfoEdit();
+    }
 
     return(
         <form className="user__edit">
-            {/* <input className="user__edit-field" placeholder="Login"/>
-            <input className="user__edit-field" placeholder="Name"/>
-            <input className="user__edit-field" placeholder="Birthday"/>
-            <input className="user__edit-field" placeholder="Live to"/> */}
 
             {
-                Object.keys(data).map((item, index) => {
-                    return <UserInfoMainEditField key={index} name={item} value={data[item]}/>
+                Object.keys(data).map((key) => {
+                    return (
+                        <UserInfoMainEditField key={key} 
+                            name={key} placeholder={key}
+                            onChange={handleChange}
+                        />
+                    )    
                 })
             }
 
             <div className="user__edit-buttons">
-                <button>Submit</button>
-                <button>Cancel</button>
+                <Button value={'Submit'} onClick={handleClick}/>
+                <Button value={'Cancel'} onClick={toggleUserInfoEdit}/>
             </div>
         </form>
     )
