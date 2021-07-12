@@ -16,8 +16,8 @@ const ModalLogin = ({toggle, toggleLogin, toggleRegistration, setAuthorization})
         toggleLogin();
     }
 
-    const getAuthorization = ({login, password}) => {
-        setAuthorization({login: login, password: password});
+    const getAuthorization = ({login, password, name}) => {
+        setAuthorization({login: login, password: password, name: name});
     }
 
     const registrationClick = () => {

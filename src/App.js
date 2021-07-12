@@ -15,6 +15,7 @@ import UserContacts from './Components/user/UserContacts';
 import NewPost from './Components/post/NewPost';
 import ModalLogin from './Components/header/ModalLogin';
 import ModalRegistration from './Components/header/ModalRegistration';
+import { getLocalStorage } from './Components/api/localStorageApi';
 // import { setLocalStorage, getLocalStorage } from './Components/api/localStorageApi';
 
 const App = () => {
@@ -22,6 +23,7 @@ const App = () => {
     const [toggleLoginModal, setToggleLoginModal] = useState(false);
     const [toggleRegistrationModal, setToggleRegistrationModal] = useState(false);
     const [authorization, setAuthorization] = useState(false);
+    const [status, setStatus] = useState(getLocalStorage('status'));
 
     const toggleLogin = () => setToggleLoginModal(!toggleLoginModal);
     const toggleRegistration = () => setToggleRegistrationModal(!toggleRegistrationModal);
@@ -47,7 +49,7 @@ const App = () => {
                 </section>
 
                 <section className="post">
-                    <Status/>
+                    <Status authorization={authorization} status={status} setStatus={setStatus}/>
                     <NewPost/>
                 </section>
                 <ModalLogin 
