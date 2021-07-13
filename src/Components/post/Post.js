@@ -2,7 +2,7 @@ import iconAdmin from '../../images/iconAdmin.jpg';
 import iconGuest from '../../images/iconGuest.svg';
 import iconUser from '../../images/iconUser.png';
 
-const Post = ({post, date, icon}) => {
+const Post = ({post, date}) => {
     return (
         <article className="post__message" key={post.user}>
             <img className="post__message-icon" 
@@ -18,6 +18,13 @@ const Post = ({post, date, icon}) => {
                     <p>{post.value}</p>
                 </div>
             </div>
+            <div className="post__dropdown">
+                <ul className="post__settings">
+                    <li className="post__settings-item">Delete post</li>
+                    <li className="post__settings-item">Edit</li>
+                </ul>
+            </div>
+            
         </article>
     )
 }
