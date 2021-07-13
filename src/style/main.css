@@ -631,18 +631,18 @@ textarea {
 }
 
 .user__info:hover .user__info-edit {
-  right: 0;
+  right: 20px;
 }
 
 .user__info-edit {
   position: absolute;
-  top: 5px;
+  top: 22px;
   right: -120px;
   font-size: 15px;
   color: #ccc;
   cursor: pointer;
-  -webkit-transition: 0.3s linear;
-  transition: 0.3s linear;
+  -webkit-transition: 0.4s linear;
+  transition: 0.4s linear;
 }
 
 .user__info-edit:hover {
@@ -807,6 +807,15 @@ textarea {
 .post__message {
   margin: 0 0 20px;
   padding: 10px 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   width: 100%;
   height: auto;
   border-top: 1px solid #ccc;
@@ -818,6 +827,10 @@ textarea {
   overflow-wrap: break-word;
 }
 
+.post__message-content {
+  width: 85%;
+}
+
 .post__message-header {
   margin: 0 0 10px;
   display: -webkit-box;
@@ -826,6 +839,14 @@ textarea {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+}
+
+.post__message-icon {
+  width: 47px;
+  height: 47px;
+  padding: 3px;
+  border-radius: 40%;
+  background: #eee;
 }
 
 .post__delete {
