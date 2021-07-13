@@ -677,6 +677,10 @@ textarea {
   background: #ddd;
 }
 
+.post__status:focus {
+  text-decoration: underline;
+}
+
 .post__form {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -789,6 +793,35 @@ textarea {
   color: #fff;
 }
 
+.post__fields {
+  padding: 10px;
+  width: 100%;
+}
+
+.post__message {
+  margin: 0 0 20px;
+  padding: 5px 0 5px;
+  width: 100%;
+  height: auto;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+}
+
+.post__message-header {
+  margin: 0 0 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
 body {
   background: url(/src/images/background/dark.png);
   font-family: Gilroy, 'Times New Roman', Times, serif;
@@ -798,7 +831,6 @@ body {
   margin: 0 auto;
   padding: 0 25px;
   max-width: 1000px;
-  min-height: 1000px;
   background: #fff;
 }
 
@@ -827,8 +859,6 @@ body {
 .post {
   padding: 10px 20px;
   width: 50%;
-  max-height: 800px;
-  overflow: auto;
 }
 
 .visible {

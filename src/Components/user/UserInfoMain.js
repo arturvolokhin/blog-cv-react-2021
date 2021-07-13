@@ -15,8 +15,8 @@ const UserInfoMain = ({toggleUserInfoEdit, authorization}) => {
             <h2 className="subtitle">Main information</h2>
             <ul className="user__info-content">
                 {
-                    Object.keys(data).map((item, index) => {
-                        return <UserInfoMainField key={index} name={item} value={data[item]}/>
+                    Object.entries(data).map(([key, value], index) => {
+                        return <UserInfoMainField key={index} name={key} value={value}/>
                     })
                 }
             </ul>

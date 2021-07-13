@@ -16,6 +16,7 @@ import NewPost from './Components/post/NewPost';
 import ModalLogin from './Components/header/ModalLogin';
 import ModalRegistration from './Components/header/ModalRegistration';
 import UserInfoMainEdit from './Components/user/UserInfoMainEdit';
+import PostsField from './Components/post/PostsField';
 import { getLocalStorage, setLocalStorage } from './Components/api/localStorageApi';
 
 const App = () => {
@@ -25,6 +26,8 @@ const App = () => {
     const [authorization, setAuthorization] = useState(getLocalStorage('authorizedUser'));
     const [status, setStatus] = useState(getLocalStorage('status'));
     const [userInfoMainEdit, setUserInfoMainEdit] = useState(false);
+    const [newPost, setNewPost] = useState('');
+    // setLocalStorage('posts', [['Hello, its my first post in my app, wich i develops myself!)))']])
 
     const toggleLogin = () => {
         setToggleLoginModal(!toggleLoginModal);
@@ -66,12 +69,13 @@ const App = () => {
                     {userInfoMainEdit && authorization ? 
                         <UserInfoMainEdit toggleUserInfoEdit={toggleUserInfoEdit}/> : 
                         null
-                    };
+                    }
                 </section>
 
                 <section className="post">
                     <Status authorization={authorization} status={status} setStatus={setStatus}/>
-                    <NewPost/>
+                    <NewPost setNewPost={setNewPost}/>
+                    <PostsField/>
                 </section>
                 <ModalLogin 
                     toggle={toggleLoginModal} 
