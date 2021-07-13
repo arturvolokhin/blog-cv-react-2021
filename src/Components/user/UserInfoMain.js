@@ -10,7 +10,7 @@ const UserInfoMain = ({toggleUserInfoEdit, authorization}) => {
     const data = getLocalStorage('userInfo');
 
     return(
-        <article className="user__info">
+        <article className="section user__info">
             <p className="user__info-edit" onClick={handleClick}>Edit</p>
             <h2 className="subtitle">Main information</h2>
             <ul className="user__info-content">

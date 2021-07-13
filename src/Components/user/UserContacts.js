@@ -1,6 +1,6 @@
 const UserContacts = () => {
     return(
-        <article className="user__contacts">
+        <article className="section user__contacts">
             <h2 className="subtitle">My contacts:</h2>
             <ul className="user__contacts-content">
                 <li className="user__contacts-item">

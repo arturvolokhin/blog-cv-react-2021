@@ -495,14 +495,6 @@ textarea {
           justify-content: space-between;
 }
 
-.user__contacts {
-  width: 80%;
-  margin: 10px;
-  padding: 15px 0;
-  border-top: 1px solid #ccc;
-  border-bottom: 1px solid #ccc;
-}
-
 .user__contacts-title {
   margin: 0 0 15px;
   font-size: 25px;
@@ -565,14 +557,6 @@ textarea {
   color: #48ff00;
 }
 
-.user__stack {
-  width: 80%;
-  margin: 10px;
-  padding: 15px 0;
-  border-top: 1px solid #ccc;
-  border-bottom: 1px solid #ccc;
-}
-
 .user__stack-list {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -618,16 +602,6 @@ textarea {
 
 .user__stack-item--npm {
   background: url(/src/images/icons/npm.svg) no-repeat center/contain;
-}
-
-.user__info {
-  position: relative;
-  width: 80%;
-  margin: 10px;
-  padding: 15px 0;
-  border-top: 1px solid #ccc;
-  border-bottom: 1px solid #ccc;
-  overflow: hidden;
 }
 
 .user__info:hover .user__info-edit {
@@ -904,6 +878,16 @@ body {
   width: 50%;
 }
 
+.section {
+  position: relative;
+  width: 80%;
+  margin: 10px;
+  padding: 15px 0;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  overflow: hidden;
+}
+
 .visible {
   display: block;
 }
@@ -962,4 +946,62 @@ body {
 
 ::-webkit-scrollbar {
   width: 10px;
+}
+
+.projects {
+  width: 85%;
+}
+
+.projects__sublist {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.projects__list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.projects__list-title {
+  font-size: 23px;
+  margin: 0 0 15px 0;
+  border: 1px solid;
+  padding: 5px;
+  border-radius: 8px;
+  background: #ca1e1e;
+  color: #fff;
+  -webkit-transition: 0.3s linear;
+  transition: 0.3s linear;
+  cursor: default;
+}
+
+.projects__list-title:hover {
+  color: #000;
+  background: #fff;
+}
+
+.projects__item {
+  font-size: 18px;
+  margin: 0 0 10px 0;
+}
+
+.projects__item-link {
+  color: #000000;
+}
+
+.projects__item-link:hover {
+  text-decoration: underline;
+  color: #48ff00;
 }

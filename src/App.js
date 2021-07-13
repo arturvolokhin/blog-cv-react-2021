@@ -17,6 +17,7 @@ import ModalLogin from './Components/header/ModalLogin';
 import ModalRegistration from './Components/header/ModalRegistration';
 import UserInfoMainEdit from './Components/user/UserInfoMainEdit';
 import PostsWall from './Components/post/PostsWall';
+import UserProjects from './Components/user/UserProjects'
 import { getLocalStorage, setLocalStorage } from './Components/api/localStorageApi';
 
 const App = () => {
@@ -27,7 +28,6 @@ const App = () => {
     const [status, setStatus] = useState(getLocalStorage('status'));
     const [userInfoMainEdit, setUserInfoMainEdit] = useState(false);
     const [newPost, setNewPost] = useState('');
-    // setLocalStorage('posts', [{name: 'Artur', value: 'Hello, its my first post in my app, wich i develops myself!)))'}])
 
     const toggleLogin = () => {
         setToggleLoginModal(!toggleLoginModal);
@@ -65,6 +65,7 @@ const App = () => {
                         authorization={authorization}
                     />
                     <UserTechStack/>
+                    <UserProjects/>
                     <UserContacts/>
                     {userInfoMainEdit && authorization ? 
                         <UserInfoMainEdit toggleUserInfoEdit={toggleUserInfoEdit}/> : 
