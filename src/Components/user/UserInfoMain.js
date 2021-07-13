@@ -11,7 +11,7 @@ const UserInfoMain = ({toggleUserInfoEdit, authorization}) => {
 
     return(
         <article className="user__info">
-            <p className="user__info-edit" onClick={handleClick}>Редактировать</p>
+            <p className="user__info-edit" onClick={handleClick}>Edit</p>
             <h2 className="subtitle">Main information</h2>
             <ul className="user__info-content">
                 {

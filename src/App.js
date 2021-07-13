@@ -12,11 +12,11 @@ import Status from './Components/post/Status';
 import UserInfoMain from './Components/user/UserInfoMain';
 import UserTechStack from './Components/user/UserTechStack';
 import UserContacts from './Components/user/UserContacts';
-import NewPost from './Components/post/NewPost';
+import NewPostField from './Components/post/NewPostField';
 import ModalLogin from './Components/header/ModalLogin';
 import ModalRegistration from './Components/header/ModalRegistration';
 import UserInfoMainEdit from './Components/user/UserInfoMainEdit';
-import PostsField from './Components/post/PostsField';
+import PostsWall from './Components/post/PostsWall';
 import { getLocalStorage, setLocalStorage } from './Components/api/localStorageApi';
 
 const App = () => {
@@ -27,7 +27,7 @@ const App = () => {
     const [status, setStatus] = useState(getLocalStorage('status'));
     const [userInfoMainEdit, setUserInfoMainEdit] = useState(false);
     const [newPost, setNewPost] = useState('');
-    // setLocalStorage('posts', [['Hello, its my first post in my app, wich i develops myself!)))']])
+    // setLocalStorage('posts', [{name: 'Artur', value: 'Hello, its my first post in my app, wich i develops myself!)))'}])
 
     const toggleLogin = () => {
         setToggleLoginModal(!toggleLoginModal);
@@ -74,8 +74,8 @@ const App = () => {
 
                 <section className="post">
                     <Status authorization={authorization} status={status} setStatus={setStatus}/>
-                    <NewPost setNewPost={setNewPost}/>
-                    <PostsField/>
+                    <NewPostField setNewPost={setNewPost}/>
+                    <PostsWall setNewPost={setNewPost}/>
                 </section>
                 <ModalLogin 
                     toggle={toggleLoginModal} 
