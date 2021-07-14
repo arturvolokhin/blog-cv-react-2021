@@ -2,7 +2,7 @@ import iconAdmin from '../../images/iconAdmin.jpg';
 import iconGuest from '../../images/iconGuest.svg';
 import iconUser from '../../images/iconUser.png';
 
-const PostEditModal = ({post, date}) => {
+const PostEditModal = ({post, date, setStateEditModal}) => {
     return(
         <div className="post__modal">
             <div className="post__modal-content">
@@ -16,7 +16,7 @@ const PostEditModal = ({post, date}) => {
                 </div>
                 <textarea className="post__modal-message" value={post.value}/>
                 <div className="post__modal-submit"/>
-                <div className="post__modal-cancel"/>
+                <div className="post__modal-cancel" onClick={() => setStateEditModal(false)}/>
             </div>
 
         </div>

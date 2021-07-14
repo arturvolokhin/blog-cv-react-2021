@@ -27,7 +27,13 @@ const PostsWall = ({setNewPost}) => {
         <section className="post__wall">
             <h2 className="subtitle">Posts wall:</h2>
             <p className="post__wall-delete" onClick={handleClick}>Delete all posts</p>
-            {stateEditModal && <PostEditModal post={valueEditModal} date={date}/>}
+            {stateEditModal &&
+                <PostEditModal 
+                    post={valueEditModal}
+                    date={date}
+                    setStateEditModal={setStateEditModal}
+                    />
+            }
             {posts.reverse().map((post, index) => {
                 return(
                     <Post 
