@@ -3,7 +3,19 @@
         position: relative
         padding: 10px
         width: 100%
-        overflow: hidden
 
-        &:hover .post__delete
-            right: 10px     
+        &:hover .post__wall-delete
+            right: 10px
+
+        &-delete
+            position: absolute
+            top: 30px
+            right: -130px
+            font-size: 15px
+            color: #ccc
+            cursor: pointer
+            transition: 0.3s linear
+            
+            &:hover
+                color: #927474
+                border-bottom: 1px solid #927474           

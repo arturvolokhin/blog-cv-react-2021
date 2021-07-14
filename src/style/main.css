@@ -625,7 +625,7 @@ textarea {
 }
 
 .user__info-item {
-  margin: 10px 0;
+  margin: 10px -2px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -713,7 +713,7 @@ textarea {
 
 .user__edit {
   position: absolute;
-  top: 435px;
+  top: 450px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -724,7 +724,7 @@ textarea {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  width: 84%;
+  width: 85%;
   height: 177px;
   background: #fff;
   z-index: 5;
@@ -749,14 +749,15 @@ textarea {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  width: 50%;
+  width: 100%;
   margin: 0 auto;
+  -webkit-transform: translateY(8px);
+          transform: translateY(8px);
 }
 
 .button {
   position: relative;
   width: 140px;
-  margin: 0 auto;
   padding: 8px 10px;
   background: transparent;
   border: none;
@@ -793,11 +794,26 @@ textarea {
   position: relative;
   padding: 10px;
   width: 100%;
-  overflow: hidden;
 }
 
-.post__wall:hover .post__delete {
+.post__wall:hover .post__wall-delete {
   right: 10px;
+}
+
+.post__wall-delete {
+  position: absolute;
+  top: 30px;
+  right: -130px;
+  font-size: 15px;
+  color: #ccc;
+  cursor: pointer;
+  -webkit-transition: 0.3s linear;
+  transition: 0.3s linear;
+}
+
+.post__wall-delete:hover {
+  color: #927474;
+  border-bottom: 1px solid #927474;
 }
 
 .post__message {
@@ -895,22 +911,6 @@ textarea {
           transform: rotate(45deg);
 }
 
-.post__delete {
-  position: absolute;
-  top: 30px;
-  right: -120px;
-  font-size: 15px;
-  color: #ccc;
-  cursor: pointer;
-  -webkit-transition: 0.3s linear;
-  transition: 0.3s linear;
-}
-
-.post__delete:hover {
-  color: #927474;
-  border-bottom: 1px solid #927474;
-}
-
 body {
   background: url(/src/images/background/light.png);
   font-family: Gilroy, 'Times New Roman', Times, serif;
@@ -955,7 +955,7 @@ body {
 .section {
   position: relative;
   width: 80%;
-  margin: 10px;
+  margin: 20px;
   padding: 15px 0;
   border-top: 1px solid #ccc;
   border-bottom: 1px solid #ccc;

@@ -8,17 +8,23 @@ const PostsWall = ({setNewPost}) => {
 
     const handleClick = () => {
         localStorage.removeItem('posts');
-        setNewPost('');
+        setNewPost(Math.random());
     }
 
 
     return(
         <section className="post__wall">
             <h2 className="subtitle">Posts wall:</h2>
-            <p className="post__delete" onClick={handleClick}>Delete all posts</p>
-            {posts.reverse().map(post => {
+            <p className="post__wall-delete" onClick={handleClick}>Delete all posts</p>
+            {posts.reverse().map((post, index) => {
                 return(
-                    <Post post={post} date={date}/>
+                    <Post 
+                        post={post} 
+                        date={date} 
+                        id={index} 
+                        key={index + post.user}
+                        setNewPost={setNewPost}
+                    />
                 )
             })}
         </section>

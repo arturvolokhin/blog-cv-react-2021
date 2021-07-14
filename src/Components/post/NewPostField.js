@@ -18,7 +18,7 @@ const NewPostField = ({setNewPost}) => {
         e.preventDefault();
         posts.push(postValue);
         setLocalStorage('posts', posts);
-        setNewPost(postValue);
+        setNewPost(Math.random());
         setText('');
     }
 
