@@ -8,11 +8,7 @@ const UserInfoMainEdit = ({toggleUserInfoEdit}) => {
     const data = getLocalStorage('userInfo');
     const [text, setText] = useState(data);
 
-    useEffect(() => {
-        console.log(text);
-    }, [text]);
-    
-    const handleChange = ({target}) => {
+    const handleChange = (target) => {
         setText({...text, [target.name]: target.value});
     }
 
@@ -26,11 +22,11 @@ const UserInfoMainEdit = ({toggleUserInfoEdit}) => {
         <form className="user__edit">
 
             {
-                Object.keys(data).map((key) => {
+                Object.entries(data).map(([key, value]) => {
                     return (
                         <UserInfoMainEditField key={key} 
                             name={key} placeholder={key}
-                            onChange={handleChange}
+                            onChange={handleChange} text={value}
                         />
                     )    
                 })

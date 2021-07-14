@@ -728,7 +728,7 @@ textarea {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  width: 85%;
+  width: 91%;
   height: 177px;
   background: #fff;
   z-index: 5;
@@ -966,8 +966,8 @@ body {
 
 .section {
   position: relative;
-  width: 80%;
-  padding: 30px 0;
+  width: 90%;
+  padding: 30px 10px;
   border-top: 1px solid #ccc;
   overflow: hidden;
 }
@@ -1046,10 +1046,6 @@ body {
 .description {
   font-size: 20px;
   font-style: italic;
-}
-
-.projects {
-  width: 85%;
 }
 
 .projects__sublist {
