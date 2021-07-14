@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import Button from '../Button';
 import { setLocalStorage, getLocalStorage } from '../api/localStorageApi';
 
@@ -8,10 +8,6 @@ const NewPostField = ({setNewPost}) => {
     const [text, setText] = useState('');
     const posts = getLocalStorage('posts');
     const user = getLocalStorage('authorizedUser');
-
-    useEffect(() => {
-        console.log(postValue)   
-    }, [postValue]);
 
     const handleChange = ({target}) => {
         setPostValue({'user': user.name, 'value': target.value});

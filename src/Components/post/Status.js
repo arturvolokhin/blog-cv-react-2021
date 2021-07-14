@@ -5,6 +5,13 @@ const Status = ({authorization, status, setStatus}) => {
     const handleBlur = ({target}) => {
         setLocalStorage('status', target.value);
     }
+
+    const handleKeyPress = ({target, key}) => {
+        if(key === 'Enter') {
+            setLocalStorage('status', target.value);
+            target.blur();
+        }    
+    }
  
     return(
             <>
@@ -13,6 +20,7 @@ const Status = ({authorization, status, setStatus}) => {
                         className="post__status" 
                         onChange={({target}) => setStatus(target.value)} 
                         onBlur={handleBlur} type="text" value={status}
+                        onKeyPress={handleKeyPress}
                         placeholder="This is status" maxLength="40"  
                     /> :
                     <input  

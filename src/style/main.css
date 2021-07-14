@@ -652,7 +652,7 @@ textarea {
 }
 
 .post__status:focus {
-  text-decoration: underline;
+  font-style: italic;
 }
 
 .post__form {
@@ -757,6 +757,7 @@ textarea {
 
 .button {
   position: relative;
+  margin: 0 auto;
   width: 140px;
   padding: 8px 10px;
   background: transparent;
@@ -836,7 +837,7 @@ textarea {
   -moz-hyphens: auto;
   -webkit-hyphens: auto;
   -ms-hyphens: auto;
-  white-space: pre-wrap;
+  white-space: normal;
   overflow-wrap: break-word;
 }
 
@@ -852,6 +853,7 @@ textarea {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  width: 100%;
 }
 
 .post__message-icon {
@@ -862,9 +864,19 @@ textarea {
   background: #eee;
 }
 
+.post__message-article {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  min-width: 120px;
+}
+
 .post__settings {
   position: absolute;
-  top: 15px;
+  top: 30px;
   right: -10px;
   display: none;
   min-width: 50px;
@@ -884,9 +896,6 @@ textarea {
 }
 
 .post__dropdown {
-  position: absolute;
-  top: 40px;
-  right: 10px;
   display: block;
   width: 25px;
   height: 20px;
@@ -899,8 +908,7 @@ textarea {
 
 .post__dropdown::before {
   content: '';
-  position: absolute;
-  left: 8px;
+  margin: 0 auto;
   display: block;
   width: 8px;
   height: 8px;
