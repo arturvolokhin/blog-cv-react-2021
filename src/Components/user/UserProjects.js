@@ -10,7 +10,9 @@ const UserProjects = () => {
                             <a 
                                 className="projects__item-link" 
                                 href="https://github.com/arturvolokhin/dashboard"
+                                rel="noreferrer"
                                 target="_blank">
+                                
                                 Dashboard 
                             </a>
                         </li>
@@ -18,6 +20,7 @@ const UserProjects = () => {
                             <a 
                                 className="projects__item-link" 
                                 href="https://github.com/arturvolokhin/Konstruct"
+                                rel="noreferrer"
                                 target="_blank">
                                 Landing page
                             </a>
@@ -30,6 +33,7 @@ const UserProjects = () => {
                             <a 
                                 className="projects__item-link" 
                                 href="https://github.com/arturvolokhin/weather-app"
+                                rel="noreferrer"
                                 target="_blank">
                                 Weather app
                             </a>
@@ -38,6 +42,7 @@ const UserProjects = () => {
                             <a 
                                 className="projects__item-link" 
                                 href="https://github.com/arturvolokhin/kanban"
+                                rel="noreferrer"
                                 target="_blank">
                                 Kanban app
                             </a>
@@ -46,6 +51,7 @@ const UserProjects = () => {
                             <a 
                                 className="projects__item-link" 
                                 href="https://github.com/arturvolokhin/tic-tac-toe"
+                                rel="noreferrer"
                                 target="_blank">
                                 Tic-tac-toe
                             </a>
@@ -54,6 +60,7 @@ const UserProjects = () => {
                             <a 
                                 className="projects__item-link" 
                                 href="https://github.com/arturvolokhin/arturvolokhin.github.io"
+                                rel="noreferrer"
                                 target="_blank">
                                 Landing page
                             </a>
@@ -66,6 +73,7 @@ const UserProjects = () => {
                             <a 
                                 className="projects__item-link" 
                                 href="https://github.com/arturvolokhin/weather-app-react"
+                                rel="noreferrer"
                                 target="_blank">
                                 Weather app
                             </a>
@@ -74,6 +82,7 @@ const UserProjects = () => {
                             <a 
                                 className="projects__item-link" 
                                 href="https://github.com/arturvolokhin/myBlog-react"
+                                rel="noreferrer"
                                 target="_blank">
                                 My blog
                             </a>
@@ -82,6 +91,7 @@ const UserProjects = () => {
                             <a 
                                 className="projects__item-link" 
                                 href="https://github.com/arturvolokhin/todo-react"
+                                rel="noreferrer"
                                 target="_blank">
                                 Todo
                             </a>

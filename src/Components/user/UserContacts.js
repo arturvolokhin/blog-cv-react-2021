@@ -4,15 +4,18 @@ const UserContacts = () => {
             <h2 className="subtitle">My contacts:</h2>
             <ul className="user__contacts-content">
                 <li className="user__contacts-item">
-                    <a href="https://vk.com/arturvolokhin97" target="_blank">arturvolokhin97</a>
+                    <a href="https://vk.com/arturvolokhin97" 
+                        rel="noreferrer" target="_blank">arturvolokhin97</a>
                 </li>
 
                 <li className="user__contacts-item">
-                    <a href="https://github.com/arturvolokhin" target="_blank">arturvolokhin</a>
+                    <a href="https://github.com/arturvolokhin" 
+                        rel="noreferrer" target="_blank">arturvolokhin</a>
                 </li>
 
                 <li className="user__contacts-item">
-                    <a href="https://github.com/arturvolokhin" target="_blank">arturvolokhin</a>
+                    <a href="https://github.com/arturvolokhin" 
+                        rel="noreferrer" target="_blank">arturvolokhin</a>
                 </li>
 
                 <li className="user__contacts-item">
