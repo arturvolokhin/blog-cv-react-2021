@@ -1,0 +1,118 @@
+.post__modal
+    position: absolute
+    top: 0
+    display: flex
+    flex-direction: row
+    width: 100%
+    min-height: 150px
+    border: 1px solid $main-color
+    padding: 10px 15px
+    background: $white-color
+    z-index: 10
+
+    &-content
+        display: flex
+        flex-direction: column
+        align-items: center
+        justify-content: space-between
+        width: 100%
+
+    &-header
+        display: flex
+        justify-content: space-between
+        width: 90% 
+
+    &-message
+        margin: 10px
+        width: inherit
+        height: 100%
+        resize: none
+
+    &-icon
+        position: absolute
+        top: -20px
+        left: -20px
+        padding: 3px
+        width: 47px
+        height: 47px
+        background: $main-color
+        border-radius: 40%
+
+    &-submit
+        position: absolute
+        width: 30px
+        height: 30px
+        top: 130px
+        right: -10px
+        border-radius: 50%
+        overflow: hidden
+        border: 2px solid $main-color
+        background: $white-color
+        cursor: pointer
+
+        &::after
+            content: ''
+            position: absolute
+            top: 6px
+            left: 4px
+            width: 60%
+            height: 33%
+            background: $white-color
+            border: 3px solid $main-color
+            border-top: none
+            border-right: none
+            border-radius: 3px
+            transform: rotate(-45deg)
+            transition: 0.1s linear
+
+        &:hover
+            border: 3px solid $main-color
+
+        &:hover::after
+            border: 3px solid $main-color
+            border-top: none
+            border-right: none
+
+    &-cancel
+        position: absolute
+        width: 30px
+        height: 30px
+        top: -10px
+        right: -10px
+        border-radius: 50%
+        overflow: hidden
+        border: 2px solid $main-color
+        background: $white-color
+        cursor: pointer
+
+        &::after
+            content: ''
+            position: absolute
+            top: calc(50% - 10px)
+            left: calc(50% - 1px)
+            width: 2px
+            height: 20px
+            background: $main-color
+            transform: rotate(45deg)
+
+        &::before
+            content: ''
+            position: absolute
+            top: calc(50% - 10px)
+            left: calc(50% - 1px)
+            width: 2px
+            height: 20px
+            background: $main-color
+            transform: rotate(-45deg)
+
+        &:hover
+            border: 3px solid $main-color
+
+        &:hover::before
+            height: 18px
+            top: calc(50% - 9px)
+
+
+        &:hover::after
+            height: 18px
+            top: calc(50% - 9px)

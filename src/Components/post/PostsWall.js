@@ -1,8 +1,12 @@
+import React,{useState} from 'react';
 import { getLocalStorage } from '../api/localStorageApi';
+import PostEditModal from './PostEditModal';
 import Post from './Post';
 
 const PostsWall = ({setNewPost}) => {
 
+    const [stateEditModal, setStateEditModal] = useState(false);
+    const [valueEditModal, setValueEditModal] = useState(null);
     const posts = getLocalStorage('posts');
     const date = new Date().toJSON().slice(0,10);
 
@@ -11,11 +15,19 @@ const PostsWall = ({setNewPost}) => {
         setNewPost(Math.random());
     }
 
+    const handleClickEdit = ({target}) => {
+        const posts = getLocalStorage('posts').reverse();
+        const post = posts.find(item => item === posts[target.id]);
+        setValueEditModal(post);
+        !stateEditModal && setStateEditModal(true);
+    }
+
 
     return(
         <section className="post__wall">
             <h2 className="subtitle">Posts wall:</h2>
             <p className="post__wall-delete" onClick={handleClick}>Delete all posts</p>
+            {stateEditModal && <PostEditModal post={valueEditModal} date={date}/>}
             {posts.reverse().map((post, index) => {
                 return(
                     <Post 
@@ -24,6 +36,7 @@ const PostsWall = ({setNewPost}) => {
                         id={index} 
                         key={index}
                         setNewPost={setNewPost}
+                        handleClickEdit={handleClickEdit}
                     />
                 )
             })}

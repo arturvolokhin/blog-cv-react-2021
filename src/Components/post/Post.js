@@ -3,15 +3,17 @@ import iconGuest from '../../images/iconGuest.svg';
 import iconUser from '../../images/iconUser.png';
 import { getLocalStorage, setLocalStorage } from '../api/localStorageApi'
 
-const Post = ({post, date, id, setNewPost}) => {
+const Post = ({post, date, id, setNewPost, handleClickEdit}) => {
 
-    const handleClick = ({target}) => {
+    const handleClickDelete = ({target}) => {
         const posts = getLocalStorage('posts').reverse();
         const remainingPosts = posts.filter(post => post !== posts[target.id]);
         setLocalStorage('posts', remainingPosts.reverse());
-        // setNewPost('update');
         setNewPost(Math.random())
+        
     }
+
+    
 
     return (
         <article className="post__message" id={id}>
@@ -26,8 +28,10 @@ const Post = ({post, date, id, setNewPost}) => {
                         <span>{date}</span>
                         <div className="post__dropdown">
                             <ul className="post__settings">
-                                <li className="post__settings-item" onClick={handleClick} id={id}>Delete post</li>
-                                <li className="post__settings-item">Edit</li>
+                                <li className="post__settings-item"
+                                    onClick={handleClickDelete} id={id}>Delete post</li>
+                                <li className="post__settings-item"
+                                    onClick={handleClickEdit} id={id}>Edit</li>
                             </ul>
                         </div>
                     </div>
