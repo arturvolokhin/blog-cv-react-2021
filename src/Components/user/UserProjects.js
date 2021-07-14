@@ -1,6 +1,6 @@
 const UserProjects = () => {
     return(
-        <section class="section projects">
+        <section className="section projects">
             <h2 className="subtitle">My projects:</h2>
             <ul className="projects__list">
                 

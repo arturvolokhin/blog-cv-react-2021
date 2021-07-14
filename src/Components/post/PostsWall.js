@@ -22,7 +22,7 @@ const PostsWall = ({setNewPost}) => {
                         post={post} 
                         date={date} 
                         id={index} 
-                        key={index + post.user}
+                        key={index}
                         setNewPost={setNewPost}
                     />
                 )

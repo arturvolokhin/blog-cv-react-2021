@@ -13,7 +13,7 @@ const Status = ({authorization, status, setStatus}) => {
                         className="post__status" 
                         onChange={({target}) => setStatus(target.value)} 
                         onBlur={handleBlur} type="text" value={status}
-                        placeholder="This is status" maxlength="40"  
+                        placeholder="This is status" maxLength="40"  
                     /> :
                     <input  
                         className="post__status" 
