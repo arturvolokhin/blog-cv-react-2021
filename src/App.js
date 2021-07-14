@@ -19,7 +19,7 @@ import UserInfoMainEdit from './Components/user/UserInfoMainEdit';
 import PostsWall from './Components/post/PostsWall';
 import UserProjects from './Components/user/UserProjects';
 import UserOtherInfo from './Components/footer/UserOtherInfo'
-import { getLocalStorage, setLocalStorage } from './Components/api/localStorageApi';
+import { getLocalStorage} from './Components/api/localStorageApi';
 
 const App = () => {
 

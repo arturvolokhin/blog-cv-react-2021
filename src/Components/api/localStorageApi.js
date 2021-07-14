@@ -7,4 +7,13 @@ const getLocalStorage = (name) => {
     return JSON.parse(localStorage.getItem(name));
 }
 
-export {getLocalStorage, setLocalStorage};
+const getDefinedData = () => {
+    if (getLocalStorage('userInfo').length === 0) {
+        const obj = {Login: '', Name:'', Birthday:'', 'Live to':''};
+        setLocalStorage('userInfo', obj);
+    }
+}
+
+
+
+export {getLocalStorage, setLocalStorage, getDefinedData};
