@@ -1,4 +1,4 @@
-import React,{useState, useEffect} from 'react';
+import React,{useState} from 'react';
 import UserInfoMainEditField from './UserInfoMainEditField';
 import { getLocalStorage, setLocalStorage } from '../api/localStorageApi';
 import Button from '../Button';
@@ -26,7 +26,7 @@ const UserInfoMainEdit = ({toggleUserInfoEdit}) => {
                     return (
                         <UserInfoMainEditField key={key} 
                             name={key} placeholder={key}
-                            onChange={handleChange} text={value}
+                            saveValue={handleChange} text={value}
                         />
                     )    
                 })
