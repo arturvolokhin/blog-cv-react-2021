@@ -17,7 +17,8 @@ import ModalLogin from './Components/header/ModalLogin';
 import ModalRegistration from './Components/header/ModalRegistration';
 import UserInfoMainEdit from './Components/user/UserInfoMainEdit';
 import PostsWall from './Components/post/PostsWall';
-import UserProjects from './Components/user/UserProjects'
+import UserProjects from './Components/user/UserProjects';
+import UserOtherInfo from './Components/footer/UserOtherInfo'
 import { getLocalStorage, setLocalStorage } from './Components/api/localStorageApi';
 
 const App = () => {
@@ -90,6 +91,9 @@ const App = () => {
                     toggleLogin={toggleLogin}
                 />
             </main>
+            <footer className="footer">
+                <UserOtherInfo/>
+            </footer>
         </div>
     )
 }

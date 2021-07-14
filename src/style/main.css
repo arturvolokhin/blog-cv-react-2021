@@ -604,6 +604,10 @@ textarea {
   background: url(/src/images/icons/npm.svg) no-repeat center/contain;
 }
 
+.user__info {
+  margin: 30px 0 0;
+}
+
 .user__info:hover .user__info-edit {
   right: 20px;
 }
@@ -713,7 +717,7 @@ textarea {
 
 .user__edit {
   position: absolute;
-  top: 450px;
+  top: 475px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -956,18 +960,27 @@ body {
 .post {
   padding: 10px 20px;
   width: 50%;
-  max-height: 1200px;
+  max-height: 1350px;
   overflow: auto;
 }
 
 .section {
   position: relative;
   width: 80%;
-  margin: 20px;
-  padding: 15px 0;
+  padding: 30px 0;
   border-top: 1px solid #ccc;
-  border-bottom: 1px solid #ccc;
   overflow: hidden;
+}
+
+.section:nth-child(1) {
+  border-top: none;
+  padding: 100px;
+}
+
+.footer {
+  padding: 50px 30px;
+  border-top: 1px solid #ccc;
+  text-align: center;
 }
 
 .visible {
@@ -1028,6 +1041,11 @@ body {
 
 ::-webkit-scrollbar {
   width: 10px;
+}
+
+.description {
+  font-size: 20px;
+  font-style: italic;
 }
 
 .projects {
