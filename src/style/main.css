@@ -1051,8 +1051,8 @@ body {
 }
 
 .post__modal {
-  position: absolute;
-  top: 0;
+  position: fixed;
+  top: calc(50% - 75px);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1060,9 +1060,10 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  width: 100%;
+  width: 33%;
+  max-width: 435px;
   min-height: 150px;
-  border: 1px solid #ccc;
+  border: 3px solid #ccc;
   padding: 10px 15px;
   background: #fff;
   z-index: 10;
@@ -1097,8 +1098,12 @@ body {
 
 .post__modal-message {
   margin: 10px;
+  padding: 5px;
   width: inherit;
   height: 100%;
+  font-family: Gilroy;
+  border: none;
+  border-top: 1px solid #ccc;
   resize: none;
 }
 

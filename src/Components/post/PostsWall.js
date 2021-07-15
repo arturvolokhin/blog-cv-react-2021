@@ -3,7 +3,7 @@ import { getLocalStorage } from '../api/localStorageApi';
 import PostEditModal from './PostEditModal';
 import Post from './Post';
 
-const PostsWall = ({update}) => {
+const PostsWall = ({update, authorization}) => {
 
     const [stateEditModal, setStateEditModal] = useState(false);
     const [valueEditModal, setValueEditModal] = useState(null);
@@ -16,12 +16,24 @@ const PostsWall = ({update}) => {
         update(Math.random());
     }
 
-    const handleClickEdit = ({target}) => {
-        const posts = getLocalStorage('posts').reverse();
-        const post = posts.find(item => item === posts[target.id]);
-        setId(target.id);
-        setValueEditModal(post);
-        !stateEditModal && setStateEditModal(true);
+
+    const handleClickEdit = (e, user) => {
+        const posts = getLocalStorage('posts');
+        const post = posts.find(item => item === posts[e.target.id]);
+
+        const getEditPost = () => {
+            !stateEditModal && setStateEditModal(true);
+            setId(e.target.id);
+            setValueEditModal(post);
+        }
+        
+        if (authorization.login === 'admin') {
+            getEditPost();
+        } else if (authorization.login === post.login){
+            getEditPost();
+        } else {
+            alert('Вы не можете редактировать чужой пост!');
+        }
     }
 
 
@@ -36,9 +48,9 @@ const PostsWall = ({update}) => {
                     setStateEditModal={setStateEditModal}
                     id={id}
                     update={update}
-                    />
+                />
             }
-            {posts.reverse().map((post, index) => {
+            {posts.map((post, index) => {
                 return(
                     <Post 
                         post={post} 

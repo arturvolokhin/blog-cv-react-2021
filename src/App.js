@@ -77,7 +77,7 @@ const App = () => {
                 <section className="post">
                     <Status authorization={authorization} status={status} setStatus={setStatus}/>
                     <NewPostField update={setUpdate}/>
-                    <PostsWall update={setUpdate}/>
+                    <PostsWall update={setUpdate} authorization={authorization}/>
                 </section>
                 <ModalLogin 
                     toggle={toggleLoginModal} 

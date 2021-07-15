@@ -14,11 +14,11 @@ const PostEditModal = ({post, date, setStateEditModal, id, update}) => {
     }
 
     const handleClick = ({target}) => {
-        let posts = getLocalStorage('posts').reverse();
+        let posts = getLocalStorage('posts');
         let selectedPost = posts.find(post => post === posts[id]);
         selectedPost.value = text;
         posts.splice(id, 1, selectedPost);
-        setLocalStorage('posts', posts.reverse());
+        setLocalStorage('posts', posts);
         setStateEditModal(false);
         update(Math.random());
     }
@@ -38,6 +38,7 @@ const PostEditModal = ({post, date, setStateEditModal, id, update}) => {
                     className="post__modal-message" 
                     value={text}
                     onChange={handleChange}
+                    autoFocus
                 />
                 <div className="post__modal-submit" onClick={handleClick}/>
                 <div className="post__modal-cancel" onClick={() => setStateEditModal(false)}/>

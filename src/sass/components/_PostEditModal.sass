@@ -1,11 +1,12 @@
 .post__modal
-    position: absolute
-    top: 0
+    position: fixed
+    top: calc(50% - 75px)
     display: flex
     flex-direction: row
-    width: 100%
+    width: 33%
+    max-width: 435px
     min-height: 150px
-    border: 1px solid $main-color
+    border: 3px solid $main-color
     padding: 10px 15px
     background: $white-color
     z-index: 10
@@ -24,10 +25,14 @@
 
     &-message
         margin: 10px
+        padding: 5px
         width: inherit
         height: 100%
         font-family: Gilroy
+        border: none
+        border-top: 1px solid $main-color
         resize: none
+        
         
 
     &-icon

@@ -10,13 +10,14 @@ const NewPostField = ({update}) => {
     const user = getLocalStorage('authorizedUser');
 
     const handleChange = ({target}) => {
-        setPostValue({user: user.name, value: target.value});
+        setPostValue({user: user.name, value: target.value,
+            login: user.login ? user.login : 'guest'});
         setText(target.value);
     }
 
     const handleClick = (e) => {
         e.preventDefault();
-        posts.push(postValue);
+        posts.unshift(postValue);
         setLocalStorage('posts', posts);
         update(Math.random());
         setText('');
