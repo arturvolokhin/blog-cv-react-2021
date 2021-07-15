@@ -28,7 +28,7 @@ const App = () => {
     const [authorization, setAuthorization] = useState(getLocalStorage('authorizedUser'));
     const [status, setStatus] = useState(getLocalStorage('status'));
     const [userInfoMainEdit, setUserInfoMainEdit] = useState(false);
-    const [newPost, setNewPost] = useState('');
+    const [update, setUpdate] = useState('');
 
     const toggleLogin = () => {
         setToggleLoginModal(!toggleLoginModal);
@@ -76,8 +76,8 @@ const App = () => {
 
                 <section className="post">
                     <Status authorization={authorization} status={status} setStatus={setStatus}/>
-                    <NewPostField setNewPost={setNewPost}/>
-                    <PostsWall setNewPost={setNewPost}/>
+                    <NewPostField update={setUpdate}/>
+                    <PostsWall update={setUpdate}/>
                 </section>
                 <ModalLogin 
                     toggle={toggleLoginModal} 

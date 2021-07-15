@@ -1,16 +1,16 @@
+import React,{useState} from 'react';
 import iconAdmin from '../../images/iconAdmin.jpg';
 import iconGuest from '../../images/iconGuest.svg';
 import iconUser from '../../images/iconUser.png';
 import { getLocalStorage, setLocalStorage } from '../api/localStorageApi'
 
-const Post = ({post, date, id, setNewPost, handleClickEdit}) => {
-
+const Post = ({post, date, id, update, handleClickEdit}) => {
+    
     const handleClickDelete = ({target}) => {
         const posts = getLocalStorage('posts').reverse();
         const remainingPosts = posts.filter(post => post !== posts[target.id]);
         setLocalStorage('posts', remainingPosts.reverse());
-        setNewPost(Math.random())
-        
+        update(Math.random())
     }
 
     

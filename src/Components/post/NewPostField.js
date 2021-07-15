@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import Button from '../Button';
 import { setLocalStorage, getLocalStorage } from '../api/localStorageApi';
 
-const NewPostField = ({setNewPost}) => {
+const NewPostField = ({update}) => {
 
     const [postValue, setPostValue] = useState({});
     const [text, setText] = useState('');
@@ -10,7 +10,7 @@ const NewPostField = ({setNewPost}) => {
     const user = getLocalStorage('authorizedUser');
 
     const handleChange = ({target}) => {
-        setPostValue({'user': user.name, 'value': target.value});
+        setPostValue({user: user.name, value: target.value});
         setText(target.value);
     }
 
@@ -18,7 +18,7 @@ const NewPostField = ({setNewPost}) => {
         e.preventDefault();
         posts.push(postValue);
         setLocalStorage('posts', posts);
-        setNewPost(Math.random());
+        update(Math.random());
         setText('');
     }
 

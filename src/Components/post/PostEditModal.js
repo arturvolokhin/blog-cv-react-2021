@@ -1,8 +1,28 @@
+import React,{useState} from 'react';
+import { getLocalStorage, setLocalStorage } from '../api/localStorageApi';
+
 import iconAdmin from '../../images/iconAdmin.jpg';
 import iconGuest from '../../images/iconGuest.svg';
 import iconUser from '../../images/iconUser.png';
 
-const PostEditModal = ({post, date, setStateEditModal}) => {
+const PostEditModal = ({post, date, setStateEditModal, id, update}) => {
+
+    const [text, setText] = useState(post.value)
+
+    const handleChange = ({target}) => {
+        setText(target.value);
+    }
+
+    const handleClick = ({target}) => {
+        let posts = getLocalStorage('posts').reverse();
+        let selectedPost = posts.find(post => post === posts[id]);
+        selectedPost.value = text;
+        posts.splice(id, 1, selectedPost);
+        setLocalStorage('posts', posts.reverse());
+        setStateEditModal(false);
+        update(Math.random());
+    }
+
     return(
         <div className="post__modal">
             <div className="post__modal-content">
@@ -14,8 +34,12 @@ const PostEditModal = ({post, date, setStateEditModal}) => {
                     <span className="post__modal-user">{post.user ? post.user : 'Guest'}</span>
                     <span>{date}</span>  
                 </div>
-                <textarea className="post__modal-message" value={post.value}/>
-                <div className="post__modal-submit"/>
+                <textarea 
+                    className="post__modal-message" 
+                    value={text}
+                    onChange={handleChange}
+                />
+                <div className="post__modal-submit" onClick={handleClick}/>
                 <div className="post__modal-cancel" onClick={() => setStateEditModal(false)}/>
             </div>
 

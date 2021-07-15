@@ -3,21 +3,23 @@ import { getLocalStorage } from '../api/localStorageApi';
 import PostEditModal from './PostEditModal';
 import Post from './Post';
 
-const PostsWall = ({setNewPost}) => {
+const PostsWall = ({update}) => {
 
     const [stateEditModal, setStateEditModal] = useState(false);
     const [valueEditModal, setValueEditModal] = useState(null);
+    const [id, setId] = useState('');
     const posts = getLocalStorage('posts');
     const date = new Date().toJSON().slice(0,10);
 
     const handleClick = () => {
         localStorage.removeItem('posts');
-        setNewPost(Math.random());
+        update(Math.random());
     }
 
     const handleClickEdit = ({target}) => {
         const posts = getLocalStorage('posts').reverse();
         const post = posts.find(item => item === posts[target.id]);
+        setId(target.id);
         setValueEditModal(post);
         !stateEditModal && setStateEditModal(true);
     }
@@ -32,6 +34,8 @@ const PostsWall = ({setNewPost}) => {
                     post={valueEditModal}
                     date={date}
                     setStateEditModal={setStateEditModal}
+                    id={id}
+                    update={update}
                     />
             }
             {posts.reverse().map((post, index) => {
@@ -41,8 +45,9 @@ const PostsWall = ({setNewPost}) => {
                         date={date} 
                         id={index} 
                         key={index}
-                        setNewPost={setNewPost}
+                        update={update}
                         handleClickEdit={handleClickEdit}
+                        setId={setId}
                     />
                 )
             })}

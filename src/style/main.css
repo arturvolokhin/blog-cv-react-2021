@@ -1047,6 +1047,7 @@ body {
 .description {
   font-size: 20px;
   font-style: italic;
+  line-height: 40px;
 }
 
 .post__modal {
