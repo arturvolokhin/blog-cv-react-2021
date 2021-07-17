@@ -15,36 +15,38 @@ const ModalRegistration = ({toggle, toggleRegistration, toggleLogin}) => {
     const [isPasswordError, setIsPasswordError] = useState(false);
     const [isNameError, setIsNameError] = useState(false);
 
-    const validation = /[A-Za-z0-9]{8,16}$/;
-    const errorMessage = 'Please enter at least 8 characters and only numbers and Latin letters';
+    
 
-
-    const emailValidation = ({target}) => {
-         if (!target.value.match(validation)) {
-            setLoginError(errorMessage);
-            setIsLoginError(true);
-        } else {
-            setIsLoginError(false);
+    const getValidation = ({target}) => {
+        const validation = /[A-Za-z0-9]{8,16}$/;
+        const errorMessage = `Please enter at least 8 characters
+            and only numbers and Latin letters`;
+        
+        switch(target.name) {
+            case 'email':
+                if (!target.value.match(validation)) {
+                    setLoginError(errorMessage);
+                    setIsLoginError(true);
+                } else {
+                    setIsLoginError(false);
+                } break
+            case 'password':
+                if (!target.value.match(validation)) {
+                    setPasswordError(errorMessage);
+                    setIsPasswordError(true);
+                } else {
+                    setIsPasswordError(false);
+                } break
+            case 'name':
+                if (!target.value.match(/[A-Za-z0-9]{3,16}$/)) {
+                    setNameError('Please enter at least 3 characters and only Latin letters');
+                    setIsNameError(true);
+                } else {
+                    setIsNameError(false);
+                }   
         }
     }
-
-    const passwordValidation = ({target}) => {
-        if (!target.value.match(validation)) {
-            setPasswordError(errorMessage);
-            setIsPasswordError(true);
-        } else {
-            setIsPasswordError(false);
-        }    
-    }
-
-   const nameValidation = ({target}) => {
-        if (!target.value.match(/[A-Za-z0-9]{3,16}$/)) {
-            setNameError('Please enter at least 3 characters and only Latin letters');
-            setIsNameError(true);
-        } else {
-            setIsNameError(false);
-        }    
-    }      
+ 
 
     const setUserRegDataToLocalStorage = () => {
         const userRegData = {login: userPassword, password: userPassword, name: userName};
@@ -77,14 +79,14 @@ const ModalRegistration = ({toggle, toggleRegistration, toggleLogin}) => {
                 <input 
                     className="modal__field" onChange={({target}) => setUserLogin(target.value)}
                     type="login" value={userLogin} placeholder="Login" maxLength="16"
-                    onBlur={emailValidation}
+                    onBlur={getValidation} name='email'
                 />
                 
                 {isPasswordError && <p style={{color: 'red'}}>{passwordError}</p>}
                 <input 
                     className="modal__field" onChange={({target}) => setUserPassword(target.value)}
                     type="password" value={userPassword} placeholder="Password" maxLength="16"
-                    onBlur={passwordValidation}
+                    onBlur={getValidation} name="password"
                 />
                 
                 {isNameError && <p style={{color: 'red'}}>{nameError}</p>}
@@ -92,7 +94,7 @@ const ModalRegistration = ({toggle, toggleRegistration, toggleLogin}) => {
                 <input 
                     className="modal__field" onChange={({target}) => setUserName(target.value)}
                     type="text" value={userName} placeholder="Your name" maxLength="16"
-                    onBlur={nameValidation}
+                    onBlur={getValidation} name="name"
                 />
                 {
                     (isLoginError || isPasswordError || isNameError) ?
