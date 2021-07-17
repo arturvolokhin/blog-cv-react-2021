@@ -8,17 +8,15 @@ import ThemeSwitcher from './Components/header/ThemeSwitcher';
 import Login from './Components/header/Login';
 import Logout from './Components/header/Logout'
 import Avatar from './Components/user/Avatar';
-import Status from './Components/post/Status';
 import UserInfoMain from './Components/user/UserInfoMain';
 import UserTechStack from './Components/user/UserTechStack';
 import UserContacts from './Components/user/UserContacts';
-import NewPostField from './Components/post/NewPostField';
 import ModalLogin from './Components/header/ModalLogin';
 import ModalRegistration from './Components/header/ModalRegistration';
 import UserInfoMainEdit from './Components/user/UserInfoMainEdit';
-import PostsWall from './Components/post/PostsWall';
 import UserProjects from './Components/user/UserProjects';
 import UserOtherInfo from './Components/footer/UserOtherInfo'
+import Blog from './Components/blog/Blog';
 import { getLocalStorage} from './Components/api/localStorageApi';
 
 const App = () => {
@@ -26,9 +24,7 @@ const App = () => {
     const [toggleLoginModal, setToggleLoginModal] = useState(false);
     const [toggleRegistrationModal, setToggleRegistrationModal] = useState(false);
     const [authorization, setAuthorization] = useState(getLocalStorage('authorizedUser'));
-    const [status, setStatus] = useState(getLocalStorage('status'));
     const [userInfoMainEdit, setUserInfoMainEdit] = useState(false);
-    const [update, setUpdate] = useState('');
 
     const toggleLogin = () => {
         setToggleLoginModal(!toggleLoginModal);
@@ -74,11 +70,7 @@ const App = () => {
                     }
                 </section>
 
-                <section className="post">
-                    <Status authorization={authorization} status={status} setStatus={setStatus}/>
-                    <NewPostField update={setUpdate}/>
-                    <PostsWall update={setUpdate} authorization={authorization}/>
-                </section>
+                <Blog authorization={authorization}/>
                 <ModalLogin 
                     toggle={toggleLoginModal} 
                     toggleLogin={toggleLogin}

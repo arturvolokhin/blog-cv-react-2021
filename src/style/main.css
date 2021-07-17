@@ -639,7 +639,7 @@ textarea {
   font-size: 25px;
 }
 
-.post__status {
+.blog__status {
   padding: 5px 10px;
   width: 100%;
   height: auto;
@@ -651,22 +651,22 @@ textarea {
   overflow: hidden;
 }
 
-.post__status:hover {
+.blog__status:hover {
   background: #ccc;
 }
 
-.post__status:focus {
+.blog__status:focus {
   font-style: italic;
 }
 
-.post__form {
+.blog__form {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   margin: 15px 0;
 }
 
-.post__field {
+.blog__field {
   width: 100%;
   padding: 5px 10px;
   font-family: 'Gilroy';
@@ -796,17 +796,17 @@ textarea {
   color: #fff;
 }
 
-.post__wall {
+.blog__wall {
   position: relative;
   padding: 10px;
   width: 100%;
 }
 
-.post__wall:hover .post__wall-delete {
+.blog__wall:hover .blog__wall-delete {
   right: 10px;
 }
 
-.post__wall-delete {
+.blog__wall-delete {
   position: absolute;
   top: 30px;
   right: -130px;
@@ -817,12 +817,12 @@ textarea {
   transition: 0.3s linear;
 }
 
-.post__wall-delete:hover {
+.blog__wall-delete:hover {
   color: #927474;
   border-bottom: 1px solid #927474;
 }
 
-.post__message {
+.blog__post {
   position: relative;
   margin: 0 0 20px;
   padding: 10px 5px;
@@ -846,11 +846,11 @@ textarea {
   overflow-wrap: break-word;
 }
 
-.post__message-content {
+.blog__post-content {
   width: 85%;
 }
 
-.post__message-header {
+.blog__post-header {
   margin: 0 0 10px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -861,7 +861,7 @@ textarea {
   width: 100%;
 }
 
-.post__message-icon {
+.blog__post-icon {
   width: 47px;
   height: 47px;
   padding: 3px;
@@ -869,7 +869,7 @@ textarea {
   background: #eee;
 }
 
-.post__message-article {
+.blog__post-article {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -879,7 +879,7 @@ textarea {
   min-width: 120px;
 }
 
-.post__settings {
+.blog__settings {
   position: absolute;
   top: 30px;
   right: -10px;
@@ -891,27 +891,27 @@ textarea {
   z-index: 5;
 }
 
-.post__settings-item {
+.blog__settings-item {
   padding: 10px 15px;
   margin: 0 0 5px 0;
 }
 
-.post__settings-item:hover {
+.blog__settings-item:hover {
   background: #ccc;
 }
 
-.post__dropdown {
+.blog__dropdown {
   display: block;
   width: 25px;
   height: 20px;
   cursor: pointer;
 }
 
-.post__dropdown:hover .post__settings {
+.blog__dropdown:hover .blog__settings {
   display: block;
 }
 
-.post__dropdown::before {
+.blog__dropdown::before {
   content: '';
   margin: 0 auto;
   display: block;
@@ -956,13 +956,6 @@ body {
           align-items: center;
   width: 50%;
   border-right: 1px solid #ccc;
-}
-
-.post {
-  padding: 10px 20px;
-  width: 50%;
-  max-height: 1350px;
-  overflow: auto;
 }
 
 .section {
@@ -1262,4 +1255,11 @@ body {
 .projects__item-link:hover {
   text-decoration: underline;
   color: #48ff00;
+}
+
+.blog {
+  padding: 10px 20px;
+  width: 50%;
+  max-height: 1350px;
+  overflow: auto;
 }

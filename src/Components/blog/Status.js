@@ -17,14 +17,14 @@ const Status = ({authorization, status, setStatus}) => {
             <>
                 {authorization ?
                     <input 
-                        className="post__status" 
+                        className="blog__status" 
                         onChange={({target}) => setStatus(target.value)} 
                         onBlur={handleBlur} type="text" value={status}
                         onKeyPress={handleKeyPress}
                         placeholder="This is status" maxLength="40"  
                     /> :
                     <input  
-                        className="post__status" 
+                        className="blog__status" 
                         onClick={() => alert('Для редактирования - авторизируйтесь')}
                         readOnly value={status} placeholder="This is status"  
                     />

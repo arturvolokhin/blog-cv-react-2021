@@ -5,7 +5,7 @@ import iconAdmin from '../../images/iconAdmin.jpg';
 import iconGuest from '../../images/iconGuest.svg';
 import iconUser from '../../images/iconUser.png';
 
-const PostEditModal = ({post, date, setStateEditModal, id, update}) => {
+const BlogPostEditModal = ({post, posts, date, toggleEditModal, id, updatePostsData}) => {
 
     const [text, setText] = useState(post.value)
 
@@ -13,14 +13,18 @@ const PostEditModal = ({post, date, setStateEditModal, id, update}) => {
         setText(target.value);
     }
 
-    const handleClick = ({target}) => {
-        let posts = getLocalStorage('posts');
-        let selectedPost = posts.find(post => post === posts[id]);
-        selectedPost.value = text;
-        posts.splice(id, 1, selectedPost);
-        setLocalStorage('posts', posts);
-        setStateEditModal(false);
-        update(Math.random());
+    const handleClick = () => {
+        const index = posts.findIndex(post => post.id === id);
+        if (index !== -1) {
+            post.value = text;
+            posts.splice(index, 1, post);
+            updatePostsData(posts);
+            toggleEditModal(false);
+        } else {
+            toggleEditModal(false);
+            alert('Редактируемый пост удалён!');
+        }
+        
     }
 
     return(
@@ -28,7 +32,7 @@ const PostEditModal = ({post, date, setStateEditModal, id, update}) => {
             <div className="post__modal-content">
                 <img className="post__modal-icon" alt="Post user icon"
                     src={post.user === 'Artur Volokhin' ? iconAdmin :
-                        !post.user ? iconGuest : iconUser}
+                        post.user ? iconUser : iconGuest}
                 />
                 <div className="post__modal-header">
                     <span className="post__modal-user">{post.user ? post.user : 'Guest'}</span>
@@ -41,11 +45,11 @@ const PostEditModal = ({post, date, setStateEditModal, id, update}) => {
                     autoFocus
                 />
                 <div className="post__modal-submit" onClick={handleClick}/>
-                <div className="post__modal-cancel" onClick={() => setStateEditModal(false)}/>
+                <div className="post__modal-cancel" onClick={() => toggleEditModal(false)}/>
             </div>
 
         </div>
     )
 }
 
-export default PostEditModal;
+export default BlogPostEditModal;

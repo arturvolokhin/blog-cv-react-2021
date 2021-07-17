@@ -22,6 +22,7 @@ const ModalRegistration = ({toggle, toggleRegistration, toggleLogin}) => {
         
         setUserLogin('');
         setUserPassword('');
+        setUserName('');
         toggleRegistration()
         toggleLogin();
     }

@@ -1,0 +1,46 @@
+import React,{useState} from 'react';
+import iconAdmin from '../../images/iconAdmin.jpg';
+import iconGuest from '../../images/iconGuest.svg';
+import iconUser from '../../images/iconUser.png';
+
+const BlogPost = ({post, posts, date, id, updatePostsData, handleClickEdit}) => {
+    
+    const handleClickDelete = ({target}) => {
+        const index = posts.findIndex(post => post.id === target.id);
+        posts.splice(index, 1);
+        updatePostsData(posts);
+    }
+
+   
+    return (
+        <article className="blog__post" id={id}>
+            <img className="blog__post-icon" alt="Post user icon"
+                src={post.user === 'Artur Volokhin' ? iconAdmin :
+                    !post.user ? iconGuest : iconUser}
+            />
+            <div className="blog__post-content">
+                <div className="blog__post-header">
+                    <span className="blog__post-user">{post.user ? post.user : 'Guest'}</span>
+                    <div className="blog__post-article">
+                        <span>{date}</span>
+                        <div className="blog__dropdown">
+                            <ul className="blog__settings">
+                                <li className="blog__settings-item"
+                                    onClick={handleClickDelete} id={id}>Delete post</li>
+                                <li className="blog__settings-item"
+                                    onClick={handleClickEdit} id={id}>Edit</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div className="blog__post-main">
+                    <p>{post.value}</p>
+                </div>
+            </div>
+            
+            
+        </article>
+    )
+}
+
+export default BlogPost;

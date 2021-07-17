@@ -15,11 +15,9 @@
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
-
     "rules": {
-        "no-script-url": 0
+      "no-script-url": 0
     },
-
     "extends": [
       "react-app",
       "react-app/jest"
@@ -36,5 +34,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "uuid": "^8.3.2"
   }
 }
