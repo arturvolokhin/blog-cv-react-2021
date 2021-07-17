@@ -36,11 +36,11 @@
         &-article
             display: flex
             justify-content: space-between
-            min-width: 120px                  
+            max-width: 120px                  
 
     &__settings
         position: absolute
-        top: 30px
+        top: 25px
         right: -10px
         display: none
         min-width: 50px
@@ -57,9 +57,10 @@
                 background: $main-color 
         
     &__dropdown
+        margin: 0 0 0 10px
         display: block
         width: 25px
-        height: 20px
+        height: 15px
         cursor: pointer
 
         &:hover .blog__settings

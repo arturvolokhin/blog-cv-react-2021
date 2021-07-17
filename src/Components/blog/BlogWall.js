@@ -58,6 +58,7 @@ const BlogWall = ({authorization, updatePostsData}) => {
                         key={index}
                         updatePostsData={updatePostsData}
                         handleClickEdit={handleClickEdit}
+                        authorization={authorization}
                     />
                 )
             })}

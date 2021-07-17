@@ -3,7 +3,7 @@ import iconAdmin from '../../images/iconAdmin.jpg';
 import iconGuest from '../../images/iconGuest.svg';
 import iconUser from '../../images/iconUser.png';
 
-const BlogPost = ({post, posts, date, id, updatePostsData, handleClickEdit}) => {
+const BlogPost = ({post, posts, date, id, updatePostsData, handleClickEdit, authorization}) => {
     
     const handleClickDelete = ({target}) => {
         const index = posts.findIndex(post => post.id === target.id);
@@ -23,14 +23,21 @@ const BlogPost = ({post, posts, date, id, updatePostsData, handleClickEdit}) => 
                     <span className="blog__post-user">{post.user ? post.user : 'Guest'}</span>
                     <div className="blog__post-article">
                         <span>{date}</span>
-                        <div className="blog__dropdown">
-                            <ul className="blog__settings">
-                                <li className="blog__settings-item"
-                                    onClick={handleClickDelete} id={id}>Delete post</li>
-                                <li className="blog__settings-item"
-                                    onClick={handleClickEdit} id={id}>Edit</li>
-                            </ul>
-                        </div>
+
+                        {
+                            authorization.login === 'admin' ||
+                            authorization.login === post.login ?
+                            <div className="blog__dropdown">
+                                <ul className="blog__settings">
+                                    <li className="blog__settings-item"
+                                        onClick={handleClickDelete} id={id}>Delete post</li>
+                                    <li className="blog__settings-item"
+                                        onClick={handleClickEdit} id={id}>Edit</li>
+                                </ul> 
+                            </div>
+                            : null
+                        }
+                       
                     </div>
                 </div>
                 <div className="blog__post-main">

@@ -679,7 +679,6 @@ textarea {
   position: fixed;
   top: calc(50% - 150px);
   left: calc(50% - 250px);
-  height: 300px;
   background: rgba(255, 255, 255, 0.9);
   border: 1px solid #000;
   width: 500px;
@@ -876,12 +875,12 @@ textarea {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  min-width: 120px;
+  max-width: 120px;
 }
 
 .blog__settings {
   position: absolute;
-  top: 30px;
+  top: 25px;
   right: -10px;
   display: none;
   min-width: 50px;
@@ -901,9 +900,10 @@ textarea {
 }
 
 .blog__dropdown {
+  margin: 0 0 0 10px;
   display: block;
   width: 25px;
-  height: 20px;
+  height: 15px;
   cursor: pointer;
 }
 

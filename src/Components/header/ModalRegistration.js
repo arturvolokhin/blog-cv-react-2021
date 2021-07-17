@@ -6,6 +6,45 @@ const ModalRegistration = ({toggle, toggleRegistration, toggleLogin}) => {
     const [userLogin, setUserLogin] = useState('');
     const [userPassword, setUserPassword] = useState('');
     const [userName, setUserName] = useState('');
+    
+    const [loginError, setLoginError] = useState('Invalid login');
+    const [passwordError, setPasswordError] = useState('Invalid password');
+    const [nameError, setNameError] = useState('Invalid name');
+
+    const [isLoginError, setIsLoginError] = useState(false);
+    const [isPasswordError, setIsPasswordError] = useState(false);
+    const [isNameError, setIsNameError] = useState(false);
+
+    const validation = /[A-Za-z0-9]{8,16}$/;
+    const errorMessage = 'Please enter at least 8 characters and only numbers and Latin letters';
+
+
+    const emailValidation = ({target}) => {
+         if (!target.value.match(validation)) {
+            setLoginError(errorMessage);
+            setIsLoginError(true);
+        } else {
+            setIsLoginError(false);
+        }
+    }
+
+    const passwordValidation = ({target}) => {
+        if (!target.value.match(validation)) {
+            setPasswordError(errorMessage);
+            setIsPasswordError(true);
+        } else {
+            setIsPasswordError(false);
+        }    
+    }
+
+   const nameValidation = ({target}) => {
+        if (!target.value.match(/[A-Za-z0-9]{3,16}$/)) {
+            setNameError('Please enter at least 3 characters and only Latin letters');
+            setIsNameError(true);
+        } else {
+            setIsNameError(false);
+        }    
+    }      
 
     const setUserRegDataToLocalStorage = () => {
         const userRegData = {login: userPassword, password: userPassword, name: userName};
@@ -33,19 +72,38 @@ const ModalRegistration = ({toggle, toggleRegistration, toggleLogin}) => {
             <h2 className="subtitle">Enter your data:</h2>
             
             <form className="modal__form">
+                
+                {isLoginError && <p style={{color: 'red'}}>{loginError}</p>}
                 <input 
                     className="modal__field" onChange={({target}) => setUserLogin(target.value)}
                     type="login" value={userLogin} placeholder="Login" maxLength="16"
+                    onBlur={emailValidation}
                 />
+                
+                {isPasswordError && <p style={{color: 'red'}}>{passwordError}</p>}
                 <input 
                     className="modal__field" onChange={({target}) => setUserPassword(target.value)}
                     type="password" value={userPassword} placeholder="Password" maxLength="16"
+                    onBlur={passwordValidation}
                 />
+                
+                {isNameError && <p style={{color: 'red'}}>{nameError}</p>}
+
                 <input 
                     className="modal__field" onChange={({target}) => setUserName(target.value)}
                     type="text" value={userName} placeholder="Your name" maxLength="16"
+                    onBlur={nameValidation}
                 />
-                <button className="button" onClick={handleClick}>Submit</button>
+                {
+                    (isLoginError || isPasswordError || isNameError) ?
+                        <button disabled className="button" onClick={handleClick}>
+                            Submit
+                        </button>
+                    :
+                        <button className="button" onClick={handleClick}>
+                            Submit
+                        </button> 
+                }
             </form>
                 
         </article>
