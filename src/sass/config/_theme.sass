@@ -9,18 +9,9 @@ body
     background: $white-color
     transition: 0.2s linear
 
-.subtitle
-    margin: 0 0 25px
-    font-size: 25px
-    text-align: center 
-
-.user
-    position: relative
+.main
     display: flex
-    flex-direction: column
-    align-items: center
-    width: 50%
-    border-right: 1px solid $main-color
+    margin: 30px 0 0 0
 
 .section
     position: relative
@@ -31,15 +22,13 @@ body
 
     &:nth-child(1)
         border-top: none
-        padding: 100px
+        padding: 100px   
 
-.footer
-    padding: 50px 30px
-    border-top: 1px solid $main-color
-    text-align: center     
 
-.visible 
-    display: block
+.subtitle
+    margin: 0 0 25px
+    font-size: 25px
+    text-align: center         
 
 .close    
     position: absolute
@@ -83,7 +72,8 @@ body
     &:hover::after
         transform: rotate(45deg)
                 
-            
+.visible 
+    display: block
 
 ::-webkit-scrollbar 
     width: 10px

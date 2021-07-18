@@ -1,9 +1,9 @@
-import UserOtherInfo from "./UserOtherInfo";
+import FooterContent from "./FooterContent";
 
 const Footer = () => {
     return(
         <footer className="footer">
-            <UserOtherInfo/>
+            <FooterContent/>
         </footer>
     )
 }
