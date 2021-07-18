@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import Button from '../Button';
 import { getLocalStorage } from '../api/localStorageApi';
+import { ThemeContext } from '../../context/ThemeProvider';
 
 const NewPostField = ({updatePostsData, id}) => {
 
@@ -29,14 +30,18 @@ const NewPostField = ({updatePostsData, id}) => {
 
 
     return(
-        <form className="blog__form">
-            <textarea 
-                className="blog__field" resize="none" 
-                maxLength={150} placeholder="New post..."
-                onChange={handleChange} value={postValue}
-            />
-            <Button value={'Submit'} onClick={handleClick}/>
-        </form>
+        <ThemeContext>
+            {context => (
+                <form className="blog__form">
+                    <textarea 
+                        className={`blog__field ${context.subtheme}`} resize="none" 
+                        maxLength={150} placeholder="New post..."
+                        onChange={handleChange} value={postValue}
+                    />
+                    <Button value={'Submit'} onClick={handleClick}/>
+                </form>
+            )}
+        </ThemeContext>
     )
 }
 

@@ -10,6 +10,7 @@
     padding: 10px 15px
     background: $white-color
     z-index: 10
+    transition: 0.2s linear
 
     &-content
         display: flex
@@ -30,11 +31,9 @@
         height: 100%
         font-family: Gilroy
         border: none
-        border-top: 1px solid $main-color
         resize: none
+        transition: 0.2s linear
         
-        
-
     &-icon
         position: absolute
         top: -20px
@@ -49,7 +48,7 @@
         position: absolute
         width: 30px
         height: 30px
-        top: 130px
+        top: calc(100% - 15px);
         right: -10px
         border-radius: 50%
         overflow: hidden
@@ -64,7 +63,7 @@
             left: 4px
             width: 60%
             height: 33%
-            background: $white-color
+            background: transparent
             border: 3px solid $main-color
             border-top: none
             border-right: none
@@ -84,7 +83,7 @@
         position: absolute
         width: 30px
         height: 30px
-        top: -10px
+        top: calc(0% - 15px)
         right: -10px
         border-radius: 50%
         overflow: hidden
@@ -118,7 +117,6 @@
         &:hover::before
             height: 18px
             top: calc(50% - 9px)
-
 
         &:hover::after
             height: 18px

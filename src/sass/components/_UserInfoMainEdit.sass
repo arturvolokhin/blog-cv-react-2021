@@ -5,8 +5,9 @@
     flex-direction: column
     justify-content: space-between
     width: 91%
-    height: 177px
+    min-height: 117px
     background: $white-color
+    transition: 0.2s linear
     z-index: 5
 
     &-field
@@ -15,6 +16,7 @@
         border: none
         border-bottom: 2px solid $main-color
         font-family: Gilroy
+        transition: 0.2s linear
 
         &:nth-last-child(1)
             border-bottom: none
@@ -23,6 +25,4 @@
         display: flex
         justify-content: space-between
         width: 100%
-        margin: 0 auto   
-        transform: translateY(8px)
-            
+        margin: 0 auto

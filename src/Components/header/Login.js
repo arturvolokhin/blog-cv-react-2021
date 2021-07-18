@@ -1,9 +1,9 @@
 import Button from '../Button'
 
-const Login = ({toggleLogin}) => {
+const Login = ({toggleLoginModal}) => {
 
     return(
-        <Button value={'Login'} onClick={toggleLogin}/>
+        <Button value={'Login'} onClick={toggleLoginModal}/>
     )
 }
 

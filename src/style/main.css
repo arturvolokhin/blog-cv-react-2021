@@ -378,6 +378,8 @@ textarea {
   border-bottom: 1px solid #ccc;
   background: #fff;
   z-index: 15;
+  -webkit-transition: 0.2s linear;
+  transition: 0.2s linear;
 }
 
 .header__params {
@@ -434,7 +436,7 @@ textarea {
   right: 0;
   bottom: 0;
   left: 0;
-  background: url(/src/images/background/light.png) repeat center;
+  background: #473939;
   border-radius: 50px;
   cursor: pointer;
   -webkit-transition: 0.5s;
@@ -458,7 +460,7 @@ textarea {
 }
 
 .switch__checkbox:checked + .switch__slider {
-  background: url(/src/images/background/dark.png) repeat center;
+  background: #586ab9;
   border: none;
 }
 
@@ -547,13 +549,14 @@ textarea {
   background: url(/src/images/icons/mail.svg) no-repeat center/contain;
 }
 
-.user__contacts-item > a {
+.user__contacts-link {
   text-decoration: none;
   font-size: 20px;
-  color: #000;
+  -webkit-transition: 0.2s linear;
+  transition: 0.2s linear;
 }
 
-.user__contacts-item > a:hover {
+.user__contacts-link:hover {
   color: #48ff00;
 }
 
@@ -612,6 +615,20 @@ textarea {
   right: 20px;
 }
 
+.user__info-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  min-height: 100px;
+}
+
 .user__info-edit {
   position: absolute;
   top: 22px;
@@ -629,7 +646,6 @@ textarea {
 }
 
 .user__info-item {
-  margin: 10px -2px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -643,7 +659,7 @@ textarea {
   padding: 5px 10px;
   width: 100%;
   height: auto;
-  border-radius: 5px;
+  background: transparent;
   cursor: pointer;
   font-size: 20px;
   border: none;
@@ -652,11 +668,14 @@ textarea {
 }
 
 .blog__status:hover {
-  background: #ccc;
+  border-bottom: 1px solid #ccc;
+  padding: 5px 10px 4px;
 }
 
 .blog__status:focus {
   font-style: italic;
+  border-bottom: 1px solid #ccc;
+  padding: 5px 10px 4px;
 }
 
 .blog__form {
@@ -664,14 +683,19 @@ textarea {
   display: -ms-flexbox;
   display: flex;
   margin: 15px 0;
+  -webkit-transition: 0.2s linear;
+  transition: 0.2s linear;
 }
 
 .blog__field {
   width: 100%;
   padding: 5px 10px;
   font-family: 'Gilroy';
+  border: 1px solid #ccc;
   border-right: none;
   resize: none;
+  -webkit-transition: 0.2s linear;
+  transition: 0.2s linear;
 }
 
 .modal {
@@ -684,6 +708,8 @@ textarea {
   width: 500px;
   color: #000;
   padding: 20px;
+  -webkit-transition: 0.2s linear;
+  transition: 0.2s linear;
 }
 
 .modal__form {
@@ -696,6 +722,8 @@ textarea {
       -ms-flex-direction: column;
           flex-direction: column;
   min-height: 150px;
+  -webkit-transition: 0.2s linear;
+  transition: 0.2s linear;
 }
 
 .modal__field {
@@ -705,6 +733,8 @@ textarea {
   border: none;
   background: #ccc;
   color: #000;
+  -webkit-transition: 0.2s linear;
+  transition: 0.2s linear;
 }
 
 .modal__registration-link {
@@ -729,8 +759,10 @@ textarea {
       -ms-flex-pack: justify;
           justify-content: space-between;
   width: 91%;
-  height: 177px;
+  min-height: 117px;
   background: #fff;
+  -webkit-transition: 0.2s linear;
+  transition: 0.2s linear;
   z-index: 5;
 }
 
@@ -740,6 +772,8 @@ textarea {
   border: none;
   border-bottom: 2px solid #ccc;
   font-family: Gilroy;
+  -webkit-transition: 0.2s linear;
+  transition: 0.2s linear;
 }
 
 .user__edit-field:nth-last-child(1) {
@@ -755,8 +789,6 @@ textarea {
           justify-content: space-between;
   width: 100%;
   margin: 0 auto;
-  -webkit-transform: translateY(8px);
-          transform: translateY(8px);
 }
 
 .button {
@@ -766,9 +798,11 @@ textarea {
   padding: 8px 10px;
   background: transparent;
   border: none;
-  border: 1px solid #000;
+  border: 1px solid #ccc;
   font-family: 'Gilroy';
   overflow: hidden;
+  -webkit-transition: 0.2s linear;
+  transition: 0.2s linear;
   z-index: 5;
 }
 
@@ -880,7 +914,7 @@ textarea {
 
 .blog__settings {
   position: absolute;
-  top: 25px;
+  top: 27px;
   right: -10px;
   display: none;
   min-width: 50px;
@@ -896,7 +930,7 @@ textarea {
 }
 
 .blog__settings-item:hover {
-  background: #ccc;
+  text-decoration: underline;
 }
 
 .blog__dropdown {
@@ -917,7 +951,7 @@ textarea {
   display: block;
   width: 8px;
   height: 8px;
-  border: 1px solid #000;
+  border: 2px solid #ccc;
   border-top: none;
   border-left: none;
   -webkit-transform: rotate(45deg);
@@ -947,6 +981,8 @@ textarea {
   padding: 10px 15px;
   background: #fff;
   z-index: 10;
+  -webkit-transition: 0.2s linear;
+  transition: 0.2s linear;
 }
 
 .post__modal-content {
@@ -983,8 +1019,9 @@ textarea {
   height: 100%;
   font-family: Gilroy;
   border: none;
-  border-top: 1px solid #ccc;
   resize: none;
+  -webkit-transition: 0.2s linear;
+  transition: 0.2s linear;
 }
 
 .post__modal-icon {
@@ -1002,7 +1039,7 @@ textarea {
   position: absolute;
   width: 30px;
   height: 30px;
-  top: 130px;
+  top: calc(100% - 15px);
   right: -10px;
   border-radius: 50%;
   overflow: hidden;
@@ -1018,7 +1055,7 @@ textarea {
   left: 4px;
   width: 60%;
   height: 33%;
-  background: #fff;
+  background: transparent;
   border: 3px solid #ccc;
   border-top: none;
   border-right: none;
@@ -1043,7 +1080,7 @@ textarea {
   position: absolute;
   width: 30px;
   height: 30px;
-  top: -10px;
+  top: calc(0% - 15px);
   right: -10px;
   border-radius: 50%;
   overflow: hidden;
@@ -1115,19 +1152,11 @@ textarea {
 .projects__list-title {
   font-size: 23px;
   margin: 0 0 15px 0;
-  border: 1px solid;
+  border-bottom: 1px solid;
   padding: 5px;
-  border-radius: 8px;
-  background: #ca1e1e;
-  color: #fff;
-  -webkit-transition: 0.3s linear;
-  transition: 0.3s linear;
-  cursor: default;
-}
-
-.projects__list-title:hover {
   color: #000;
-  background: #fff;
+  -webkit-transition: 0.2s linear;
+  transition: 0.2s linear;
 }
 
 .projects__item {
@@ -1137,10 +1166,11 @@ textarea {
 
 .projects__item-link {
   color: #000;
+  -webkit-transition: 0.2s linear;
+  transition: 0.2s linear;
 }
 
 .projects__item-link:hover {
-  text-decoration: underline;
   color: #48ff00;
 }
 
@@ -1161,6 +1191,8 @@ body {
   padding: 0 25px;
   max-width: 1000px;
   background: #fff;
+  -webkit-transition: 0.2s linear;
+  transition: 0.2s linear;
 }
 
 .subtitle {
@@ -1265,16 +1297,37 @@ body {
 }
 
 .light {
-  color: #000;
   background: #fff;
+  color: #000;
+}
+
+.silver {
+  background: #eeeeee;
+  color: #000;
 }
 
 .dark {
-  color: #fff;
   background: #302a2a;
+  color: #fff;
 }
 
-.oaoaoaoa {
+.gray {
   background: #473939;
-  background: #302a2a;
+  color: #fff;
+}
+
+.white {
+  color: #fff;
+}
+
+.black {
+  color: #000;
+}
+
+.light-background {
+  background: url(/src/images/background/light.png);
+}
+
+.dark-background {
+  background: url(/src/images/background/dark.png);
 }

@@ -2,6 +2,7 @@ import React,{useState} from 'react';
 import iconAdmin from '../../images/iconAdmin.jpg';
 import iconGuest from '../../images/iconGuest.svg';
 import iconUser from '../../images/iconUser.png';
+import { ThemeContext } from '../../context/ThemeProvider';
 
 const BlogPostEditModal = ({post, posts, date, toggleEditModal, id, updatePostsData}) => {
 
@@ -26,27 +27,31 @@ const BlogPostEditModal = ({post, posts, date, toggleEditModal, id, updatePostsD
     }
 
     return(
-        <div className="post__modal">
-            <div className="post__modal-content">
-                <img className="post__modal-icon" alt="Post user icon"
-                    src={post.user === 'Artur Volokhin' ? iconAdmin :
-                        post.user ? iconUser : iconGuest}
-                />
-                <div className="post__modal-header">
-                    <span className="post__modal-user">{post.user ? post.user : 'Guest'}</span>
-                    <span>{date}</span>  
-                </div>
-                <textarea 
-                    className="post__modal-message" 
-                    value={text}
-                    onChange={handleChange}
-                    autoFocus
-                />
-                <div className="post__modal-submit" onClick={handleClick}/>
-                <div className="post__modal-cancel" onClick={() => toggleEditModal(false)}/>
-            </div>
+        <ThemeContext>
+            {({theme, subtheme}) => (
+                <div className={`post__modal ${theme}`}>
+                    <div className="post__modal-content">
+                        <img className="post__modal-icon" alt="Post user icon"
+                            src={post.user === 'Artur Volokhin' ? iconAdmin :
+                                post.user ? iconUser : iconGuest}
+                        />
+                        <div className="post__modal-header">
+                            <span className="post__modal-user">{post.user ? post.user : 'Guest'}</span>
+                            <span>{date}</span>  
+                        </div>
+                        <textarea 
+                            className={`post__modal-message ${subtheme}`}
+                            value={text}
+                            onChange={handleChange}
+                            autoFocus
+                        />
+                        <div className={`post__modal-submit ${theme}`} onClick={handleClick}/>
+                        <div className={`post__modal-cancel ${theme}`} onClick={() => toggleEditModal(false)}/>
+                    </div>
 
-        </div>
+                </div>
+            )}
+        </ThemeContext>
     )
 }
 
