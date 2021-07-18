@@ -79,7 +79,7 @@ const ModalRegistration = ({toggle, toggleRegistration, toggleLogin}) => {
                 <input 
                     className="modal__field" onChange={({target}) => setUserLogin(target.value)}
                     type="login" value={userLogin} placeholder="Login" maxLength="16"
-                    onBlur={getValidation} name='email'
+                    onBlur={getValidation} name='email' autoFocus
                 />
                 
                 {isPasswordError && <p style={{color: 'red'}}>{passwordError}</p>}

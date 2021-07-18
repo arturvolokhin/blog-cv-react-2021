@@ -1,9 +1,15 @@
+import { ThemeContext } from "../../context/ThemeProvider";
+
 const ThemeSwitch = () => {
     return(
-        <label className="switch">
-            <input className="switch__checkbox" type="checkbox"/>
-            <span className="switch__slider"/>
-        </label>
+        <ThemeContext>
+            {context => (
+                <label className="switch">
+                    <input onClick={context.toggle} className="switch__checkbox" type="checkbox"/>
+                    <span className="switch__slider"/>
+                </label>
+            )}
+        </ThemeContext>
     )
 }
 

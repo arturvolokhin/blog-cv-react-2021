@@ -924,119 +924,6 @@ textarea {
           transform: rotate(45deg);
 }
 
-body {
-  background: url(/src/images/background/light.png);
-  font-family: Gilroy, 'Times New Roman', Times, serif;
-}
-
-.wrapper {
-  margin: 0 auto;
-  padding: 0 25px;
-  max-width: 1000px;
-  background: #fff;
-}
-
-.subtitle {
-  margin: 0 0 25px;
-  font-size: 25px;
-  text-align: center;
-}
-
-.user {
-  position: relative;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  width: 50%;
-  border-right: 1px solid #ccc;
-}
-
-.section {
-  position: relative;
-  width: 90%;
-  padding: 30px 10px;
-  border-top: 1px solid #ccc;
-  overflow: hidden;
-}
-
-.section:nth-child(1) {
-  border-top: none;
-  padding: 100px;
-}
-
-.footer {
-  padding: 50px 30px;
-  border-top: 1px solid #ccc;
-  text-align: center;
-}
-
-.visible {
-  display: block;
-}
-
-.close {
-  position: absolute;
-  display: block;
-  top: 0;
-  right: 0;
-  width: 30px;
-  height: 30px;
-  cursor: pointer;
-}
-
-.close::before {
-  content: '';
-  position: absolute;
-  top: 15px;
-  right: 0;
-  display: block;
-  width: 30px;
-  height: 2px;
-  border: none;
-  background: #000;
-  -webkit-transform: rotate(45deg);
-          transform: rotate(45deg);
-  -webkit-transition: 0.2s linear;
-  transition: 0.2s linear;
-}
-
-.close::after {
-  content: '';
-  position: absolute;
-  top: 15px;
-  right: 0;
-  display: block;
-  width: 30px;
-  height: 2px;
-  border: none;
-  background: #000;
-  -webkit-transform: rotate(-45deg);
-          transform: rotate(-45deg);
-  -webkit-transition: 0.2s linear;
-  transition: 0.2s linear;
-}
-
-.close:hover::before {
-  -webkit-transform: rotate(135deg);
-          transform: rotate(135deg);
-}
-
-.close:hover::after {
-  -webkit-transform: rotate(45deg);
-          transform: rotate(45deg);
-}
-
-::-webkit-scrollbar {
-  width: 10px;
-}
-
 .description {
   font-size: 20px;
   font-style: italic;
@@ -1262,4 +1149,132 @@ body {
   width: 50%;
   max-height: 1350px;
   overflow: auto;
+}
+
+body {
+  background: url(/src/images/background/light.png);
+  font-family: Gilroy, 'Times New Roman', Times, serif;
+}
+
+.wrapper {
+  margin: 0 auto;
+  padding: 0 25px;
+  max-width: 1000px;
+  background: #fff;
+}
+
+.subtitle {
+  margin: 0 0 25px;
+  font-size: 25px;
+  text-align: center;
+}
+
+.user {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 50%;
+  border-right: 1px solid #ccc;
+}
+
+.section {
+  position: relative;
+  width: 90%;
+  padding: 30px 10px;
+  border-top: 1px solid #ccc;
+  overflow: hidden;
+}
+
+.section:nth-child(1) {
+  border-top: none;
+  padding: 100px;
+}
+
+.footer {
+  padding: 50px 30px;
+  border-top: 1px solid #ccc;
+  text-align: center;
+}
+
+.visible {
+  display: block;
+}
+
+.close {
+  position: absolute;
+  display: block;
+  top: 0;
+  right: 0;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+
+.close::before {
+  content: '';
+  position: absolute;
+  top: 15px;
+  right: 0;
+  display: block;
+  width: 30px;
+  height: 2px;
+  border: none;
+  background: #000;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+  -webkit-transition: 0.2s linear;
+  transition: 0.2s linear;
+}
+
+.close::after {
+  content: '';
+  position: absolute;
+  top: 15px;
+  right: 0;
+  display: block;
+  width: 30px;
+  height: 2px;
+  border: none;
+  background: #000;
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+  -webkit-transition: 0.2s linear;
+  transition: 0.2s linear;
+}
+
+.close:hover::before {
+  -webkit-transform: rotate(135deg);
+          transform: rotate(135deg);
+}
+
+.close:hover::after {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+.light {
+  color: #000;
+  background: #fff;
+}
+
+.dark {
+  color: #fff;
+  background: #302a2a;
+}
+
+.oaoaoaoa {
+  background: #473939;
+  background: #302a2a;
 }

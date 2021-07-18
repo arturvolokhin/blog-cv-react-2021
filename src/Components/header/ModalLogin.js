@@ -40,7 +40,7 @@ const ModalLogin = ({toggle, toggleLogin, toggleRegistration, setAuthorization})
             <form className="modal__form">
                 <input 
                     className="modal__field" onChange={({target}) => setUserLogin(target.value)}
-                    type="login" value={userLogin} placeholder="Login" maxLength="16"
+                    type="login" value={userLogin} placeholder="Login" maxLength="16" autoFocus
                 />
                 <input 
                     className="modal__field" onChange={({target}) => setUserPassword(target.value)}

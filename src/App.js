@@ -18,6 +18,8 @@ import UserProjects from './Components/user/UserProjects';
 import UserOtherInfo from './Components/footer/UserOtherInfo'
 import Blog from './Components/blog/Blog';
 import { getLocalStorage} from './Components/api/localStorageApi';
+import { ThemeContext } from "./context/ThemeProvider";
+// import { useTheme, themeLight, themeDark } from './Components/context/ThemeProvider';
 
 const App = () => {
 
@@ -25,6 +27,7 @@ const App = () => {
     const [toggleRegistrationModal, setToggleRegistrationModal] = useState(false);
     const [authorization, setAuthorization] = useState(getLocalStorage('authorizedUser'));
     const [userInfoMainEdit, setUserInfoMainEdit] = useState(false);
+    // const isTheme = useTheme();
 
     const toggleLogin = () => {
         setToggleLoginModal(!toggleLoginModal);
@@ -39,54 +42,60 @@ const App = () => {
     }
 
     return (
-        <div className="wrapper">
-            <header className="header">
-                <Title icon={icon}/>
-                
-                <div className="header__params">
-                {authorization ? 
-                    <Logout 
-                        setAuthorization={setAuthorization}
-                        setUserInfoMainEdit={setUserInfoMainEdit}
-                    /> : 
-                    <Login toggleLogin={toggleLogin}/>
-                }
-                    <ThemeSwitcher/>
-                </div>
-            </header>
-            <main className="main">
-                <section className="user">
-                    <Avatar avatar={avatar}/>
-                    <UserInfoMain 
-                        toggleUserInfoEdit={toggleUserInfoEdit}
-                        authorization={authorization}
-                    />
-                    <UserTechStack/>
-                    <UserProjects/>
-                    <UserContacts/>
-                    {userInfoMainEdit && authorization ? 
-                        <UserInfoMainEdit toggleUserInfoEdit={toggleUserInfoEdit}/> : 
-                        null
-                    }
-                </section>
+        <ThemeContext>
+            {context => (
+                <div className={`wrapper ${context.theme}`}>
+                    <header className="header">
+                        <Title icon={icon}/>
+                        
+                        <div className="header__params">
+                        {authorization ? 
+                            <Logout 
+                                setAuthorization={setAuthorization}
+                                setUserInfoMainEdit={setUserInfoMainEdit}
+                            /> : 
+                            <Login toggleLogin={toggleLogin}/>
+                        }
+                            <ThemeSwitcher/>
+                        </div>
+                    </header>
+                    <main className="main">
+                        <section className="user">
+                            <Avatar avatar={avatar}/>
+                            <UserInfoMain 
+                                toggleUserInfoEdit={toggleUserInfoEdit}
+                                authorization={authorization}
+                            />
+                            <UserTechStack/>
+                            <UserProjects/>
+                            <UserContacts/>
+                            {userInfoMainEdit && authorization ? 
+                                <UserInfoMainEdit toggleUserInfoEdit={toggleUserInfoEdit}/> : 
+                                null
+                            }
+                        </section>
 
-                <Blog authorization={authorization}/>
-                <ModalLogin 
-                    toggle={toggleLoginModal} 
-                    toggleLogin={toggleLogin}
-                    toggleRegistration={toggleRegistration}
-                    setAuthorization={setAuthorization}
-                />
-                <ModalRegistration
-                    toggle={toggleRegistrationModal} 
-                    toggleRegistration={toggleRegistration}
-                    toggleLogin={toggleLogin}
-                />
-            </main>
-            <footer className="footer">
-                <UserOtherInfo/>
-            </footer>
-        </div>
+                        <Blog authorization={authorization}/>
+                        <ModalLogin 
+                            toggle={toggleLoginModal} 
+                            toggleLogin={toggleLogin}
+                            toggleRegistration={toggleRegistration}
+                            setAuthorization={setAuthorization}
+                        />
+                        <ModalRegistration
+                            toggle={toggleRegistrationModal} 
+                            toggleRegistration={toggleRegistration}
+                            toggleLogin={toggleLogin}
+                        />
+                    </main>
+                    <footer className="footer">
+                        <UserOtherInfo/>
+                    </footer>
+                </div>
+            )
+
+            }
+        </ThemeContext>
     )
 }
 

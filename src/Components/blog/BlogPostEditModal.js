@@ -1,6 +1,4 @@
 import React,{useState} from 'react';
-import { getLocalStorage, setLocalStorage } from '../api/localStorageApi';
-
 import iconAdmin from '../../images/iconAdmin.jpg';
 import iconGuest from '../../images/iconGuest.svg';
 import iconUser from '../../images/iconUser.png';
