@@ -1,5 +1,6 @@
 import { setLocalStorage } from "../api/localStorageApi"
 import Button from '../Button';
+import PropTypes from 'prop-types';
 
 const Logout = ({ setAuthorization }) => {
 
@@ -12,5 +13,9 @@ const Logout = ({ setAuthorization }) => {
         <Button onClick={handleClick} value={'Logout'}/>
     )
 }
+
+Logout.propTypes = {
+    setAuthorization: PropTypes.func,
+};
 
 export default Logout;

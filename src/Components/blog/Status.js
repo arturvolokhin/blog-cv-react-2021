@@ -1,6 +1,7 @@
 import {useContext} from 'react';
 import { setLocalStorage } from '../api/localStorageApi';
 import { ThemeContext } from '../../context/ThemeProvider';
+import PropTypes from 'prop-types';
 
 const Status = ({authorization, status, setStatus}) => {
 
@@ -36,5 +37,11 @@ const Status = ({authorization, status, setStatus}) => {
         </>  
     )
 }
+
+Status.propTypes = {
+    authorization: PropTypes.object,
+    status: PropTypes.string,
+    setStatus: PropTypes.func,
+};
 
 export default Status;

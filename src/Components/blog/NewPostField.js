@@ -2,6 +2,7 @@ import React, {useState, useContext} from 'react';
 import Button from '../Button';
 import { getLocalStorage } from '../api/localStorageApi';
 import { ThemeContext } from '../../context/ThemeProvider';
+import PropTypes from 'prop-types';
 
 const NewPostField = ({updatePostsData, id}) => {
 
@@ -41,5 +42,10 @@ const NewPostField = ({updatePostsData, id}) => {
         </form>
     )
 }
+
+NewPostField.propTypes = {
+    updatePostsData: PropTypes.func,
+    id: PropTypes.string,
+};
 
 export default NewPostField;

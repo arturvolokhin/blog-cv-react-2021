@@ -3,6 +3,7 @@ import iconAdmin from '../../images/iconAdmin.jpg';
 import iconGuest from '../../images/iconGuest.svg';
 import iconUser from '../../images/iconUser.png';
 import React, { useContext } from 'react';
+import PropTypes from 'prop-types';
 
 const BlogPost = ({post, posts, date, id, updatePostsData, handleClickEdit, authorization}) => {
 
@@ -50,5 +51,15 @@ const BlogPost = ({post, posts, date, id, updatePostsData, handleClickEdit, auth
         </article>
     )
 }
+
+BlogPost.propTypes = {
+    authorization: PropTypes.object,
+    handleClickEdit: PropTypes.func,
+    updatePostsData: PropTypes.func,
+    id: PropTypes.string,
+    date: PropTypes.string,
+    posts: PropTypes.array,
+    post: PropTypes.object,
+};
 
 export default BlogPost;

@@ -4,6 +4,7 @@ import NewPostField from './NewPostField';
 import BlogWall from './BlogWall';
 import { getLocalStorage, setLocalStorage} from '../api/localStorageApi';
 import { v4 as id } from 'uuid';
+import PropTypes from 'prop-types';
 
 const Blog = ({authorization}) => {
 
@@ -30,5 +31,9 @@ const Blog = ({authorization}) => {
         </section>
     )
 }
+
+Blog.propTypes = {
+    authorization: PropTypes.object
+};
 
 export default Blog;

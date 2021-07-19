@@ -2,6 +2,7 @@ import React,{useState} from 'react';
 import { getLocalStorage } from '../api/localStorageApi';
 import BlogPostEditModal from './BlogPostEditModal';
 import BlogPost from './BlogPost';
+import PropTypes from 'prop-types';
 
 const BlogWall = ({authorization, updatePostsData}) => {
 
@@ -65,5 +66,10 @@ const BlogWall = ({authorization, updatePostsData}) => {
         </section>
     )
 }
+
+BlogWall.propTypes = {
+    updatePostsData: PropTypes.func,
+    authorization: PropTypes.object,
+};
 
 export default BlogWall;

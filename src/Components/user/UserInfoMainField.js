@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 const UserInfoMainField = ({name, value}) => {
     return(
         <li className="user__info-item">
@@ -5,5 +7,10 @@ const UserInfoMainField = ({name, value}) => {
         </li>
     )
 }
+
+UserInfoMainField.propTypes = {
+    name: PropTypes.string,
+    value: PropTypes.string,
+};
 
 export default UserInfoMainField;

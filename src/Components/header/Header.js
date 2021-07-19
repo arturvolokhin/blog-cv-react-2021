@@ -6,6 +6,7 @@ import Logout from './Logout'
 import Title from './Title';
 import Login from './Login';
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const Header = ({ authorization, setAuthorization, toggleLoginModal }) => {
 
@@ -26,5 +27,11 @@ const Header = ({ authorization, setAuthorization, toggleLoginModal }) => {
         </header>
     )
 }
+
+Header.propTypes = {
+    authorization: PropTypes.object,
+    setAuthorization: PropTypes.func,
+    toggleLoginModal: PropTypes.func,
+};
 
 export default Header;

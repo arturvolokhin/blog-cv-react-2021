@@ -3,6 +3,7 @@ import iconAdmin from '../../images/iconAdmin.jpg';
 import iconGuest from '../../images/iconGuest.svg';
 import iconUser from '../../images/iconUser.png';
 import { ThemeContext } from '../../context/ThemeProvider';
+import PropTypes from 'prop-types';
 
 const BlogPostEditModal = ({post, posts, date, toggleEditModal, id, updatePostsData}) => {
 
@@ -51,5 +52,14 @@ const BlogPostEditModal = ({post, posts, date, toggleEditModal, id, updatePostsD
         </div>
     )
 }
+
+BlogPostEditModal.propTypes = {
+    updatePostsData: PropTypes.func,
+    id: PropTypes.string,
+    toggleEditModal: PropTypes.func,
+    date: PropTypes.string,
+    posts: PropTypes.array,
+    post: PropTypes.object,
+};
 
 export default BlogPostEditModal;

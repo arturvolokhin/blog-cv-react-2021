@@ -1,5 +1,6 @@
 import { getLocalStorage } from '../api/localStorageApi';
-import UserInfoMainField from './UserInfoMainField'
+import UserInfoMainField from './UserInfoMainField';
+import PropTypes from 'prop-types';
 
 const UserInfoMain = ({toggleUserInfoEdit, authorization}) => {
 
@@ -23,5 +24,10 @@ const UserInfoMain = ({toggleUserInfoEdit, authorization}) => {
         </article>
     )
 }
+
+UserInfoMain.propTypes = {
+    toggleUserInfoEdit: PropTypes.func,
+    authorization: PropTypes.object,
+};
 
 export default UserInfoMain;

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const Title = ({icon}) => {
     return(
@@ -8,5 +9,9 @@ const Title = ({icon}) => {
         </div>
     )
 }
+
+Title.propTypes = {
+    icon: PropTypes.string,
+};
 
 export default Title;

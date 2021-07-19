@@ -2,6 +2,7 @@ import React, { useState, useContext } from 'react';
 import { getLocalStorage, setLocalStorage } from '../api/localStorageApi';
 import { ThemeContext } from '../../context/ThemeProvider';
 import Button from '../Button';
+import PropTypes from 'prop-types';
 
 const ModalLogin = ({isLoginModal, toggleLoginModal, toggleRegistrationModal, setAuthorization}) => {
 
@@ -62,5 +63,12 @@ const ModalLogin = ({isLoginModal, toggleLoginModal, toggleRegistrationModal, se
         </article>
     )
 }
+
+ModalLogin.propTypes = {
+    isLoginModal: PropTypes.bool,
+    toggleLoginModal: PropTypes.func,
+    toggleRegistrationModal: PropTypes.func,
+    setAuthorization: PropTypes.func,
+};
 
 export default ModalLogin;

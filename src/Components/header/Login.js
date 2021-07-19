@@ -1,4 +1,5 @@
 import Button from '../Button'
+import PropTypes from 'prop-types';
 
 const Login = ({toggleLoginModal}) => {
 
@@ -6,5 +7,9 @@ const Login = ({toggleLoginModal}) => {
         <Button value={'Login'} onClick={toggleLoginModal}/>
     )
 }
+
+Login.propTypes = {
+    toggleLoginModal: PropTypes.func,
+};
 
 export default Login;

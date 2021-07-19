@@ -2,6 +2,7 @@ import React, { useState, useContext } from 'react';
 import UserInfoMainEditField from './UserInfoMainEditField';
 import { getLocalStorage, setLocalStorage } from '../api/localStorageApi';
 import { ThemeContext } from '../../context/ThemeProvider';
+import PropTypes from 'prop-types';
 
 const UserInfoMainEdit = ({toggleUserInfoEdit}) => {
 
@@ -40,5 +41,9 @@ const UserInfoMainEdit = ({toggleUserInfoEdit}) => {
         </form>
     )
 }
+
+UserInfoMainEdit.propTypes = {
+    toggleUserInfoEdit: PropTypes.func,
+};
 
 export default UserInfoMainEdit;

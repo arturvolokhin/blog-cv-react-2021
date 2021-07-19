@@ -1,5 +1,6 @@
 import React, { useState, useContext } from "react";
 import { ThemeContext } from '../../context/ThemeProvider';
+import PropTypes from 'prop-types';
 
 
 const UserInfoMainEditField = ({name, saveValue, placeholder, text}) => {
@@ -27,5 +28,12 @@ const UserInfoMainEditField = ({name, saveValue, placeholder, text}) => {
         />
     )
 }
+
+UserInfoMainEditField.propTypes = {
+    name: PropTypes.string,
+    saveValue: PropTypes.object,
+    placeholder: PropTypes.string,
+    text: PropTypes.string,
+};
 
 export default UserInfoMainEditField;

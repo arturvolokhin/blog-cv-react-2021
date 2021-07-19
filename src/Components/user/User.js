@@ -6,6 +6,7 @@ import UserContacts from './UserContacts';
 import UserInfoMainEdit from './UserInfoMainEdit';
 import UserProjects from './UserProjects';
 import avatar from '../../images/avatar.jpg';
+import PropTypes from 'prop-types';
 
 const User = ({authorization}) => {
 
@@ -32,5 +33,9 @@ const User = ({authorization}) => {
         </section>
     )
 }
+
+User.propTypes = {
+    authorization: PropTypes.object,
+};
 
 export default User;
