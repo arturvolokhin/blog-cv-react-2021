@@ -15,7 +15,7 @@ const Header = ({ authorization, setAuthorization, toggleLoginModal }) => {
         <header className={`header ${theme}`}>
             <Title icon={icon}/>         
             <div className="header__params">
-            {authorization ? 
+            {authorization.login ? 
                 <Logout 
                     setAuthorization={setAuthorization}
                 /> : 

@@ -1,6 +1,8 @@
 body 
     background: url(/src/images/background/light.png)
     font-family: Gilroy, 'Times New Roman', Times, serif
+    scrollbar-color: #888 #f1f1f1 
+    scrollbar-width: 0px
 
 .wrapper 
     margin: 0 auto
@@ -75,8 +77,22 @@ body
 .visible 
     display: block
 
+
 ::-webkit-scrollbar 
-    width: 10px
+    width: 0px
+
+
+// ::-webkit-scrollbar-track 
+//     background: #f1f1f1;
+
+// ::-webkit-scrollbar-thumb 
+//     background: #888
+//     border-radius: 5px
+
+
+// ::-webkit-scrollbar-thumb:hover 
+//     background: #555
+
 
 .light
     background: $white-color
