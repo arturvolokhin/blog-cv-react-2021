@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
 import Button from '../Button';
 import { getLocalStorage } from '../api/localStorageApi';
 import { ThemeContext } from '../../context/ThemeProvider';
@@ -7,6 +7,7 @@ const NewPostField = ({updatePostsData, id}) => {
 
     const [postData, setPostData] = useState({});
     const [postValue, setPostValue] = useState('');
+    const {subtheme} = useContext(ThemeContext)
     const posts = getLocalStorage('posts');
     const user = getLocalStorage('authorizedUser');
 
@@ -30,18 +31,14 @@ const NewPostField = ({updatePostsData, id}) => {
 
 
     return(
-        <ThemeContext>
-            {context => (
-                <form className="blog__form">
-                    <textarea 
-                        className={`blog__field ${context.subtheme}`} resize="none" 
-                        maxLength={150} placeholder="New post..."
-                        onChange={handleChange} value={postValue}
-                    />
-                    <Button value={'Submit'} onClick={handleClick}/>
-                </form>
-            )}
-        </ThemeContext>
+        <form className="blog__form">
+            <textarea 
+                className={`blog__field ${subtheme}`} resize="none" 
+                maxLength={150} placeholder="New post..."
+                onChange={handleChange} value={postValue}
+            />
+            <Button value={'Submit'} onClick={handleClick}/>
+        </form>
     )
 }
 

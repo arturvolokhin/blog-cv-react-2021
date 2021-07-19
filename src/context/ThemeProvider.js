@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 
-const { Provider, Consumer } = React.createContext();
+const ThemeContext = React.createContext();
 
 const ThemeProvider = ({children}) => {
 
@@ -24,18 +24,20 @@ const ThemeProvider = ({children}) => {
     }
 
     return (
-        <Provider 
+        <ThemeContext.Provider 
             value={
-                {
+                    {
                     theme: theme, 
                     subtheme: subTheme, 
                     text: textColor, 
                     background: background,
-                    toggle: toggleTheme}} 
+                    toggle: toggleTheme
+                    }
+                } 
         >
             {children}
-        </Provider>
+        </ThemeContext.Provider>
     )
 }
 
-export { ThemeProvider, Consumer as ThemeContext }
+export { ThemeContext, ThemeProvider};

@@ -1,9 +1,11 @@
-import React,{useState} from "react";
+import React, { useState, useContext } from "react";
 import { setLocalStorage, getLocalStorage } from "../api/localStorageApi";
 import { ThemeContext } from '../../context/ThemeProvider';
 import Button from '../Button';
 
 const ModalRegistration = ({isRegistrationModal, toggleRegistrationModal, toggleLoginModal}) => {
+
+    const {theme, subtheme} = useContext(ThemeContext);
     
     const [userLogin, setUserLogin] = useState('');
     const [userPassword, setUserPassword] = useState('');
@@ -40,7 +42,7 @@ const ModalRegistration = ({isRegistrationModal, toggleRegistrationModal, toggle
                     setIsPasswordError(false);
                 } break
             case 'name':
-                if (!target.value.match(/[A-Za-z0-9]{3,16}$/)) {
+                if (!target.value.match(/[A-Za-z]{3,16}$/)) {
                     setNameError('Please enter at least 3 characters and only Latin letters');
                     setIsNameError(true);
                 } else {
@@ -71,44 +73,43 @@ const ModalRegistration = ({isRegistrationModal, toggleRegistrationModal, toggle
     }
 
     return(
-        <ThemeContext>
-            {context => (
-                <article className={isRegistrationModal ? `modal visible ${context.theme}` : "modal"}>
-                    <div className="close" onClick={toggleRegistrationModal}/>
-                    <h2 className="subtitle">Enter your data:</h2>
-                    
-                    <form className="modal__form">
-                        
-                        {isLoginError && <p style={{color: 'red'}}>{loginError}</p>}
-                        <input 
-                            className={`modal__field ${context.subtheme}`} onChange={({target}) => setUserLogin(target.value)}
-                            type="login" value={userLogin} placeholder="Login" maxLength="16"
-                            onBlur={getValidation} name='email' autoFocus
-                        />
-                        
-                        {isPasswordError && <p style={{color: 'red'}}>{passwordError}</p>}
-                        <input 
-                            className={`modal__field ${context.subtheme}`} onChange={({target}) => setUserPassword(target.value)}
-                            type="password" value={userPassword} placeholder="Password" maxLength="16"
-                            onBlur={getValidation} name="password"
-                        />
-                        
-                        {isNameError && <p style={{color: 'red'}}>{nameError}</p>}
+        <article className={isRegistrationModal ? `modal visible ${theme}` : "modal"}>
+            <div className="close" onClick={toggleRegistrationModal}/>
+            <h2 className="subtitle">Enter your data:</h2>
+            
+            <form className="modal__form">
+                
+                {isLoginError && <p style={{color: 'red'}}>{loginError}</p>}
+                <input 
+                    className={`modal__field ${subtheme}`} 
+                    onChange={({target}) => setUserLogin(target.value)}
+                    type="login" value={userLogin} placeholder="Login" maxLength="16"
+                    onBlur={getValidation} name='email' autoFocus
+                />
+                
+                {isPasswordError && <p style={{color: 'red'}}>{passwordError}</p>}
+                <input 
+                    className={`modal__field ${subtheme}`} 
+                    onChange={({target}) => setUserPassword(target.value)}
+                    type="password" value={userPassword} placeholder="Password" maxLength="16"
+                    onBlur={getValidation} name="password"
+                />
+                
+                {isNameError && <p style={{color: 'red'}}>{nameError}</p>}
 
-                        <input 
-                            className={`modal__field ${context.subtheme}`} onChange={({target}) => setUserName(target.value)}
-                            type="text" value={userName} placeholder="Your name" maxLength="16"
-                            onBlur={getValidation} name="name"
-                        />
-                        {
-                            !(isLoginError || isPasswordError || isNameError) &&
-                                <Button value='Submit' onClick={handleClick}/> 
-                        }
-                    </form>
-                        
-                </article>
-            )}
-        </ThemeContext>
+                <input 
+                    className={`modal__field ${subtheme}`} 
+                    onChange={({target}) => setUserName(target.value)}
+                    type="text" value={userName} placeholder="Your name" maxLength="16"
+                    onBlur={getValidation} name="name"
+                />
+                {
+                    !(isLoginError || isPasswordError || isNameError) &&
+                        <Button value='Submit' onClick={handleClick}/> 
+                }
+            </form>
+                
+        </article>
     )
 }
 

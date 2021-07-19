@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState, useContext } from 'react';
 import { getLocalStorage, setLocalStorage } from '../api/localStorageApi';
 import { ThemeContext } from '../../context/ThemeProvider';
 import Button from '../Button';
@@ -7,6 +7,7 @@ const ModalLogin = ({isLoginModal, toggleLoginModal, toggleRegistrationModal, se
 
     const [userLogin, setUserLogin] = useState('');
     const [userPassword, setUserPassword] = useState('');
+    const { theme, subtheme } = useContext(ThemeContext);
 
     const handleClick = (e) => {
         e.preventDefault();
@@ -39,28 +40,26 @@ const ModalLogin = ({isLoginModal, toggleLoginModal, toggleRegistrationModal, se
 
 
     return(
-        <ThemeContext>
-            {context => (
-                <article className={isLoginModal ? `modal visible ${context.theme}` : "modal"}>
-                    <div className="close" onClick={toggleLoginModal}/>
-                    <h2 className="subtitle">Already Registered? Enter your data:</h2>
-                    <form className="modal__form">
-                        <input 
-                            className={`modal__field ${context.subtheme}`} onChange={({target}) => setUserLogin(target.value)}
-                            type="login" value={userLogin} placeholder="Login" maxLength="16" autoFocus
-                        />
-                        <input 
-                            className={`modal__field ${context.subtheme}`} onChange={({target}) => setUserPassword(target.value)}
-                            type="password" value={userPassword} placeholder="Password" maxLength="16"
-                        />
-                        <Button value="Submit" onClick={handleClick}/>
-                    </form>
-                        <h2 className="subtitle modal__registration-link" 
-                            onClick={registrationClick}>Not Registered? Click me
-                        </h2>
-                </article>
-            )}
-        </ThemeContext>
+        <article className={isLoginModal ? `modal visible ${theme}` : "modal"}>
+            <div className="close" onClick={toggleLoginModal}/>
+            <h2 className="subtitle">Already Registered? Enter your data:</h2>
+            <form className="modal__form">
+                <input 
+                    className={`modal__field ${subtheme}`} 
+                    onChange={({target}) => setUserLogin(target.value)}
+                    type="login" value={userLogin} placeholder="Login" maxLength="16" autoFocus
+                />
+                <input 
+                    className={`modal__field ${subtheme}`} 
+                    onChange={({target}) => setUserPassword(target.value)}
+                    type="password" value={userPassword} placeholder="Password" maxLength="16"
+                />
+                <Button value="Submit" onClick={handleClick}/>
+            </form>
+                <h2 className="subtitle modal__registration-link" 
+                    onClick={registrationClick}>Not Registered? Click me
+                </h2>
+        </article>
     )
 }
 

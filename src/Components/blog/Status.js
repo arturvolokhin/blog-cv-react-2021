@@ -1,7 +1,10 @@
+import {useContext} from 'react';
 import { setLocalStorage } from '../api/localStorageApi';
 import { ThemeContext } from '../../context/ThemeProvider';
 
 const Status = ({authorization, status, setStatus}) => {
+
+    const {text} = useContext(ThemeContext)
 
     const handleBlur = ({target}) => {
         setLocalStorage('status', target.value);
@@ -15,27 +18,22 @@ const Status = ({authorization, status, setStatus}) => {
     }
  
     return(
-        <ThemeContext>
-            {({subtheme, text}) => (
-                <>
-                    {authorization ?
-                        <input 
-                            className={`blog__status ${text}`} 
-                            onChange={({target}) => setStatus(target.value)} 
-                            onBlur={handleBlur} type="text" value={status}
-                            onKeyPress={handleKeyPress}
-                            placeholder="This is status" maxLength="40"  
-                        /> :
-                        <input  
-                            className="blog__status" 
-                            onClick={() => alert('Для редактирования - авторизируйтесь')}
-                            readOnly value={status} placeholder="This is status"  
-                        />
-                    }
-                </>
-            )}
-        </ThemeContext>
-                  
+        <>
+            {authorization ?
+                <input 
+                    className={`blog__status ${text}`} 
+                    onChange={({target}) => setStatus(target.value)} 
+                    onBlur={handleBlur} type="text" value={status}
+                    onKeyPress={handleKeyPress}
+                    placeholder="This is status" maxLength="40"  
+                /> :
+                <input  
+                    className={`blog__status ${text}`} 
+                    onClick={() => alert('Для редактирования - авторизируйтесь')}
+                    readOnly value={status} placeholder="This is status"  
+                />
+            }
+        </>  
     )
 }
 

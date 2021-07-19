@@ -1,4 +1,4 @@
-import React,{useState, useEffect} from "react";
+import React,{useState} from "react";
 import Status from './Status';
 import NewPostField from './NewPostField';
 import BlogWall from './BlogWall';

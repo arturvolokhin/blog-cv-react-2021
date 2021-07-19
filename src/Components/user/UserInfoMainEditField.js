@@ -1,10 +1,11 @@
-import React, {useState} from "react";
+import React, { useState, useContext } from "react";
 import { ThemeContext } from '../../context/ThemeProvider';
 
 
 const UserInfoMainEditField = ({name, saveValue, placeholder, text}) => {
 
     const [value, setValue] = useState(text);
+    const {subtheme} = useContext(ThemeContext);
 
     const handleChange = ({target}) => {
         setValue(target.value);
@@ -19,15 +20,11 @@ const UserInfoMainEditField = ({name, saveValue, placeholder, text}) => {
     }
 
     return(
-        <ThemeContext>
-            {context => (
-                <input 
-                    className={`user__edit-field ${context.subtheme}`} placeholder={placeholder} 
-                    name={name} onChange={handleChange} onBlur={handleBlur} value={value}
-                    onKeyPress={handleKeyPress} autoComplete="off"
-                />
-            )}
-        </ThemeContext>
+        <input 
+            className={`user__edit-field ${subtheme}`} placeholder={placeholder} 
+            name={name} onChange={handleChange} onBlur={handleBlur} value={value}
+            onKeyPress={handleKeyPress} autoComplete="off"
+        />
     )
 }
 

@@ -1,12 +1,12 @@
+import { useContext } from 'react';
 import { ThemeContext } from '../context/ThemeProvider';
 
 const Button = ({value, onClick}) => {
+
+    const {subtheme} = useContext(ThemeContext);
+
     return(
-        <ThemeContext>
-            {context => (
-                <button className={`button ${context.subtheme}`} onClick={onClick}>{value}</button>
-            )}
-        </ThemeContext>
+        <button className={`button ${subtheme}`} onClick={onClick}>{value}</button>
     )
     
 }
