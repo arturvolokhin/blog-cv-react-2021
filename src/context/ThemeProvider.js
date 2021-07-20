@@ -11,14 +11,14 @@ const ThemeProvider = ({children}) => {
         theme: 'dark',
         subtheme: 'gray',
         text: 'white',
-        background: 'dark-background'
+        background: 'dark-background',
+        button: 'button--dark'
     }
 
     const themeLight = {
         theme: 'light',
         subtheme: 'silver',
         text: 'black',
-        background: 'light-background'
     }
 
     const toggleTheme = () => {
@@ -39,6 +39,7 @@ const ThemeProvider = ({children}) => {
                 subtheme: themeParams.subtheme, 
                 text: themeParams.text, 
                 background: themeParams.background,
+                button: themeParams.button,
                 toggle: toggleTheme
                 }
             } 

@@ -2,12 +2,12 @@ import { useContext } from 'react';
 import { ThemeContext } from '../context/ThemeProvider';
 import PropTypes from 'prop-types';
 
-const Button = ({value, onClick}) => {
+const Button = ({ value, onClick }) => {
 
-    const {subtheme} = useContext(ThemeContext);
+    const { subtheme, button } = useContext(ThemeContext);
 
     return(
-        <button className={`button ${subtheme}`} onClick={onClick}>{value}</button>
+        <button className={`button ${subtheme} ${button}`} onClick={onClick}>{value}</button>
     )
     
 }

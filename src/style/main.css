@@ -1194,6 +1194,7 @@ body {
 .container {
   width: inherit;
   height: inherit;
+  background: url(/src/images/background/light.png);
 }
 
 .main {
@@ -1310,10 +1311,25 @@ body {
   color: #000;
 }
 
-.light-background {
-  background: url(/src/images/background/light.png);
-}
-
 .dark-background {
   background: url(/src/images/background/dark.png);
+}
+
+.button--dark::before {
+  content: '';
+  position: absolute;
+  display: block;
+  top: 0;
+  left: -150px;
+  width: 100%;
+  height: 100%;
+  background: url(/src/images/background/dark.png);
+  border: none;
+  -webkit-transition: 0.2s linear;
+  transition: 0.2s linear;
+  z-index: -1;
+}
+
+.button--dark:hover::before {
+  left: 0;
 }
