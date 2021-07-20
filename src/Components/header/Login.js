@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 const Login = ({toggleLoginModal}) => {
 
     return(
-        <Button value={'Login'} onClick={toggleLoginModal}/>
+        <a href="/auth"><Button value={'Login'}/></a>
     )
 }
 

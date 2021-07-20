@@ -75,7 +75,7 @@ const ModalRegistration = ({isRegistrationModal, toggleRegistrationModal, toggle
 
     return(
         <article className={isRegistrationModal ? `modal visible ${theme}` : "modal"}>
-            <div className="close" onClick={toggleRegistrationModal}/>
+            <a href="/"><div className="close"/></a>
             <h2 className="subtitle">Enter your data:</h2>
             
             <form className="modal__form">

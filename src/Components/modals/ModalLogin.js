@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { getLocalStorage, setLocalStorage } from '../api/localStorageApi';
 import { ThemeContext } from '../../context/ThemeProvider';
 import Button from '../Button';
@@ -6,9 +6,14 @@ import PropTypes from 'prop-types';
 
 const ModalLogin = ({isLoginModal, toggleLoginModal, toggleRegistrationModal, setAuthorization}) => {
 
+
     const [userLogin, setUserLogin] = useState('');
     const [userPassword, setUserPassword] = useState('');
     const { theme, subtheme } = useContext(ThemeContext);
+
+    useEffect(() => {
+        toggleLoginModal();
+    }, []);
 
     const handleClick = (e) => {
         e.preventDefault();
@@ -18,9 +23,9 @@ const ModalLogin = ({isLoginModal, toggleLoginModal, toggleRegistrationModal, se
         });    
         check.length > 0 ? getAuthorization(...check) :
             alert('Вы ввели не верные данные');
-        setUserLogin('');
-        setUserPassword('');
-        toggleLoginModal();
+            setUserLogin('');
+            setUserPassword('');
+            toggleLoginModal();
     }
 
     const getAuthorization = ({login, password, name}) => {
@@ -42,7 +47,7 @@ const ModalLogin = ({isLoginModal, toggleLoginModal, toggleRegistrationModal, se
 
     return(
         <article className={isLoginModal ? `modal visible ${theme}` : "modal"}>
-            <div className="close" onClick={toggleLoginModal}/>
+            <a href="/"><div className="close"/></a>
             <h2 className="subtitle">Already Registered? Enter your data:</h2>
             <form className="modal__form">
                 <input 

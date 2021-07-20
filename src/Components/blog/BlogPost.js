@@ -45,7 +45,7 @@ const BlogPost = ({post, posts, date, id, updatePostsData, handleClickEdit, auth
                     </div>
                 </div>
                 <div className="blog__post-main">
-                    <p>{post.value}</p>
+                    <p>{post.value.slice(0, 30) + '...'}</p>
                 </div>
             </div>
         </article>
