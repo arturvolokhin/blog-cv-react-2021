@@ -13,30 +13,32 @@ const App = () => {
 
     const [authorization, setAuthorization] = useState(getLocalStorage('authorizedUser'));
     const [isLoginModal, setIsLoginModal] = useState(false);
-    const { theme } = useContext(ThemeContext);
+    const { theme, background } = useContext(ThemeContext);
 
     const toggleLoginModal = () => {
         setIsLoginModal(!isLoginModal);
     } 
 
     return (
-        <div className={`wrapper ${theme}`}>
-            <Header
-                authorization={authorization}
-                toggleLoginModal={toggleLoginModal}                      
-                setAuthorization={setAuthorization}
-            />
-            <main className="main">
-                <User authorization={authorization}/>
-                <Blog authorization={authorization}/>
-                <Modals 
-                    isLoginModal={isLoginModal}
-                    toggleLoginModal={toggleLoginModal}
+        <div className={`container ${background}`}>
+            <div className={`wrapper ${theme}`}>
+                <Header
+                    authorization={authorization}
+                    toggleLoginModal={toggleLoginModal}                      
                     setAuthorization={setAuthorization}
                 />
-            </main>
-            <Footer/>
-        </div>   
+                <main className="main">
+                    <User authorization={authorization}/>
+                    <Blog authorization={authorization}/>
+                    <Modals 
+                        isLoginModal={isLoginModal}
+                        toggleLoginModal={toggleLoginModal}
+                        setAuthorization={setAuthorization}
+                    />
+                </main>
+                <Footer/>
+            </div>  
+        </div> 
     )
 }
 

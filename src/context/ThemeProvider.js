@@ -5,35 +5,43 @@ const ThemeContext = React.createContext();
 const ThemeProvider = ({children}) => {
 
     const [theme, setTheme] = useState('light');
-    const [subTheme, setSubTheme] = useState('silver');
-    const [textColor, setTextColor] = useState('black');
-    const [background, setBackground] = useState('light-background')
+    const [themeParams, setThemeParams] = useState({});
+
+    const themeDark = {
+        theme: 'dark',
+        subtheme: 'gray',
+        text: 'white',
+        background: 'dark-background'
+    }
+
+    const themeLight = {
+        theme: 'light',
+        subtheme: 'silver',
+        text: 'black',
+        background: 'light-background'
+    }
 
     const toggleTheme = () => {
         if (theme === 'light') {
             setTheme('dark');
-            setSubTheme('gray');
-            setTextColor('white')
-            setBackground('dark-background')
+            setThemeParams(themeDark);
         } else {
             setTheme('light');
-            setSubTheme('silver');
-            setTextColor('black');
-            setBackground('light-background');
+            setThemeParams(themeLight)
         }
     }
 
     return (
         <ThemeContext.Provider 
             value={
-                    {
-                    theme: theme, 
-                    subtheme: subTheme, 
-                    text: textColor, 
-                    background: background,
-                    toggle: toggleTheme
-                    }
-                } 
+                {
+                theme: themeParams.theme, 
+                subtheme: themeParams.subtheme, 
+                text: themeParams.text, 
+                background: themeParams.background,
+                toggle: toggleTheme
+                }
+            } 
         >
             {children}
         </ThemeContext.Provider>
