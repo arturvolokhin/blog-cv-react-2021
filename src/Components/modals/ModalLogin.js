@@ -4,14 +4,16 @@ import Button from '../Button';
 import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAuthorized } from '../../redux/authSlice';
+import { toggleLoginModal, toggleRegistrationModal } from '../../redux/headerSlice';
 
-const ModalLogin = ({isLoginModal, toggleLoginModal, toggleRegistrationModal}) => {
+const ModalLogin = () => {
 
     const [userLogin, setUserLogin] = useState('');
     const [userPassword, setUserPassword] = useState('');
     const { theme, subtheme } = useContext(ThemeContext);
     const dispatch = useDispatch();
     const registeredUsers = useSelector(({auth}) => auth.registeredUsers);
+    const isLoginModal = useSelector(({header}) => header.isLoginModal);
 
     const handleClick = (e) => {
         e.preventDefault();
@@ -22,7 +24,16 @@ const ModalLogin = ({isLoginModal, toggleLoginModal, toggleRegistrationModal}) =
             alert('Вы ввели не верные данные');
         setUserLogin('');
         setUserPassword('');
-        toggleLoginModal();
+        dispatch(toggleLoginModal())
+    }
+
+    const handleCloseModal = () => {
+        dispatch(toggleLoginModal())
+    }
+
+    const handleRegistrationModal = () => {
+        dispatch(toggleLoginModal());
+        dispatch(toggleRegistrationModal())
     }
 
     const getAuthorization = ({login, password, name}) => {
@@ -35,15 +46,9 @@ const ModalLogin = ({isLoginModal, toggleLoginModal, toggleRegistrationModal}) =
         dispatch(getAuthorized(authorizedUser));
     }
 
-    const registrationClick = () => {
-        toggleLoginModal();
-        toggleRegistrationModal();
-    }
-
-
     return(
         <article className={isLoginModal ? `modal visible ${theme}` : "modal"}>
-            <div className="close" onClick={toggleLoginModal}/>
+            <div className="close" onClick={handleCloseModal}/>
             <h2 className="subtitle">Already Registered? Enter your data:</h2>
             <form className="modal__form">
                 <input 
@@ -59,7 +64,7 @@ const ModalLogin = ({isLoginModal, toggleLoginModal, toggleRegistrationModal}) =
                 <Button value="Submit" onClick={handleClick}/>
             </form>
                 <h2 className="subtitle modal__registration-link" 
-                    onClick={registrationClick}>Not Registered? Click me
+                    onClick={handleRegistrationModal}>Not Registered? Click me
                 </h2>
         </article>
     )

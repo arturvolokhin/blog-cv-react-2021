@@ -2,14 +2,12 @@ import React, { useState, useContext } from "react";
 import { ThemeContext } from "../../context/ThemeProvider";
 import Button from "../Button";
 import PropTypes from "prop-types";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { getRegisteredUser } from "../../redux/authSlice";
+import { toggleRegistrationModal } from "../../redux/headerSlice";
 
-const ModalRegistration = ({
-    isRegistrationModal,
-    toggleRegistrationModal,
-    toggleLoginModal,
-}) => {
+const ModalRegistration = () => {
+    const isRegistrationModal = useSelector(({header}) => header.isRegistrationModal);
     const { theme, subtheme } = useContext(ThemeContext);
     const dispatch = useDispatch();
 
@@ -72,14 +70,18 @@ const ModalRegistration = ({
         setUserPassword("");
         setUserName("");
         toggleRegistrationModal();
-        toggleLoginModal();
+        handleCloseModal();
     };
+
+    const handleCloseModal = () => {
+        dispatch(toggleRegistrationModal())
+    }
 
     return (
         <article
             className={isRegistrationModal ? `modal visible ${theme}` : "modal"}
         >
-            <div className="close" onClick={toggleRegistrationModal} />
+            <div className="close" onClick={handleCloseModal} />
             <h2 className="subtitle">Enter your data:</h2>
 
             <form className="modal__form">

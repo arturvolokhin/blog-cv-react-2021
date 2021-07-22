@@ -1,10 +1,18 @@
 import Button from '../Button'
 import PropTypes from 'prop-types';
+import { toggleLoginModal } from '../../redux/headerSlice';
+import { useDispatch } from 'react-redux';
 
-const Login = ({toggleLoginModal}) => {
+const Login = () => {
+
+    const dispatch = useDispatch();
+
+    const handleClick = () => {
+        dispatch(toggleLoginModal())
+    }
 
     return(
-        <Button value={'Login'} onClick={toggleLoginModal}/>
+        <Button value={'Login'} onClick={handleClick}/>
     )
 }
 
