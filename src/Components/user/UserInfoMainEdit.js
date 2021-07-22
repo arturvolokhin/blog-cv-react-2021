@@ -1,14 +1,16 @@
 import React, { useState, useContext } from 'react';
 import UserInfoMainEditField from './UserInfoMainEditField';
-import { getLocalStorage, setLocalStorage } from '../api/localStorageApi';
 import { ThemeContext } from '../../context/ThemeProvider';
 import PropTypes from 'prop-types';
+import { useSelector, useDispatch } from 'react-redux';
+import { editUserInfo } from '../../redux/userSlice';
 
 const UserInfoMainEdit = ({toggleUserInfoEdit}) => {
 
-    const data = getLocalStorage('userInfo');
+    const data = useSelector(({user}) => user.userInfo)
     const [text, setText] = useState(data);
     const {theme, subtheme} = useContext(ThemeContext);
+    const dispatch = useDispatch();
 
     const handleChange = (target) => {
         setText({...text, [target.name]: target.value});
@@ -16,7 +18,7 @@ const UserInfoMainEdit = ({toggleUserInfoEdit}) => {
 
     const handleClick = (e) => {
         e.preventDefault();
-        setLocalStorage('userInfo', text);
+        dispatch(editUserInfo(text));
         toggleUserInfoEdit();
     }
 

@@ -7,8 +7,6 @@ import Header from './Components/header/Header';
 import Footer from './Components/footer/Footer';
 import Modals from './Components/modals/Modals';
 import { ThemeContext } from "./context/ThemeProvider";
-import { getLocalStorage } from './Components/api/localStorageApi';
-import { useSelector } from 'react-redux';
 
 const App = () => {
 
