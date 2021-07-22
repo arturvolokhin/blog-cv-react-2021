@@ -1,27 +1,51 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice } from "@reduxjs/toolkit";
 
 export const blogSlice = createSlice({
-  name: 'blog',
+    name: "blog",
 
-  initialState: {
-    value: {
-        status: '',
+    initialState: {
+        status: "",
         posts: [],
-    }
-  },
-
-  reducers: {
-    changeStatus: ({value}, {payload}) => {
-      value.status = payload;
+        postEditData: {},
     },
 
-    addPost: ({value}, {payload}) => {
-        value.posts.push(payload);
-    }
-    
-  }
-})
+    reducers: {
+        changeStatus: (state, { payload }) => {
+            state.status = payload;
+        },
 
-export const { changeStatus, addPost } = blogSlice.actions
+        addPost: ({ posts }, { payload }) => {
+            posts.splice(0, 0, payload);
+        },
 
-export default blogSlice.reducer
+        deletePosts: ({ posts }) => {
+            posts.length = 0;
+        },
+
+        PaintEditPost: (state, { payload }) => {
+            const post = state.posts.find((post) => post.id === payload);
+            state.postEditData = post;
+        },
+
+        editPost: ({postEditData, posts}, {payload}) => {
+            postEditData.value = payload.text;
+            posts.splice(payload.index, 1, postEditData);
+        },
+
+        deletePost: ({ posts }, { payload }) => {
+            const index = posts.findIndex((post) => post.id === payload);
+            posts.splice(index, 1);
+        },
+    },
+});
+
+export const {
+    changeStatus,
+    addPost,
+    deletePosts,
+    PaintEditPost,
+    editPost,
+    deletePost,
+} = blogSlice.actions;
+
+export default blogSlice.reducer;

@@ -1,37 +1,28 @@
 import React,{useState} from 'react';
-import { getLocalStorage } from '../api/localStorageApi';
 import BlogPostEditModal from './BlogPostEditModal';
 import BlogPost from './BlogPost';
 import PropTypes from 'prop-types';
+import { useDispatch, useSelector } from 'react-redux';
+import { deletePosts, PaintEditPost } from '../../redux/blogSlice';
 
 const BlogWall = ({ authorization, updatePostsData, posts }) => {
 
     const [toggleEditModal, setToggleEditModal] = useState(false);
-    const [postData, setPostData] = useState(null);
     const [id, setId] = useState(null);
     const date = new Date().toJSON().slice(0,10);
+    const dispatch = useDispatch();
+    const postData = useSelector(({blog}) => blog.postEditData);
 
     const handleClick = () => {
-        if (authorization.login === 'admin'){
-            localStorage.removeItem('posts');
-            updatePostsData([]);
-        } else {
-            alert('Удалить все посты может только администратор');
-        }
+        dispatch(deletePosts());
     }
 
     const handleClickEdit = ({target}) => {
-        const post = posts.find(post => post.id === target.id);
-        
-        if (authorization.login === 'admin' || authorization.login === post.login) {
-            setId(target.id);
-            !toggleEditModal && setToggleEditModal(true);
-            setPostData(post);
-        } else {
-            alert('Вы не можете редактировать чужой пост!');
-        }
+        setId(target.id);
+        console.log(target.id)
+        dispatch(PaintEditPost(target.id));
+        !toggleEditModal && setToggleEditModal(true);
     }
-
 
     return(
         <section className="blog__wall">

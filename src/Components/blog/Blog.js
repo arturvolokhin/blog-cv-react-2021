@@ -9,8 +9,8 @@ import { useSelector } from 'react-redux';
 
 const Blog = ({authorization}) => {
 
-    const statusValue = useSelector(({blog}) => blog.value.status);
-    const posts = useSelector(({blog}) => blog.value.posts)
+    const statusValue = useSelector(({blog}) => blog.status);
+    const posts = useSelector(({blog}) => blog.posts)
     const [status, setStatus] = useState(statusValue);
     const [postsList, setPostsList] = useState(getLocalStorage('posts'));
  

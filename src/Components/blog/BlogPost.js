@@ -4,18 +4,18 @@ import iconGuest from '../../images/iconGuest.svg';
 import iconUser from '../../images/iconUser.png';
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
+import { deletePost } from '../../redux/blogSlice';
 
-const BlogPost = ({post, posts, date, id, updatePostsData, handleClickEdit, authorization}) => {
+const BlogPost = ({post, date, id, handleClickEdit, authorization}) => {
 
     const { subtheme } = useContext(ThemeContext)
+    const dispatch = useDispatch();
     
     const handleClickDelete = ({target}) => {
-        const index = posts.findIndex(post => post.id === target.id);
-        posts.splice(index, 1);
-        updatePostsData(posts);
+        dispatch(deletePost(target.id))
     }
 
-   
     return (
         <article className="blog__post" id={id}>
             <img className="blog__post-icon" alt="Post user icon"

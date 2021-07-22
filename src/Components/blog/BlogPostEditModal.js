@@ -4,22 +4,24 @@ import iconGuest from '../../images/iconGuest.svg';
 import iconUser from '../../images/iconUser.png';
 import { ThemeContext } from '../../context/ThemeProvider';
 import PropTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
+import { editPost } from '../../redux/blogSlice';
 
 const BlogPostEditModal = ({post, posts, date, toggleEditModal, id, updatePostsData}) => {
 
     const [text, setText] = useState(post.value)
     const {theme, subtheme} = useContext(ThemeContext)
+    const dispatch = useDispatch();
 
     const handleChange = ({target}) => {
         setText(target.value);
+        console.log(post)
     }
 
     const handleClick = () => {
         const index = posts.findIndex(post => post.id === id);
         if (index !== -1) {
-            post.value = text;
-            posts.splice(index, 1, post);
-            updatePostsData(posts);
+            dispatch(editPost({text: text, index: index}))
             toggleEditModal(false);
         } else {
             toggleEditModal(false);
