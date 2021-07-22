@@ -2,18 +2,23 @@ import {useContext} from 'react';
 import { setLocalStorage } from '../api/localStorageApi';
 import { ThemeContext } from '../../context/ThemeProvider';
 import PropTypes from 'prop-types';
+import { useSelector, useDispatch } from 'react-redux';
+import { changeStatus } from '../../redux/blogSlice';
 
 const Status = ({authorization, status, setStatus}) => {
+
+    const statusValue = useSelector(({blog}) => blog.value.status);
+    const dispatch = useDispatch();
+    console.log(statusValue);
 
     const {text} = useContext(ThemeContext)
 
     const handleBlur = ({target}) => {
-        setLocalStorage('status', target.value);
+        dispatch(changeStatus(target.value));
     }
 
     const handleKeyPress = ({target, key}) => {
         if(key === 'Enter') {
-            setLocalStorage('status', target.value);
             target.blur();
         }
     }

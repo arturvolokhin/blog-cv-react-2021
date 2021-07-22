@@ -5,11 +5,14 @@ import BlogWall from './BlogWall';
 import { getLocalStorage, setLocalStorage} from '../api/localStorageApi';
 import { v4 as id } from 'uuid';
 import PropTypes from 'prop-types';
+import { useSelector } from 'react-redux';
 
 const Blog = ({authorization}) => {
 
-    const [status, setStatus] = useState(getLocalStorage('status'));
+    const statusValue = useSelector(({blog}) => blog.value.status);
+    const [status, setStatus] = useState(statusValue);
     const [postsList, setPostsList] = useState(getLocalStorage('posts'));
+    
     let uuid = id();
 
     const updatePostsData = (data) => {
