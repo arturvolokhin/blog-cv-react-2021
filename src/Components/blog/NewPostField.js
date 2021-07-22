@@ -13,7 +13,6 @@ const NewPostField = ({ id }) => {
     const dispatch = useDispatch();
     
     const user = useSelector(({auth}) => auth.authorizedUser);
-    console.log(user);
 
     const handleChange = ({target}) => {
         setPostData({id: id, user: user.name, value: target.value,

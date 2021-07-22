@@ -1,10 +1,9 @@
 import UserInfoMainField from "./UserInfoMainField";
 import PropTypes from "prop-types";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
 const UserInfoMain = ({ toggleUserInfoEdit, authorization }) => {
     const userInfo = useSelector(({user}) => user.userInfo);
-    console.log(userInfo)
 
     return (
         <article className="section user__info">
