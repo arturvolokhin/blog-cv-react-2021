@@ -3,13 +3,16 @@ import Button from '../Button';
 import { getLocalStorage } from '../api/localStorageApi';
 import { ThemeContext } from '../../context/ThemeProvider';
 import PropTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
+import { addPost } from '../../redux/blogSlice';
 
-const NewPostField = ({updatePostsData, id}) => {
+const NewPostField = ({ id }) => {
 
     const [postData, setPostData] = useState({});
     const [postValue, setPostValue] = useState('');
     const {subtheme} = useContext(ThemeContext)
-    const posts = getLocalStorage('posts');
+    const dispatch = useDispatch();
+    
     const user = getLocalStorage('authorizedUser');
 
     const handleChange = ({target}) => {
@@ -22,8 +25,7 @@ const NewPostField = ({updatePostsData, id}) => {
         e.preventDefault();
         
         if (postData.value && postData.value.length >= 3) {
-            posts.splice(0, 0, postData);
-            updatePostsData(posts);
+            dispatch(addPost(postData));
             setPostValue('');
         } else {
             alert('Введите минимум 3 символа');

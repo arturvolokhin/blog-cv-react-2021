@@ -4,12 +4,11 @@ import BlogPostEditModal from './BlogPostEditModal';
 import BlogPost from './BlogPost';
 import PropTypes from 'prop-types';
 
-const BlogWall = ({authorization, updatePostsData}) => {
+const BlogWall = ({ authorization, updatePostsData, posts }) => {
 
     const [toggleEditModal, setToggleEditModal] = useState(false);
     const [postData, setPostData] = useState(null);
     const [id, setId] = useState(null);
-    const posts = getLocalStorage('posts');
     const date = new Date().toJSON().slice(0,10);
 
     const handleClick = () => {

@@ -14,10 +14,14 @@ export const blogSlice = createSlice({
     changeStatus: ({value}, {payload}) => {
       value.status = payload;
     },
+
+    addPost: ({value}, {payload}) => {
+        value.posts.push(payload);
+    }
     
   }
 })
 
-export const { changeStatus } = blogSlice.actions
+export const { changeStatus, addPost } = blogSlice.actions
 
 export default blogSlice.reducer

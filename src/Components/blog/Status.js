@@ -1,16 +1,11 @@
 import {useContext} from 'react';
-import { setLocalStorage } from '../api/localStorageApi';
 import { ThemeContext } from '../../context/ThemeProvider';
 import PropTypes from 'prop-types';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { changeStatus } from '../../redux/blogSlice';
 
 const Status = ({authorization, status, setStatus}) => {
-
-    const statusValue = useSelector(({blog}) => blog.value.status);
     const dispatch = useDispatch();
-    console.log(statusValue);
-
     const {text} = useContext(ThemeContext)
 
     const handleBlur = ({target}) => {
