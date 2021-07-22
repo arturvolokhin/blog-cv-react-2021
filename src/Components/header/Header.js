@@ -7,19 +7,19 @@ import Title from './Title';
 import Login from './Login';
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useSelector } from 'react-redux';
 
-const Header = ({ authorization, setAuthorization, toggleLoginModal }) => {
+const Header = ({ toggleLoginModal }) => {
 
     const {theme} = useContext(ThemeContext);
+    const authorization = useSelector(({auth}) => auth.authorizedUser);
 
     return(
         <header className={`header ${theme}`}>
             <Title icon={icon}/>         
             <div className="header__params">
             {authorization.login ? 
-                <Logout 
-                    setAuthorization={setAuthorization}
-                /> : 
+                <Logout /> : 
                 <Login toggleLoginModal={toggleLoginModal}/>
             }
                 <ThemeSwitcher/>
@@ -30,7 +30,6 @@ const Header = ({ authorization, setAuthorization, toggleLoginModal }) => {
 
 Header.propTypes = {
     authorization: PropTypes.object,
-    setAuthorization: PropTypes.func,
     toggleLoginModal: PropTypes.func,
 };
 

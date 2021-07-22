@@ -7,10 +7,12 @@ import UserInfoMainEdit from './UserInfoMainEdit';
 import UserProjects from './UserProjects';
 import avatar from '../../images/avatar.jpg';
 import PropTypes from 'prop-types';
+import { useSelector } from 'react-redux';
 
-const User = ({authorization}) => {
+const User = () => {
 
     const [userInfoMainEdit, setUserInfoMainEdit] = useState(false);
+    const authorization = useSelector(({auth}) => auth.authorizedUser);
 
     const toggleUserInfoEdit = () => {
         authorization && setUserInfoMainEdit(!userInfoMainEdit);

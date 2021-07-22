@@ -8,10 +8,10 @@ import Footer from './Components/footer/Footer';
 import Modals from './Components/modals/Modals';
 import { ThemeContext } from "./context/ThemeProvider";
 import { getLocalStorage } from './Components/api/localStorageApi';
+import { useSelector } from 'react-redux';
 
 const App = () => {
 
-    const [authorization, setAuthorization] = useState(getLocalStorage('authorizedUser'));
     const [isLoginModal, setIsLoginModal] = useState(false);
     const { theme, background } = useContext(ThemeContext);
 
@@ -23,17 +23,14 @@ const App = () => {
         <div className={`container ${background}`}>
             <div className={`wrapper ${theme}`}>
                 <Header
-                    authorization={authorization}
                     toggleLoginModal={toggleLoginModal}                      
-                    setAuthorization={setAuthorization}
                 />
                 <main className="main">
-                    <User authorization={authorization}/>
-                    <Blog authorization={authorization}/>
+                    <User/>
+                    <Blog/>
                     <Modals 
                         isLoginModal={isLoginModal}
                         toggleLoginModal={toggleLoginModal}
-                        setAuthorization={setAuthorization}
                     />
                 </main>
                 <Footer/>

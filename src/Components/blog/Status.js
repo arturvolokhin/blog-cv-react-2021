@@ -1,18 +1,19 @@
 import {useContext} from 'react';
 import { ThemeContext } from '../../context/ThemeProvider';
 import PropTypes from 'prop-types';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { changeStatus } from '../../redux/blogSlice';
 
-const Status = ({authorization, status, setStatus}) => {
+const Status = ({ status, setStatus }) => {
     const dispatch = useDispatch();
-    const {text} = useContext(ThemeContext)
+    const { text } = useContext(ThemeContext)
+    const authorization = useSelector(({ auth }) => auth.authorizedUser);
 
-    const handleBlur = ({target}) => {
+    const handleBlur = ({ target }) => {
         dispatch(changeStatus(target.value));
     }
 
-    const handleKeyPress = ({target, key}) => {
+    const handleKeyPress = ({ target, key }) => {
         if(key === 'Enter') {
             target.blur();
         }

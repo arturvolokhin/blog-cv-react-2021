@@ -1,12 +1,14 @@
-import { setLocalStorage } from "../api/localStorageApi"
 import Button from '../Button';
 import PropTypes from 'prop-types';
+import { useDispatch } from "react-redux";
+import { logout } from '../../redux/authSlice'
 
-const Logout = ({ setAuthorization }) => {
+const Logout = () => {
+
+    const dispatch = useDispatch();
 
     const handleClick = () => {
-        setLocalStorage('authorizedUser', false);
-        setAuthorization(false);
+        dispatch(logout());
     }
 
     return(

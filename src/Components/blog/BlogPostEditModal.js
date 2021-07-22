@@ -26,8 +26,7 @@ const BlogPostEditModal = ({post, posts, date, toggleEditModal, id, updatePostsD
         } else {
             toggleEditModal(false);
             alert('Редактируемый пост удалён!');
-        }
-        
+        } 
     }
 
     return(

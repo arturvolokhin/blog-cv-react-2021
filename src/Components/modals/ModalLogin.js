@@ -1,19 +1,21 @@
 import React, { useState, useContext } from 'react';
-import { getLocalStorage, setLocalStorage } from '../api/localStorageApi';
 import { ThemeContext } from '../../context/ThemeProvider';
 import Button from '../Button';
 import PropTypes from 'prop-types';
+import { useDispatch, useSelector } from 'react-redux';
+import { getAuthorized } from '../../redux/authSlice';
 
-const ModalLogin = ({isLoginModal, toggleLoginModal, toggleRegistrationModal, setAuthorization}) => {
+const ModalLogin = ({isLoginModal, toggleLoginModal, toggleRegistrationModal}) => {
 
     const [userLogin, setUserLogin] = useState('');
     const [userPassword, setUserPassword] = useState('');
     const { theme, subtheme } = useContext(ThemeContext);
+    const dispatch = useDispatch();
+    const registeredUsers = useSelector(({auth}) => auth.registeredUsers);
 
     const handleClick = (e) => {
         e.preventDefault();
-        const usersData = getLocalStorage('usersRegData');
-        const check = usersData.filter(user => {
+        const check = registeredUsers.filter(user => {
             return user.login === userLogin && user.password === userPassword;
         });    
         check.length > 0 ? getAuthorization(...check) :
@@ -30,8 +32,7 @@ const ModalLogin = ({isLoginModal, toggleLoginModal, toggleRegistrationModal, se
             name: name
         }
         
-        setLocalStorage('authorizedUser', authorizedUser)
-        setAuthorization(authorizedUser);
+        dispatch(getAuthorized(authorizedUser));
     }
 
     const registrationClick = () => {

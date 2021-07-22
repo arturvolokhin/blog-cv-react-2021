@@ -1,9 +1,8 @@
 import React, {useState, useContext} from 'react';
 import Button from '../Button';
-import { getLocalStorage } from '../api/localStorageApi';
 import { ThemeContext } from '../../context/ThemeProvider';
 import PropTypes from 'prop-types';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { addPost } from '../../redux/blogSlice';
 
 const NewPostField = ({ id }) => {
@@ -13,7 +12,8 @@ const NewPostField = ({ id }) => {
     const {subtheme} = useContext(ThemeContext)
     const dispatch = useDispatch();
     
-    const user = getLocalStorage('authorizedUser');
+    const user = useSelector(({auth}) => auth.authorizedUser);
+    console.log(user);
 
     const handleChange = ({target}) => {
         setPostData({id: id, user: user.name, value: target.value,

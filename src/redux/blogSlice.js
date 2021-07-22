@@ -4,9 +4,9 @@ export const blogSlice = createSlice({
     name: "blog",
 
     initialState: {
-        status: "",
+        status: [],
         posts: [],
-        postEditData: {},
+        postEditData: [],
     },
 
     reducers: {

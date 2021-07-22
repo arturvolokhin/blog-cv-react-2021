@@ -4,13 +4,14 @@ import iconGuest from '../../images/iconGuest.svg';
 import iconUser from '../../images/iconUser.png';
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { deletePost } from '../../redux/blogSlice';
 
-const BlogPost = ({post, date, id, handleClickEdit, authorization}) => {
+const BlogPost = ({post, date, id, handleClickEdit}) => {
 
     const { subtheme } = useContext(ThemeContext)
     const dispatch = useDispatch();
+    const authorization = useSelector(({auth}) => auth.authorizedUser);
     
     const handleClickDelete = ({target}) => {
         dispatch(deletePost(target.id))
