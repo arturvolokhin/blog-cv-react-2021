@@ -18,28 +18,24 @@ const Blog = ({ authorization }) => {
     };
 
     return (
-        <Router>
-            <section className="blog">
-                <Status
-                    authorization={authorization}
-                    status={status}
-                    setStatus={setStatus}
-                />
-                <NewPostField updatePostsData={updatePostsData} id={uuid} />
+        <section className="blog">
+            <Status
+                authorization={authorization}
+                status={status}
+                setStatus={setStatus}
+            />
+            <NewPostField updatePostsData={updatePostsData} id={uuid} />
 
-                <Switch>
-                    <Route
-                        path="/post"
-                        render={() => (
-                            <BlogWall
-                                updatePostsData={updatePostsData}
-                                authorization={authorization}
-                            />
-                        )}
+            <Route
+                path="/post"
+                render={() => (
+                    <BlogWall
+                        updatePostsData={updatePostsData}
+                        authorization={authorization}
                     />
-                </Switch>
-            </section>
-        </Router>
+                )}
+            />
+        </section>
     );
 };
 

@@ -8,7 +8,7 @@ import Login from './Login';
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Header = ({ authorization, setAuthorization, toggleLoginModal }) => {
+const Header = ({ authorization, setAuthorization}) => {
 
     const {theme} = useContext(ThemeContext);
 
@@ -20,7 +20,7 @@ const Header = ({ authorization, setAuthorization, toggleLoginModal }) => {
                 <Logout 
                     setAuthorization={setAuthorization}
                 /> : 
-                <Login toggleLoginModal={toggleLoginModal}/>
+                <Login />
             }
                 <ThemeSwitcher/>
             </div>

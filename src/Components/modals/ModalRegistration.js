@@ -3,6 +3,7 @@ import { setLocalStorage, getLocalStorage } from "../api/localStorageApi";
 import { ThemeContext } from '../../context/ThemeProvider';
 import Button from '../Button';
 import PropTypes from 'prop-types';
+import { Link } from "react-router-dom";
 
 const ModalRegistration = ({isRegistrationModal, toggleRegistrationModal, toggleLoginModal}) => {
 
@@ -75,7 +76,9 @@ const ModalRegistration = ({isRegistrationModal, toggleRegistrationModal, toggle
 
     return(
         <article className={isRegistrationModal ? `modal visible ${theme}` : "modal"}>
-            <a href="/"><div className="close"/></a>
+            <Link to="/">
+                <a href="/"><div className="close"/></a>
+            </Link>
             <h2 className="subtitle">Enter your data:</h2>
             
             <form className="modal__form">

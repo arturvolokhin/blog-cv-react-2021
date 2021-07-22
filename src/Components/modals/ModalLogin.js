@@ -3,17 +3,15 @@ import { getLocalStorage, setLocalStorage } from '../api/localStorageApi';
 import { ThemeContext } from '../../context/ThemeProvider';
 import Button from '../Button';
 import PropTypes from 'prop-types';
+import { Link } from "react-router-dom";
 
-const ModalLogin = ({isLoginModal, toggleLoginModal, toggleRegistrationModal, setAuthorization}) => {
+const ModalLogin = ({ setAuthorization }) => {
 
 
     const [userLogin, setUserLogin] = useState('');
     const [userPassword, setUserPassword] = useState('');
     const { theme, subtheme } = useContext(ThemeContext);
 
-    useEffect(() => {
-        toggleLoginModal();
-    }, []);
 
     const handleClick = (e) => {
         e.preventDefault();
@@ -25,7 +23,6 @@ const ModalLogin = ({isLoginModal, toggleLoginModal, toggleRegistrationModal, se
             alert('Вы ввели не верные данные');
             setUserLogin('');
             setUserPassword('');
-            toggleLoginModal();
     }
 
     const getAuthorization = ({login, password, name}) => {
@@ -34,20 +31,15 @@ const ModalLogin = ({isLoginModal, toggleLoginModal, toggleRegistrationModal, se
             password: password,
             name: name
         }
-        
         setLocalStorage('authorizedUser', authorizedUser)
         setAuthorization(authorizedUser);
     }
 
-    const registrationClick = () => {
-        toggleLoginModal();
-        toggleRegistrationModal();
-    }
 
 
     return(
-        <article className={isLoginModal ? `modal visible ${theme}` : "modal"}>
-            <a href="/"><div className="close"/></a>
+        <article className={`modal ${theme}`}>
+            <Link to="/"><div className="close"/></Link>
             <h2 className="subtitle">Already Registered? Enter your data:</h2>
             <form className="modal__form">
                 <input 
@@ -62,9 +54,11 @@ const ModalLogin = ({isLoginModal, toggleLoginModal, toggleRegistrationModal, se
                 />
                 <Button value="Submit" onClick={handleClick}/>
             </form>
-                <h2 className="subtitle modal__registration-link" 
-                    onClick={registrationClick}>Not Registered? Click me
-                </h2>
+                <Link to="/registration">
+                    <h2 className="subtitle modal__registration-link">
+                        Not Registered? Click me
+                    </h2>
+                </Link>
         </article>
     )
 }

@@ -1,6 +1,6 @@
+import React, { useState, useContext } from "react";
 import "./style/main.css";
 import "./fonts/stylesheet.css";
-import React, { useState, useContext } from "react";
 import Blog from "./Components/blog/Blog";
 import User from "./Components/user/User";
 import Header from "./Components/header/Header";
@@ -14,37 +14,27 @@ const App = () => {
     const [authorization, setAuthorization] = useState(
         getLocalStorage("authorizedUser")
     );
-    const [isLoginModal, setIsLoginModal] = useState(false);
+
     const { theme, background } = useContext(ThemeContext);
 
-    const toggleLoginModal = () => {
-        setIsLoginModal(!isLoginModal);
-    };
-
     return (
-        <Router>
-            <div className={`container ${background}`}>
-                <div className={`wrapper ${theme}`}>
-                    <Header
-                        authorization={authorization}
-                        toggleLoginModal={toggleLoginModal}
+        <div className={`container ${background}`}>
+            <div className={`wrapper ${theme}`}>
+                <Header
+                    authorization={authorization}
+                    setAuthorization={setAuthorization}
+                />
+                <main className="main">
+                    <User authorization={authorization} />
+                    <Blog authorization={authorization} />
+                    <Modals
                         setAuthorization={setAuthorization}
                     />
-                    <main className="main">
-                        <User authorization={authorization} />
-                        <Blog authorization={authorization} />
-                        <Modals
-                            isLoginModal={isLoginModal}
-                            toggleLoginModal={toggleLoginModal}
-                            setAuthorization={setAuthorization}
-                        />
-                    </main>
-                    <Switch>
-                        <Route path="/footer" component={Footer} />
-                    </Switch>
-                </div>
+                </main>
+
+                <Route path="/footer" component={Footer} />
             </div>
-        </Router>
+        </div>
     );
 };
 

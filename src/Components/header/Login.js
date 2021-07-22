@@ -1,15 +1,12 @@
 import Button from '../Button'
 import PropTypes from 'prop-types';
+import { Link } from "react-router-dom";
 
-const Login = ({toggleLoginModal}) => {
+const Login = () => {
 
     return(
-        <a href="/auth"><Button value={'Login'}/></a>
+        <Link to="/auth"><Button value={'Login'}/></Link>
     )
 }
-
-Login.propTypes = {
-    toggleLoginModal: PropTypes.func,
-};
 
 export default Login;

@@ -1092,7 +1092,6 @@ textarea {
 }
 
 .modal {
-  display: none;
   position: fixed;
   top: calc(50% - 150px);
   left: calc(50% - 250px);
