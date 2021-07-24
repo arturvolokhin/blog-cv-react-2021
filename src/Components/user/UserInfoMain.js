@@ -1,29 +1,33 @@
-import { getLocalStorage } from '../api/localStorageApi';
-import UserInfoMainField from './UserInfoMainField';
-import PropTypes from 'prop-types';
+import { getLocalStorage } from "../../utils/localStorage";
+import UserInfoMainField from "./UserInfoMainField";
+import PropTypes from "prop-types";
 
-const UserInfoMain = ({toggleUserInfoEdit, authorization}) => {
-
-    const handleClick = () => {
-        authorization ? toggleUserInfoEdit() : alert('Для редактирования - авторизируйтесь!');
-    }
-
-    const data = getLocalStorage('userInfo');
+const UserInfoMain = ({ toggleUserInfoEdit, authorization }) => {
     
-    return(
+    const data = getLocalStorage("userInfo");
+
+    return (
         <article className="section user__info">
-            <p className="user__info-edit" onClick={handleClick}>Edit</p>
+            {authorization.login === "admin" && (
+                <p className="user__info-edit" onClick={toggleUserInfoEdit}>
+                    Edit
+                </p>
+            )}
             <h2 className="subtitle">Main information</h2>
             <ul className="user__info-content">
-                {
-                    Object.entries(data).map(([key, value], index) => {
-                        return <UserInfoMainField key={index} name={key} value={value}/>
-                    })
-                }
+                {Object.entries(data).map(([key, value], index) => {
+                    return (
+                        <UserInfoMainField
+                            key={index}
+                            name={key}
+                            value={value}
+                        />
+                    );
+                })}
             </ul>
         </article>
-    )
-}
+    );
+};
 
 UserInfoMain.propTypes = {
     toggleUserInfoEdit: PropTypes.func,

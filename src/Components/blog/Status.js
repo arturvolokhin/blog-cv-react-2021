@@ -1,5 +1,5 @@
 import {useContext} from 'react';
-import { setLocalStorage } from '../api/localStorageApi';
+import { setLocalStorage } from '../../utils/localStorage';
 import { ThemeContext } from '../../context/ThemeProvider';
 import PropTypes from 'prop-types';
 
@@ -29,8 +29,7 @@ const Status = ({authorization, status, setStatus}) => {
                     placeholder="This is status" maxLength="40"  
                 /> :
                 <input  
-                    className={`blog__status ${text}`} 
-                    onClick={() => alert('Для редактирования - авторизируйтесь')}
+                    className={`blog__status-uneditable ${text}`} 
                     readOnly value={status} placeholder="This is status"  
                 />
             }

@@ -1,20 +1,19 @@
-import React, {useState} from 'react';
-import ModalLogin from './ModalLogin';
-import ModalRegistration from './ModalRegistration';
-import PropTypes from 'prop-types';
+import React, { useState } from "react";
+import ModalLogin from "./ModalLogin";
+import ModalRegistration from "./ModalRegistration";
+import PropTypes from "prop-types";
 
-const Modals = ({setAuthorization, toggleLoginModal, isLoginModal}) => {
+const Modals = ({ setAuthorization, toggleLoginModal, isLoginModal }) => {
     const [isRegistrationModal, setIsRegistrationModal] = useState(false);
-    
 
     const toggleRegistrationModal = () => {
         setIsRegistrationModal(!isRegistrationModal);
-    }    
+    };
 
-    return(
+    return (
         <>
-            <ModalLogin 
-                isLoginModal={isLoginModal} 
+            <ModalLogin
+                isLoginModal={isLoginModal}
                 toggleLoginModal={toggleLoginModal}
                 setAuthorization={setAuthorization}
                 toggleRegistrationModal={toggleRegistrationModal}
@@ -25,8 +24,8 @@ const Modals = ({setAuthorization, toggleLoginModal, isLoginModal}) => {
                 toggleRegistrationModal={toggleRegistrationModal}
             />
         </>
-    )
-}
+    );
+};
 
 Modals.propTypes = {
     setAuthorization: PropTypes.func,

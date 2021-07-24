@@ -406,8 +406,6 @@ textarea {
   border-bottom: 1px solid;
   padding: 5px;
   color: #000;
-  -webkit-transition: 0.2s linear;
-  transition: 0.2s linear;
 }
 
 .projects__item {
@@ -417,8 +415,6 @@ textarea {
 
 .projects__item-link {
   color: #000;
-  -webkit-transition: 0.2s linear;
-  transition: 0.2s linear;
 }
 
 .projects__item-link:hover {
@@ -518,8 +514,6 @@ textarea {
 .user__contacts-link {
   text-decoration: none;
   font-size: 20px;
-  -webkit-transition: 0.2s linear;
-  transition: 0.2s linear;
 }
 
 .user__contacts-link:hover {
@@ -536,8 +530,6 @@ textarea {
   display: block;
   width: 60px;
   height: 60px;
-  -webkit-transition: 0.2s linear;
-  transition: 0.2s linear;
 }
 
 .user__stack-item:hover {
@@ -589,8 +581,6 @@ textarea {
   width: 91%;
   min-height: 117px;
   background: #fff;
-  -webkit-transition: 0.2s linear;
-  transition: 0.2s linear;
   z-index: 5;
 }
 
@@ -621,8 +611,6 @@ textarea {
   border: none;
   border-bottom: 2px solid #ccc;
   font-family: Gilroy;
-  -webkit-transition: 0.2s linear;
-  transition: 0.2s linear;
 }
 
 .user__edit-field:nth-last-child(1) {
@@ -658,6 +646,17 @@ textarea {
   font-style: italic;
   border-bottom: 1px solid #ccc;
   padding: 5px 10px 4px;
+}
+
+.blog__status-uneditable {
+  padding: 5px 10px;
+  width: 100%;
+  height: auto;
+  background: transparent;
+  font-size: 20px;
+  border: none;
+  resize: none;
+  overflow: hidden;
 }
 
 .blog__wall {
@@ -794,8 +793,6 @@ textarea {
   display: -ms-flexbox;
   display: flex;
   margin: 15px 0;
-  -webkit-transition: 0.2s linear;
-  transition: 0.2s linear;
 }
 
 .blog__field {
@@ -805,8 +802,6 @@ textarea {
   border: 1px solid #ccc;
   border-right: none;
   resize: none;
-  -webkit-transition: 0.2s linear;
-  transition: 0.2s linear;
 }
 
 .post__modal {
@@ -826,8 +821,6 @@ textarea {
   padding: 10px 15px;
   background: #fff;
   z-index: 10;
-  -webkit-transition: 0.2s linear;
-  transition: 0.2s linear;
 }
 
 .post__modal-content {
@@ -865,8 +858,6 @@ textarea {
   font-family: Gilroy;
   border: none;
   resize: none;
-  -webkit-transition: 0.2s linear;
-  transition: 0.2s linear;
 }
 
 .post__modal-icon {
@@ -1012,8 +1003,6 @@ textarea {
   border-bottom: 1px solid #ccc;
   background: #fff;
   z-index: 15;
-  -webkit-transition: 0.2s linear;
-  transition: 0.2s linear;
 }
 
 .header__params {
@@ -1101,8 +1090,6 @@ textarea {
   width: 500px;
   color: #000;
   padding: 20px;
-  -webkit-transition: 0.2s linear;
-  transition: 0.2s linear;
 }
 
 .modal__form {
@@ -1115,8 +1102,6 @@ textarea {
       -ms-flex-direction: column;
           flex-direction: column;
   min-height: 150px;
-  -webkit-transition: 0.2s linear;
-  transition: 0.2s linear;
 }
 
 .modal__field {
@@ -1126,8 +1111,6 @@ textarea {
   border: none;
   background: #ccc;
   color: #000;
-  -webkit-transition: 0.2s linear;
-  transition: 0.2s linear;
 }
 
 .modal__registration-link {
@@ -1148,8 +1131,6 @@ textarea {
   border: 1px solid #ccc;
   font-family: 'Gilroy';
   overflow: hidden;
-  -webkit-transition: 0.2s linear;
-  transition: 0.2s linear;
   z-index: 5;
 }
 
@@ -1187,8 +1168,6 @@ body {
   padding: 0 25px;
   max-width: 1000px;
   background: #fff;
-  -webkit-transition: 0.2s linear;
-  transition: 0.2s linear;
 }
 
 .container {

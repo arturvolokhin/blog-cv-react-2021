@@ -1,18 +1,15 @@
-import { setLocalStorage } from "../api/localStorageApi"
-import Button from '../Button';
-import PropTypes from 'prop-types';
+import { setLocalStorage } from "../../utils/localStorage";
+import Button from "../Button";
+import PropTypes from "prop-types";
 
 const Logout = ({ setAuthorization }) => {
-
     const handleClick = () => {
-        setLocalStorage('authorizedUser', false);
+        setLocalStorage("authorizedUser", false);
         setAuthorization(false);
-    }
+    };
 
-    return(
-        <Button onClick={handleClick} value={'Logout'}/>
-    )
-}
+    return <Button onClick={handleClick} value={"Logout"} />;
+};
 
 Logout.propTypes = {
     setAuthorization: PropTypes.func,

@@ -1,11 +1,11 @@
 import FooterContent from "./FooterContent";
 
 const Footer = () => {
-    return(
+    return (
         <footer className="footer">
-            <FooterContent/>
+            <FooterContent />
         </footer>
-    )
-}
+    );
+};
 
 export default Footer;

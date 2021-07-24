@@ -1,39 +1,39 @@
-import React,{useState} from "react";
-import Status from './Status';
-import NewPostField from './NewPostField';
-import BlogWall from './BlogWall';
-import { getLocalStorage, setLocalStorage} from '../api/localStorageApi';
-import { v4 as id } from 'uuid';
-import PropTypes from 'prop-types';
+import React, { useState } from "react";
+import Status from "./Status";
+import NewPostField from "./NewPostField";
+import BlogWall from "./BlogWall";
+import { getLocalStorage, setLocalStorage } from "../../utils/localStorage";
+import { v4 as id } from "uuid";
+import PropTypes from "prop-types";
 
-const Blog = ({authorization}) => {
-
-    const [status, setStatus] = useState(getLocalStorage('status'));
-    const [postsList, setPostsList] = useState(getLocalStorage('posts'));
+const Blog = ({ authorization }) => {
+    const [status, setStatus] = useState(getLocalStorage("status"));
+    const [postsList, setPostsList] = useState(getLocalStorage("posts"));
     let uuid = id();
 
     const updatePostsData = (data) => {
-        setLocalStorage('posts', data);
+        setLocalStorage("posts", data);
         setPostsList(data);
-    }
+    };
 
-    return(
+    return (
         <section className="blog">
-            <Status authorization={authorization} status={status} setStatus={setStatus}/>
-            <NewPostField 
-                updatePostsData={updatePostsData} 
-                id={uuid}
+            <Status
+                authorization={authorization}
+                status={status}
+                setStatus={setStatus}
             />
-            <BlogWall 
-                updatePostsData={updatePostsData} 
+            <NewPostField updatePostsData={updatePostsData} id={uuid} />
+            <BlogWall
+                updatePostsData={updatePostsData}
                 authorization={authorization}
             />
         </section>
-    )
-}
+    );
+};
 
 Blog.propTypes = {
-    authorization: PropTypes.object
+    authorization: PropTypes.object,
 };
 
 export default Blog;

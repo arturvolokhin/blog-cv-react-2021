@@ -1,6 +1,6 @@
 import React, {useState, useContext} from 'react';
 import Button from '../Button';
-import { getLocalStorage } from '../api/localStorageApi';
+import { getLocalStorage } from '../../utils/localStorage';
 import { ThemeContext } from '../../context/ThemeProvider';
 import PropTypes from 'prop-types';
 

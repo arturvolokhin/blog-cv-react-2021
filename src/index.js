@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import { presetData } from './Components/api/localStorageApi';
+import { presetData } from './utils/localStorage';
 import { ThemeProvider } from './context/ThemeProvider';
 
 presetData();
