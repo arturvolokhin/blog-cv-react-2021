@@ -9,7 +9,7 @@ const getLocalStorage = (name) => {
 
 const presetData = () => {
     if (getLocalStorage('userInfo').length === 0) {
-        const obj = {Name:'', Birthday:'', 'Live to':''};
+        const obj = {Name: 'Artur Volokhin', Birthday: '20.11.1997', 'Live to': 'Minsk, Belarus'};
         setLocalStorage('userInfo', obj);
     }
 }
