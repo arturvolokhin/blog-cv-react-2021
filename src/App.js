@@ -19,6 +19,8 @@ const App = () => {
         setIsLoginModal(!isLoginModal);
     } 
 
+    let width = window.innerWidth;
+    
     return (
         <div className={`container ${background}`}>
             <div className={`wrapper ${theme}`}>

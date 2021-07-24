@@ -31,7 +31,7 @@ const BlogWall = ({ authorization, updatePostsData }) => {
                     Delete all posts
                 </p>
             )}
-            {toggleEditModal && (
+            {toggleEditModal && authorization && (
                 <BlogPostEditModal
                     post={postData}
                     date={date}

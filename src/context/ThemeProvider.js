@@ -15,6 +15,7 @@ const ThemeProvider = ({ children }) => {
         theme: "light",
         subtheme: "silver",
         text: "black",
+        background: "light-background"
     };
 
     const [theme, setTheme] = useState("light");

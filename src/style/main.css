@@ -530,6 +530,8 @@ textarea {
   display: block;
   width: 60px;
   height: 60px;
+  -webkit-transition: 0.2s linear;
+  transition: 0.2s linear;
 }
 
 .user__stack-item:hover {
