@@ -37,6 +37,14 @@
 - react-router-dom: "^5.2.0"
 - uuid: "^8.3.2"
 - react-redux: "^7.2.4"
+- @reduxjs/toolkit: "^1.6.1"
 - redux-persist: "^6.0.0"
+
+
+## Почувствуй себя администратором...зарегистрируйся:
+
+### login: admin
+### password: не важно
+### name: Artur Volokhin
 
 # [Нажмите](https://arturvolokhin.github.io/myBlog-react/), чтобы открыть приложение.
