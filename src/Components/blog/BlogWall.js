@@ -1,20 +1,14 @@
 import React, { useState } from "react";
-import { getLocalStorage } from "../../utils/localStorage";
 import BlogPostEditModal from "./BlogPostEditModal";
 import BlogPost from "./BlogPost";
 import PropTypes from "prop-types";
 
-const BlogWall = ({ authorization, updatePostsData }) => {
+const BlogWall = ({ authorization, updatePostsData, postsList }) => {
     const [toggleEditModal, setToggleEditModal] = useState(false);
     const [postData, setPostData] = useState(null);
     const [id, setId] = useState(null);
-    const posts = getLocalStorage("posts");
+    const posts = [...postsList];
     const date = new Date().toJSON().slice(0, 10);
-
-    const handleClick = () => {
-        localStorage.removeItem("posts");
-        updatePostsData([]);
-    };
 
     const handleClickEdit = ({ target }) => {
         const post = posts.find((post) => post.id === target.id);
@@ -27,7 +21,10 @@ const BlogWall = ({ authorization, updatePostsData }) => {
         <section className="blog__wall">
             <h2 className="subtitle">Posts wall:</h2>
             {authorization.login === "admin" && (
-                <p className="blog__wall-delete" onClick={handleClick}>
+                <p
+                    className="blog__wall-delete"
+                    onClick={() => updatePostsData([])}
+                >
                     Delete all posts
                 </p>
             )}

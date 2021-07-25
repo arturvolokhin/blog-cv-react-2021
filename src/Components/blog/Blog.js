@@ -12,8 +12,8 @@ const Blog = ({ authorization }) => {
     let uuid = id();
 
     const updatePostsData = (data) => {
-        setLocalStorage("posts", data);
         setPostsList(data);
+        setLocalStorage("posts", data);
     };
 
     return (
@@ -23,8 +23,13 @@ const Blog = ({ authorization }) => {
                 status={status}
                 setStatus={setStatus}
             />
-            <NewPostField updatePostsData={updatePostsData} id={uuid} />
+            <NewPostField
+                updatePostsData={updatePostsData}
+                id={uuid}
+                postsList={postsList}
+            />
             <BlogWall
+                postsList={postsList}
                 updatePostsData={updatePostsData}
                 authorization={authorization}
             />

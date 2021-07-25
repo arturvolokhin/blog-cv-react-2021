@@ -3,7 +3,6 @@ import UserInfoMainField from "./UserInfoMainField";
 import PropTypes from "prop-types";
 
 const UserInfoMain = ({ toggleUserInfoEdit, authorization }) => {
-    
     const data = getLocalStorage("userInfo");
 
     return (
