@@ -1,11 +1,11 @@
 import './style/main.css';
 import './fonts/stylesheet.css';
 import React, { useContext } from 'react';
-import Blog from './Components/blog/Blog';
-import User from './Components/user/User';
-import Header from './Components/header/Header';
-import Footer from './Components/footer/Footer';
-import Modals from './Components/modals/Modals';
+import Blog from './components/blog/Blog';
+import User from './components/user/User';
+import Header from './components/header/Header';
+import Footer from './components/footer/Footer';
+import Modals from './components/modals/Modals';
 import { ThemeContext } from "./context/ThemeProvider";
 
 const App = () => {

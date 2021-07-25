@@ -4,18 +4,18 @@ import { ThemeContext } from '../../context/ThemeProvider';
 import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 import { addPost } from '../../redux/blogSlice';
+import { v4 as id } from 'uuid';
 
-const NewPostField = ({ id }) => {
+const NewPostField = () => {
 
     const [postData, setPostData] = useState({});
     const [postValue, setPostValue] = useState('');
     const {subtheme} = useContext(ThemeContext)
     const dispatch = useDispatch();
-    
     const user = useSelector(({auth}) => auth.authorizedUser);
 
     const handleChange = ({target}) => {
-        setPostData({id: id, user: user.name, value: target.value,
+        setPostData({id: id(), user: user.name, value: target.value,
             login: user.login ? user.login : 'guest'});
         setPostValue(target.value);
     }

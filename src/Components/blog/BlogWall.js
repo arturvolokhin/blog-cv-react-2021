@@ -5,13 +5,14 @@ import PropTypes from "prop-types";
 import { useDispatch, useSelector } from "react-redux";
 import { deletePosts, PaintEditPost } from "../../redux/blogSlice";
 
-const BlogWall = ({ updatePostsData, posts }) => {
+const BlogWall = () => {
     const [toggleEditModal, setToggleEditModal] = useState(false);
     const [id, setId] = useState(null);
     const date = new Date().toJSON().slice(0, 10);
     const dispatch = useDispatch();
     const postData = useSelector(({ blog }) => blog.postEditData);
     const authorization = useSelector(({ auth }) => auth.authorizedUser);
+    const posts = useSelector(({blog}) => blog.posts);
 
     const handleClick = () => {
         dispatch(deletePosts());
@@ -39,20 +40,16 @@ const BlogWall = ({ updatePostsData, posts }) => {
                     toggleEditModal={setToggleEditModal}
                     posts={posts}
                     id={id}
-                    updatePostsData={updatePostsData}
                 />
             )}
             {posts.map((post, index) => {
                 return (
                     <BlogPost
                         post={post}
-                        posts={posts}
                         date={date}
                         id={post.id}
                         key={index}
-                        updatePostsData={updatePostsData}
                         handleClickEdit={handleClickEdit}
-                        authorization={authorization}
                     />
                 );
             })}
