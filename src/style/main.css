@@ -524,6 +524,13 @@ textarea {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .user__stack-item {
@@ -537,34 +544,6 @@ textarea {
 .user__stack-item:hover {
   -webkit-transform: translateY(-10px);
           transform: translateY(-10px);
-}
-
-.user__stack-item--html {
-  background: url(/src/images/icons/html.svg) no-repeat center/contain;
-}
-
-.user__stack-item--css {
-  background: url(/src/images/icons/css.svg) no-repeat center/contain;
-}
-
-.user__stack-item--js {
-  background: url(/src/images/icons/js.svg) no-repeat center/contain;
-}
-
-.user__stack-item--react {
-  background: url(/src/images/icons/react.svg) no-repeat center/contain;
-}
-
-.user__stack-item--webpack {
-  background: url(/src/images/icons/webpack.svg) no-repeat center/contain;
-}
-
-.user__stack-item--git {
-  background: url(/src/images/icons/git.svg) no-repeat center/contain;
-}
-
-.user__stack-item--npm {
-  background: url(/src/images/icons/npm.svg) no-repeat center/contain;
 }
 
 .user__edit {
