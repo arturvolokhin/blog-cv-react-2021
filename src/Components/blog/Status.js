@@ -28,7 +28,7 @@ const Status = ({ authorization, status, setStatus }) => {
                     value={status}
                     onKeyPress={handleKeyPress}
                     placeholder="This is status"
-                    maxLength="40"
+                    maxLength="45"
                 />
             ) : (
                 <input

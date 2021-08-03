@@ -18,8 +18,8 @@ const ThemeProvider = ({ children }) => {
         background: "light-background"
     };
 
-    const [theme, setTheme] = useState("light");
-    const [themeParams, setThemeParams] = useState(themeLight);
+    const [theme, setTheme] = useState("dark");
+    const [themeParams, setThemeParams] = useState(themeDark);
 
     const toggleTheme = () => {
         if (theme === "light") {

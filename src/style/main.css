@@ -766,7 +766,6 @@ textarea {
 }
 
 .blog__dropdown {
-  margin: 0 0 0 10px;
   display: block;
   width: 25px;
   height: 15px;
@@ -1080,6 +1079,25 @@ textarea {
   font-size: 20px;
   font-style: italic;
   line-height: 40px;
+}
+
+.education__item {
+  margin: 0 0 20px 0;
+}
+
+.education__date {
+  color: #ccc;
+  font-size: 20px;
+}
+
+.education__name {
+  margin: 5px 0;
+  font-size: 20px;
+  text-decoration: underline;
+}
+
+.education__specialization {
+  font-size: 23px;
 }
 
 .modal {
