@@ -1,7 +1,8 @@
+import avatar from "../../images/avatar.jpg";
 import PropTypes from "prop-types";
 
-const Avatar = ({ avatar }) => {
-    return <img src={avatar} alt="avatar" width="300px"></img>;
+const Avatar = () => {
+    return <img src={avatar} alt="avatar" width="350px"></img>;
 };
 
 Avatar.propTypes = {

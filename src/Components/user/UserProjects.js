@@ -85,6 +85,16 @@ const UserProjects = () => {
                     <li className="projects__item">
                         <a
                             className={`projects__item-link ${text}`}
+                            href="https://github.com/arturvolokhin/icecream-shop-react"
+                            rel="noreferrer"
+                            target="_blank"
+                        >
+                            Ice cream shop
+                        </a>
+                    </li>
+                    <li className="projects__item">
+                        <a
+                            className={`projects__item-link ${text}`}
                             href="https://github.com/arturvolokhin/weather-app-react"
                             rel="noreferrer"
                             target="_blank"

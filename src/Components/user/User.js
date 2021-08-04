@@ -1,11 +1,10 @@
 import React, { useState } from "react";
-import Avatar from "./Avatar";
 import UserInfoMain from "./UserInfoMain";
+import Avatar from "./Avatar";
 import UserTechStack from "./UserTechStack";
 import UserContacts from "./UserContacts";
 import UserInfoMainEdit from "./UserInfoMainEdit";
 import UserProjects from "./UserProjects";
-import avatar from "../../images/avatar.jpg";
 import PropTypes from "prop-types";
 import UserEducation from "./UserEducation";
 
@@ -18,7 +17,7 @@ const User = ({ authorization }) => {
 
     return (
         <section className="user">
-            <Avatar avatar={avatar} />
+            <Avatar />
             <UserInfoMain
                 authorization={authorization}
                 toggleUserInfoEdit={toggleUserInfoEdit}
