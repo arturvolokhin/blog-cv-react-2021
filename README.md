@@ -48,4 +48,6 @@
 ### login: admin
 ### password: admin
 
+<img src="https://github.com/arturvolokhin/images/blob/main/scrinshots/blog-cv.png"></img>
+
 # [Нажмите](https://arturvolokhin.github.io/myBlog-react/), чтобы открыть приложение.
