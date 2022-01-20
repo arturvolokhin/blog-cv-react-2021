@@ -1,18 +1,16 @@
-import "./style/main.css";
-import "./fonts/stylesheet.css";
-import React, { useState, useContext } from "react";
-import Blog from "./components/blog/Blog";
-import User from "./components/user/User";
-import Header from "./components/header/Header";
-import Footer from "./components/footer/Footer";
-import Modals from "./components/modals/Modals";
-import { ThemeContext } from "./context/ThemeProvider";
-import { getLocalStorage } from "./utils/localStorage";
+import './style/main.css';
+import './fonts/stylesheet.css';
+import React, { useState, useContext } from 'react';
+import Blog from './components/blog/Blog';
+import User from './components/user/User';
+import Header from './components/header/Header';
+import Footer from './components/footer/Footer';
+import Modals from './components/modals/Modals';
+import { ThemeContext } from './context/ThemeProvider';
+import { getLocalStorage } from './utils/localStorage';
 
 const App = () => {
-  const [authorization, setAuthorization] = useState(
-    getLocalStorage("authorizedUser")
-  );
+  const [authorization, setAuthorization] = useState(getLocalStorage('authorizedUser'));
   const [isLoginModal, setIsLoginModal] = useState(false);
   const { theme, background } = useContext(ThemeContext);
 
@@ -20,13 +18,13 @@ const App = () => {
     setIsLoginModal(!isLoginModal);
   };
 
-  window.addEventListener("load", async () => {
+  window.addEventListener('load', async () => {
     if (navigator.serviceWorker) {
       try {
         console.log('navigator is there');
-        navigator.serviceWorker.register("./serviceWorkers.js");
+        navigator.serviceWorker.register('./serviceWorkers.js');
       } catch (e) {
-        console.log("Service worker register fail");
+        console.log('Service worker register fail');
       }
     }
   });
