@@ -37,7 +37,7 @@
     "arrow-body-style": "off", // Это - не наш стиль?
     "function-paren-newline": "off", // Несовместимо с prettier
     "no-plusplus": "off",
-    "space-before-function-paren": 0, // Несовместимо с prettier
+    "space-before-function-paren": 0,
 
     "max-len": ["error", 100, 2, { "ignoreUrls": true }], // airbnb позволяет некоторые пограничные случаи
     "no-console": 0, // airbnb использует предупреждение
