@@ -7,7 +7,7 @@ import { ThemeContext } from '../../context/ThemeProvider';
 import TextField from './TextField';
 import Button from '../Button';
 
-const RegistrationForm = ({ onSubmit, toggleLoginModal, toggleRegistrationModal }) => {
+const RegistrationForm = ({ toggleLoginModal, toggleRegistrationModal }) => {
   const { subtheme } = useContext(ThemeContext);
 
   const setUserRegDataToLocalStorage = (values) => {
@@ -75,7 +75,7 @@ const RegistrationForm = ({ onSubmit, toggleLoginModal, toggleRegistrationModal 
           type="text"
           placeholder="Your name"
         />
-        <Button type="submit" value="Submit" onClick={onSubmit} />
+        <Button type="submit" value="Submit" />
       </Form>
     </Formik>
   );
