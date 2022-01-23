@@ -7,21 +7,28 @@
     "cra-template": "1.1.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-scripts": "4.0.3"
+    "react-scripts": "4.0.3",
+    "uuid": "^8.3.2"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "prettier": "prettier --write --ignore-path .gitignore \"src/**/*.+(ts|tsx|js|jsx)\"",
+    "lint": "eslint --ignore-path .gitignore \"src/**/*.+(ts|tsx|js|jsx)\"",
+    "lint:fix": "eslint --ignore-path .gitignore \"src/**/*.+(ts|tsx|js|jsx)\" --fix --color"
   },
-  "eslintConfig": {
-    "rules": {
-      "no-script-url": 0
-    },
-    "extends": [
-      "react-app",
-      "react-app/jest"
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.(js|jsx)": [
+      "yarn prettier",
+      "yarn lint:fix",
+      "git add ."
     ]
   },
   "browserslist": {
@@ -37,7 +44,23 @@
     ]
   },
   "devDependencies": {
-    "uuid": "^8.3.2",
+    "@babel/cli": "^7.16.8",
+    "@babel/core": "^7.16.10",
+    "@babel/eslint-parser": "^7.16.5",
+    "@babel/preset-env": "^7.16.11",
+    "@babel/preset-react": "^7.16.7",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^8.7.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-plugin-babel": "^5.3.1",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react": "^7.28.0",
+    "esprima": "^4.0.1",
+    "husky": "4.2.3",
+    "lint-staged": "^12.2.2",
+    "prettier": "^2.5.1",
     "yarn": "^1.22.17"
   }
 }

@@ -1,0 +1,68 @@
+{
+  "env": {
+    "es6": true,
+    "browser": true,
+    "node": true
+  },
+  "extends": ["airbnb", "eslint:recommended", "plugin:react/recommended"],
+  "plugins": ["babel", "import", "react", "prettier"],
+  "parser": "@babel/eslint-parser",
+  // "parserOptions": {
+  //   "ecmaVersion": 6,
+  //   "sourceType": "module",
+  //   "ecmaFeatures": {
+  //     "jsx": true
+  //   }
+  // },
+  "parserOptions": {
+    "sourceType": "module",
+    "ecmaVersion": 6,
+    "allowImportExportEverywhere": false,
+    "ecmaFeatures": {
+      "globalReturn": false,
+      "jsx": true
+    },
+    "babelOptions": {
+      "presets": ["@babel/preset-react"],
+      "configFile": "./babel.config.json"
+    }
+  },
+  "rules": {
+    "linebreak-style": "off", // Неправильно работает в Windows.
+    "react/jsx-uses-react": "error",
+    "react/jsx-uses-vars": "error",
+    "arrow-parens": "off", // Несовместимо с prettier
+    "object-curly-newline": "off", // Несовместимо с prettier
+    "no-mixed-operators": "off", // Несовместимо с prettier
+    "arrow-body-style": "off", // Это - не наш стиль?
+    "function-paren-newline": "off",
+    "no-plusplus": "off",
+    "space-before-function-paren": 0,
+
+    "max-len": ["error", 100, 2, { "ignoreUrls": true }], // airbnb позволяет некоторые пограничные случаи
+    "no-console": 0, // airbnb использует предупреждение
+    "no-alert": 0, // airbnb использует предупреждение
+
+    "no-param-reassign": "off", // Это - не наш стиль?
+    "radix": "off", // parseInt, parseFloat и radix выключены. Мне это не нравится.
+
+    "react/require-default-props": "off", // airbnb использует уведомление об ошибке
+    "react/forbid-prop-types": "off", // airbnb использует уведомление об ошибке
+    "prefer-destructuring": "off",
+
+    "react/no-find-dom-node": "off", // Я этого не знаю
+    "react/no-did-mount-set-state": "off",
+    "react/no-unused-prop-types": "off", // Это всё ещё работает нестабильно
+    "react/jsx-one-expression-per-line": "off",
+
+    //my rules
+    "no-unused-expressions": ["error", { "allowShortCircuit": true, "allowTernary": true }],
+    "react/prop-types": 0,
+    "no-nested-ternary": 0,
+    "click-events-have-key-events": 0,
+    "jsx-a11y/label-has-associated-control": "off",
+    "jsx-a11y/label-has-for":"off",
+
+    "prettier/prettier": ["error"]
+  }
+}
