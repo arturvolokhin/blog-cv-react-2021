@@ -22,7 +22,6 @@ const LoginForm = ({ setAuthorization, toggleLoginModal }) => {
   };
 
   const handleSubmit = (values, resetForm) => {
-    console.log(values);
     const usersData = getLocalStorage('usersRegData');
     const check = usersData.filter(
       (user) => user.login === values.login && user.password === values.password,

@@ -22,7 +22,6 @@ const RegistrationForm = ({ onSubmit, toggleLoginModal, toggleRegistrationModal 
   };
 
   const handleSubmit = (values, resetForm) => {
-    console.log(values);
     !localStorage.usersRegData && setLocalStorage('usersRegData', []);
     setUserRegDataToLocalStorage(values);
     toggleRegistrationModal();
