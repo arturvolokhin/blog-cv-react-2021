@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react';
 import { ThemeContext } from '../../context/ThemeProvider';
 
-function UserInfoMainEditField({ name, saveValue, placeholder, text }) {
+const UserInfoMainEditField = ({ name, saveValue, placeholder, text }) => {
   const [value, setValue] = useState(text);
   const { subtheme } = useContext(ThemeContext);
 
@@ -27,6 +27,6 @@ function UserInfoMainEditField({ name, saveValue, placeholder, text }) {
       autoComplete="off"
     />
   );
-}
+};
 
 export default UserInfoMainEditField;

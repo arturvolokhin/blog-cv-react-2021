@@ -4,7 +4,7 @@ import { v4 as uuid } from 'uuid';
 import { getLocalStorage } from '../../utils/localStorage';
 import UserInfoMainField from './UserInfoMainField';
 
-function UserInfoMain({ toggleUserInfoEdit, authorization }) {
+const UserInfoMain = ({ toggleUserInfoEdit, authorization }) => {
   const data = getLocalStorage('userInfo');
 
   return (
@@ -22,6 +22,6 @@ function UserInfoMain({ toggleUserInfoEdit, authorization }) {
       </ul>
     </article>
   );
-}
+};
 
 export default UserInfoMain;

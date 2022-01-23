@@ -3,7 +3,7 @@ import UserInfoMainEditField from './UserInfoMainEditField';
 import { getLocalStorage, setLocalStorage } from '../../utils/localStorage';
 import { ThemeContext } from '../../context/ThemeProvider';
 
-function UserInfoMainEdit({ toggleUserInfoEdit }) {
+const UserInfoMainEdit = ({ toggleUserInfoEdit }) => {
   const data = getLocalStorage('userInfo');
   const [text, setText] = useState(data);
   const { theme, subtheme } = useContext(ThemeContext);
@@ -40,6 +40,6 @@ function UserInfoMainEdit({ toggleUserInfoEdit }) {
       </div>
     </form>
   );
-}
+};
 
 export default UserInfoMainEdit;

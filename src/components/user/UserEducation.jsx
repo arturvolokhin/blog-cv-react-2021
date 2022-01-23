@@ -1,6 +1,6 @@
 import React from 'react';
 
-function UserEducation() {
+const UserEducation = () => {
   return (
     <section className="section education">
       <h2 className="subtitle">Education</h2>
@@ -23,6 +23,6 @@ function UserEducation() {
       </ul>
     </section>
   );
-}
+};
 
 export default UserEducation;

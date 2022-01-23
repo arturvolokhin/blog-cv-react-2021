@@ -4,7 +4,7 @@ import iconAdmin from '../../images/iconAdmin.jpg';
 import iconGuest from '../../images/iconGuest.svg';
 import iconUser from '../../images/iconUser.png';
 
-function BlogPost({ post, posts, date, id, updatePostsData, handleClickEdit, authorization }) {
+const BlogPost = ({ post, posts, date, id, updatePostsData, handleClickEdit, authorization }) => {
   const { subtheme } = useContext(ThemeContext);
 
   const handleClickDelete = ({ target }) => {
@@ -56,6 +56,6 @@ function BlogPost({ post, posts, date, id, updatePostsData, handleClickEdit, aut
       </div>
     </article>
   );
-}
+};
 
 export default BlogPost;

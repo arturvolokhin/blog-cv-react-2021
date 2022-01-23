@@ -8,7 +8,7 @@ import git from '../../images/icons/git.svg';
 import webpack from '../../images/icons/webpack.svg';
 import npm from '../../images/icons/npm.svg';
 
-function UserTechStack() {
+const UserTechStack = () => {
   return (
     <article className="section user__stack">
       <h2 className="subtitle">My technologies stack</h2>
@@ -40,6 +40,6 @@ function UserTechStack() {
       </ul>
     </article>
   );
-}
+};
 
 export default UserTechStack;

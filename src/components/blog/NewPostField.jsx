@@ -3,7 +3,7 @@ import Button from '../Button';
 import { getLocalStorage } from '../../utils/localStorage';
 import { ThemeContext } from '../../context/ThemeProvider';
 
-function NewPostField({ updatePostsData, id, postsList }) {
+const NewPostField = ({ updatePostsData, id, postsList }) => {
   const [postData, setPostData] = useState({});
   const [postValue, setPostValue] = useState('');
   const { subtheme } = useContext(ThemeContext);
@@ -45,6 +45,6 @@ function NewPostField({ updatePostsData, id, postsList }) {
       <Button value="Submit" onClick={handleClick} />
     </form>
   );
-}
+};
 
 export default NewPostField;

@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { ThemeContext } from '../../context/ThemeProvider';
 
-function ThemeSwitch() {
+const ThemeSwitch = () => {
   const { toggle } = useContext(ThemeContext);
 
   return (
@@ -10,6 +10,6 @@ function ThemeSwitch() {
       <span className="switch__slider" />
     </label>
   );
-}
+};
 
 export default ThemeSwitch;
