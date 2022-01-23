@@ -6,7 +6,7 @@ import Logout from './Logout';
 import Title from './Title';
 import Login from './Login';
 
-function Header({ authorization, setAuthorization, toggleLoginModal }) {
+const Header = ({ authorization, setAuthorization, toggleLoginModal }) => {
   const { theme } = useContext(ThemeContext);
 
   return (
@@ -22,6 +22,6 @@ function Header({ authorization, setAuthorization, toggleLoginModal }) {
       </div>
     </header>
   );
-}
+};
 
 export default Header;

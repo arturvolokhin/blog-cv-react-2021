@@ -57,12 +57,20 @@
 
     //my rules
     "no-unused-expressions": ["error", { "allowShortCircuit": true, "allowTernary": true }],
+    "no-unused-vars": [1, { "vars": "all", "args": "all" }],
     "react/prop-types": 0,
     "no-nested-ternary": 0,
     "click-events-have-key-events": 0,
     "jsx-a11y/label-has-associated-control": "off",
-    "jsx-a11y/label-has-for":"off",
-
+    "jsx-a11y/label-has-for": "off",
+    "react/function-component-definition": [
+      2,
+      {
+        "namedComponents": "arrow-function"
+      }
+    ],
+    "react/jsx-props-no-spreading": 0,
+    "react/button-has-type": 0,
     "prettier/prettier": ["error"]
   }
 }

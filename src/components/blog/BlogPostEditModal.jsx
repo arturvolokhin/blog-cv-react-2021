@@ -4,7 +4,7 @@ import iconGuest from '../../images/iconGuest.svg';
 import iconUser from '../../images/iconUser.png';
 import { ThemeContext } from '../../context/ThemeProvider';
 
-function BlogPostEditModal({ post, posts, date, toggleEditModal, id, updatePostsData }) {
+const BlogPostEditModal = ({ post, posts, date, toggleEditModal, id, updatePostsData }) => {
   const [text, setText] = useState(post.value);
   const { theme, subtheme } = useContext(ThemeContext);
 
@@ -52,6 +52,6 @@ function BlogPostEditModal({ post, posts, date, toggleEditModal, id, updatePosts
       </div>
     </div>
   );
-}
+};
 
 export default BlogPostEditModal;

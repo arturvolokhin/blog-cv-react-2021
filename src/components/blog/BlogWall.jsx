@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import BlogPostEditModal from './BlogPostEditModal';
 import BlogPost from './BlogPost';
 
-function BlogWall({ authorization, updatePostsData, postsList }) {
+const BlogWall = ({ authorization, updatePostsData, postsList }) => {
   const [toggleEditModal, setToggleEditModal] = useState(false);
   const [postData, setPostData] = useState(null);
   const [id, setId] = useState(null);
@@ -48,6 +48,6 @@ function BlogWall({ authorization, updatePostsData, postsList }) {
       ))}
     </section>
   );
-}
+};
 
 export default BlogWall;

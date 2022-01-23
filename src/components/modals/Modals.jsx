@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import ModalLogin from './ModalLogin';
 import ModalRegistration from './ModalRegistration';
 
-function Modals({ setAuthorization, toggleLoginModal, isLoginModal }) {
+const Modals = ({ setAuthorization, toggleLoginModal, isLoginModal }) => {
   const [isRegistrationModal, setIsRegistrationModal] = useState(false);
 
   const toggleRegistrationModal = () => {
@@ -24,6 +24,6 @@ function Modals({ setAuthorization, toggleLoginModal, isLoginModal }) {
       />
     </>
   );
-}
+};
 
 export default Modals;

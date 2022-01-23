@@ -2,7 +2,7 @@ import React, { useState, useMemo } from 'react';
 
 const ThemeContext = React.createContext();
 
-function ThemeProvider({ children }) {
+const ThemeProvider = ({ children }) => {
   const themeDark = {
     theme: 'dark',
     subtheme: 'gray',
@@ -44,6 +44,6 @@ function ThemeProvider({ children }) {
   );
 
   return <ThemeContext.Provider value={contextValues}>{children}</ThemeContext.Provider>;
-}
+};
 
 export { ThemeContext, ThemeProvider };

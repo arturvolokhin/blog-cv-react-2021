@@ -5,7 +5,7 @@ import NewPostField from './NewPostField';
 import BlogWall from './BlogWall';
 import { getLocalStorage, setLocalStorage } from '../../utils/localStorage';
 
-function Blog({ authorization }) {
+const Blog = ({ authorization }) => {
   const [status, setStatus] = useState(getLocalStorage('status'));
   const [postsList, setPostsList] = useState(getLocalStorage('posts'));
 
@@ -25,6 +25,6 @@ function Blog({ authorization }) {
       />
     </section>
   );
-}
+};
 
 export default Blog;

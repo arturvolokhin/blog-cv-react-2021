@@ -1,4 +1,4 @@
-import './style/main.css';
+import './sass/main.sass';
 import './fonts/stylesheet.css';
 import React, { useState, useContext } from 'react';
 import Blog from './components/blog/Blog';
@@ -9,7 +9,7 @@ import Modals from './components/modals/Modals';
 import { ThemeContext } from './context/ThemeProvider';
 import { getLocalStorage } from './utils/localStorage';
 
-function App() {
+const App = () => {
   const [authorization, setAuthorization] = useState(getLocalStorage('authorizedUser'));
   const [isLoginModal, setIsLoginModal] = useState(false);
   const { theme, background } = useContext(ThemeContext);
@@ -50,6 +50,6 @@ function App() {
       </div>
     </div>
   );
-}
+};
 
 export default App;

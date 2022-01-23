@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { setLocalStorage } from '../../utils/localStorage';
 import { ThemeContext } from '../../context/ThemeProvider';
 
-function Status({ authorization, status, setStatus }) {
+const Status = ({ authorization, status, setStatus }) => {
   const { text } = useContext(ThemeContext);
 
   const handleBlur = ({ target }) => {
@@ -35,6 +35,6 @@ function Status({ authorization, status, setStatus }) {
       placeholder="This is status"
     />
   );
-}
+};
 
 export default Status;

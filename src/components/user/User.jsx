@@ -7,7 +7,7 @@ import UserInfoMainEdit from './UserInfoMainEdit';
 import UserProjects from './UserProjects';
 import UserEducation from './UserEducation';
 
-function User({ authorization }) {
+const User = ({ authorization }) => {
   const [userInfoMainEdit, setUserInfoMainEdit] = useState(false);
 
   const toggleUserInfoEdit = () => {
@@ -27,6 +27,6 @@ function User({ authorization }) {
       ) : null}
     </section>
   );
-}
+};
 
 export default User;

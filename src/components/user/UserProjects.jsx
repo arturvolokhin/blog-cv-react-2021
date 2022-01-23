@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { ThemeContext } from '../../context/ThemeProvider';
 
-function UserProjects() {
+const UserProjects = () => {
   const { text } = useContext(ThemeContext);
 
   return (
@@ -122,6 +122,6 @@ function UserProjects() {
       </ul>
     </section>
   );
-}
+};
 
 export default UserProjects;

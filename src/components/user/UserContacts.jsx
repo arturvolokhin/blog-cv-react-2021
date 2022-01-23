@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { ThemeContext } from '../../context/ThemeProvider';
 
-function UserContacts() {
+const UserContacts = () => {
   const { text } = useContext(ThemeContext);
 
   return (
@@ -49,6 +49,6 @@ function UserContacts() {
       </ul>
     </article>
   );
-}
+};
 
 export default UserContacts;
