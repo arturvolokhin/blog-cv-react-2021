@@ -18,12 +18,12 @@ function ModalRegistration({ isRegistrationModal, toggleRegistrationModal, toggl
   const [isPasswordError, setIsPasswordError] = useState(false);
   const [isNameError, setIsNameError] = useState(false);
 
-    const getValidation = ({ target }) => {
+  const getValidation = ({ target }) => {
     const validation = /[A-Za-z0-9]{5,16}$/;
     const errorMessage = `Please enter at least 5 characters
             and only numbers and Latin letters`;
 
-      switch (target.name) {
+    switch (target.name) {
       case 'email':
         if (!target.value.match(validation)) {
           setLoginError(errorMessage);
@@ -32,7 +32,7 @@ function ModalRegistration({ isRegistrationModal, toggleRegistrationModal, toggl
           setIsLoginError(false);
         }
         break;
-       case 'password':
+      case 'password':
         if (!target.value.match(validation)) {
           setPasswordError(errorMessage);
           setIsPasswordError(true);
