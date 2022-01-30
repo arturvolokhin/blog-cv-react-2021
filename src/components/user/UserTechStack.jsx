@@ -1,4 +1,6 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
+
 import html from '../../images/icons/html.svg';
 import css from '../../images/icons/css.svg';
 import js from '../../images/icons/js.svg';
@@ -9,9 +11,11 @@ import webpack from '../../images/icons/webpack.svg';
 import npm from '../../images/icons/npm.svg';
 
 const UserTechStack = () => {
+  const { t } = useTranslation();
+
   return (
     <article className="section user__stack">
-      <h2 className="subtitle">My technologies stack</h2>
+      <h2 className="subtitle">{t('user.stack')}</h2>
       <ul className="user__stack-list user__stack-list--up">
         <li className="user__stack-item">
           <img src={html} alt="html-icon" />

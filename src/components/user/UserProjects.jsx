@@ -1,12 +1,15 @@
 import React, { useContext } from 'react';
+import { useTranslation } from 'react-i18next';
+
 import { ThemeContext } from '../../context/ThemeProvider';
 
 const UserProjects = () => {
+  const { t } = useTranslation();
   const { text } = useContext(ThemeContext);
 
   return (
     <section className="section projects">
-      <h2 className="subtitle">My projects:</h2>
+      <h2 className="subtitle">{t('user.projects')}</h2>
       <ul className="projects__list">
         <ol className="projects__sublist">
           <li className={`projects__list-title ${text}`}>Html + Css:</li>

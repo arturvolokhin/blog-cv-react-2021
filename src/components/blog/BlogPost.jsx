@@ -1,10 +1,13 @@
 import React, { useContext } from 'react';
+import { useTranslation } from 'react-i18next';
+
 import { ThemeContext } from '../../context/ThemeProvider';
 import iconAdmin from '../../images/iconAdmin.jpg';
 import iconGuest from '../../images/iconGuest.svg';
 import iconUser from '../../images/iconUser.png';
 
 const BlogPost = ({ post, posts, date, id, updatePostsData, handleClickEdit, authorization }) => {
+  const { t } = useTranslation();
   const { subtheme } = useContext(ThemeContext);
 
   const handleClickDelete = ({ target }) => {
@@ -22,7 +25,7 @@ const BlogPost = ({ post, posts, date, id, updatePostsData, handleClickEdit, aut
       />
       <div className="blog__post-content">
         <div className="blog__post-header">
-          <span className="blog__post-user">{post.user ? post.user : 'Guest'}</span>
+          <span className="blog__post-user">{post.user || t('blog.guest')}</span>
           <div className="blog__post-article">
             <span>{date}</span>
 
@@ -35,7 +38,7 @@ const BlogPost = ({ post, posts, date, id, updatePostsData, handleClickEdit, aut
                     role="presentation"
                     id={id}
                   >
-                    Delete post
+                    {t('blog.delete')}
                   </li>
                   <li
                     className="blog__settings-item"
@@ -43,7 +46,7 @@ const BlogPost = ({ post, posts, date, id, updatePostsData, handleClickEdit, aut
                     id={id}
                     role="presentation"
                   >
-                    Edit
+                    {t('blog.edit')}
                   </li>
                 </ul>
               </div>

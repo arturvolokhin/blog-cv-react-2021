@@ -1,12 +1,10 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 const FooterContent = () => {
-  return (
-    <p className="description">
-      I&apos;m studying to be a frontend developer at TeachMeSkills, looking for a job as an trainee
-      or junior frontend
-    </p>
-  );
+  const { t } = useTranslation();
+
+  return <p className="description">{t('footer.descr')}</p>;
 };
 
 export default FooterContent;

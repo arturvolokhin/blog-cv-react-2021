@@ -8,13 +8,8 @@ const getLocalStorage = (name) => {
 };
 
 const presetData = () => {
-  if (getLocalStorage('userInfo').length === 0) {
-    const userInfo = {
-      Name: 'Artur Volokhin',
-      Birthday: '20.11.1997',
-      'Live to': 'Minsk, Belarus',
-    };
-    setLocalStorage('userInfo', userInfo);
+  if (getLocalStorage('lang').length === 0) {
+    setLocalStorage('lang', 'en');
   }
 
   if (!localStorage.getItem('posts')) {

@@ -1,10 +1,14 @@
 import React, { useState, useContext } from 'react';
+import { useTranslation } from 'react-i18next';
+
 import iconAdmin from '../../images/iconAdmin.jpg';
 import iconGuest from '../../images/iconGuest.svg';
 import iconUser from '../../images/iconUser.png';
 import { ThemeContext } from '../../context/ThemeProvider';
 
 const BlogPostEditModal = ({ post, posts, date, toggleEditModal, id, updatePostsData }) => {
+  const { t } = useTranslation();
+
   const [text, setText] = useState(post.value);
   const { theme, subtheme } = useContext(ThemeContext);
 
@@ -34,7 +38,7 @@ const BlogPostEditModal = ({ post, posts, date, toggleEditModal, id, updatePosts
           src={post.user === 'Artur Volokhin' ? iconAdmin : post.user ? iconUser : iconGuest}
         />
         <div className="post__modal-header">
-          <span className="post__modal-user">{post.user ? post.user : 'Guest'}</span>
+          <span className="post__modal-user">{post.user || t('blog.guest')}</span>
           <span>{date}</span>
         </div>
         <textarea

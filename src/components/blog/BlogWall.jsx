@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
+
 import BlogPostEditModal from './BlogPostEditModal';
 import BlogPost from './BlogPost';
 
 const BlogWall = ({ authorization, updatePostsData, postsList }) => {
+  const { t } = useTranslation();
+
   const [toggleEditModal, setToggleEditModal] = useState(false);
   const [postData, setPostData] = useState(null);
   const [id, setId] = useState(null);
@@ -18,10 +22,10 @@ const BlogWall = ({ authorization, updatePostsData, postsList }) => {
 
   return (
     <section className="blog__wall">
-      <h2 className="subtitle">Posts wall:</h2>
+      <h2 className="subtitle">{t('blog.wall')}</h2>
       {authorization.login === 'admin' && (
         <p className="blog__wall-delete" role="presentation" onClick={() => updatePostsData([])}>
-          Delete all posts
+          {t('blog.delete-posts')}
         </p>
       )}
       {toggleEditModal && authorization && (
