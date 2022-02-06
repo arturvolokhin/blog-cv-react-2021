@@ -1,9 +1,13 @@
 import React, { useState, useContext } from 'react';
+import { useTranslation } from 'react-i18next';
+
 import Button from '../Button';
 import { getLocalStorage } from '../../utils/localStorage';
 import { ThemeContext } from '../../context/ThemeProvider';
 
 const NewPostField = ({ updatePostsData, id, postsList }) => {
+  const { t } = useTranslation();
+
   const [postData, setPostData] = useState({});
   const [postValue, setPostValue] = useState('');
   const { subtheme } = useContext(ThemeContext);
@@ -42,7 +46,7 @@ const NewPostField = ({ updatePostsData, id, postsList }) => {
         onChange={handleChange}
         value={postValue}
       />
-      <Button value="Submit" onClick={handleClick} />
+      <Button value={t('buttons.submit')} onClick={handleClick} />
     </form>
   );
 };

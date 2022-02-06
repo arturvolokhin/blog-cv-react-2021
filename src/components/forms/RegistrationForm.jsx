@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
+import { useTranslation } from 'react-i18next';
 
 import { setLocalStorage, getLocalStorage } from '../../utils/localStorage';
 import { ThemeContext } from '../../context/ThemeProvider';
@@ -9,6 +10,7 @@ import Button from '../Button';
 
 const RegistrationForm = ({ toggleLoginModal, toggleRegistrationModal }) => {
   const { subtheme } = useContext(ThemeContext);
+  const { t } = useTranslation();
 
   const setUserRegDataToLocalStorage = (values) => {
     const userRegData = {
@@ -42,17 +44,17 @@ const RegistrationForm = ({ toggleLoginModal, toggleRegistrationModal }) => {
       }}
       validationSchema={Yup.object({
         login: Yup.string()
-          .max(15, 'Must be 16 characters or less')
-          .min(6, 'Must be 6 characters or more')
-          .required('Required'),
+          .max(15, t('validation.max-length'))
+          .min(2, t('validation.min-length'))
+          .required(t('validation.required')),
         password: Yup.string()
-          .max(15, 'Must be 16 characters or less')
-          .min(6, 'Must be 6 characters or more')
-          .required('Required'),
+          .max(15, t('validation.max-length'))
+          .min(2, t('validation.min-length'))
+          .required(t('validation.required')),
         name: Yup.string()
-          .max(15, 'Must be 16 characters or less')
-          .min(2, 'Must be 2 characters or more')
-          .required('Required'),
+          .max(15, t('validation.max-length'))
+          .min(2, t('validation.min-length'))
+          .required(t('validation.required')),
       })}
       onSubmit={(values, { resetForm }) => handleSubmit(values, resetForm)}
     >
@@ -61,21 +63,21 @@ const RegistrationForm = ({ toggleLoginModal, toggleRegistrationModal }) => {
           className={`modal__field ${subtheme}`}
           name="login"
           type="text"
-          placeholder="Login"
+          placeholder={t('placeholders.login')}
         />
         <TextField
           className={`modal__field ${subtheme}`}
           name="password"
           type="text"
-          placeholder="Password"
+          placeholder={t('placeholders.password')}
         />
         <TextField
           className={`modal__field ${subtheme}`}
           name="name"
           type="text"
-          placeholder="Your name"
+          placeholder={t('placeholders.name')}
         />
-        <Button type="submit" value="Submit" />
+        <Button type="submit" value={t('buttons.submit')} />
       </Form>
     </Formik>
   );

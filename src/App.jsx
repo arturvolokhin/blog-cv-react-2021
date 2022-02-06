@@ -1,6 +1,8 @@
+import React, { useState, useContext, useEffect } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
+
 import './sass/main.sass';
 import './fonts/stylesheet.css';
-import React, { useState, useContext } from 'react';
 import Blog from './components/blog/Blog';
 import User from './components/user/User';
 import Header from './components/header/Header';
@@ -10,9 +12,13 @@ import { ThemeContext } from './context/ThemeProvider';
 import { getLocalStorage } from './utils/localStorage';
 
 const App = () => {
+  const navigate = useNavigate();
+  const { lang } = useParams();
+
   const [authorization, setAuthorization] = useState(getLocalStorage('authorizedUser'));
   const [isLoginModal, setIsLoginModal] = useState(false);
   const { theme, background } = useContext(ThemeContext);
+  const activeLanguage = getLocalStorage('lang');
 
   const toggleLoginModal = () => {
     setIsLoginModal(!isLoginModal);
@@ -28,6 +34,10 @@ const App = () => {
       }
     }
   });
+
+  useEffect(() => {
+    navigate(lang ?? activeLanguage);
+  }, []);
 
   return (
     <div className={`container ${background}`}>

@@ -5,10 +5,11 @@ import ThemeSwitcher from './ThemeSwitcher';
 import Logout from './Logout';
 import Title from './Title';
 import Login from './Login';
+import LangList from './LangSwitcher';
 
 const Header = ({ authorization, setAuthorization, toggleLoginModal }) => {
   const { theme } = useContext(ThemeContext);
-
+  console.log(theme, 'theme header');
   return (
     <header className={`header ${theme}`}>
       <Title icon={icon} />
@@ -18,6 +19,7 @@ const Header = ({ authorization, setAuthorization, toggleLoginModal }) => {
         ) : (
           <Login toggleLoginModal={toggleLoginModal} />
         )}
+        <LangList />
         <ThemeSwitcher />
       </div>
     </header>

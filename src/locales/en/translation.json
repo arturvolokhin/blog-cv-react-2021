@@ -1,0 +1,61 @@
+{
+  "translation": {
+    "title": "Artur's V. Blog",
+    "blog": {
+      "guest": "Guest",
+      "delete": "Delete",
+      "edit": "Edit",
+      "delete-posts": "Delete all posts",
+      "wall": "Posts wall:"
+    },
+    "footer": {
+      "descr": "I learned to be a frontend developer at TeachMeSkills and have been working at Finwin Technologies since the summer of 2021."
+    },
+    "alts": {
+      "logo": "logo",
+      "avatar": "Avatar"
+    },
+    "placeholders": {
+      "login": "Login",
+      "password": "Password",
+      "name": "Your name"
+    },
+    "buttons": {
+      "login": "Login",
+      "submit": "Submit",
+      "logout": "Logout"
+    },
+    "validation": {
+      "max-length": "Must be 16 characters or less",
+      "min-length": "Must be 2 characters or more",
+      "required": "Required",
+      "error-data": "You entered encorrect data"
+    },
+    "modal-login": {
+      "title": "Already Registered? Enter your data:",
+      "link": "Not Registered? Click me"
+    },
+    "modal-registration": {
+      "title": "Enter your data:"
+    },
+    "user": {
+      "contacts": "My contacts",
+      "education": "Education",
+      "coding-school": "Coding School TeachMeSkills",
+      "developer": "Front-end developer",
+      "university": "Belarussian State Agrarian Technical University",
+      "specialization": "Economist-organizer",
+      "colledge": "Sochi Trade Technology College",
+      "profession": "Cook, Pastry chef",
+      "edit": "edit",
+      "info": "Main information",
+      "projects": "My projects",
+      "stack": "My technologies stack",
+      "name": "Name:",
+      "birthday": "Birthday:",
+      "location": "Live to:",
+      "city": "Minsk, Belatus",
+      "user-name": "Artur Valokhin" 
+    }
+  }
+}

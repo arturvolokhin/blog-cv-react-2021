@@ -1,4 +1,6 @@
 import React, { useContext } from 'react';
+import { useTranslation } from 'react-i18next';
+
 import { ThemeContext } from '../../context/ThemeProvider';
 import LoginForm from '../forms/LoginForm';
 
@@ -8,6 +10,7 @@ const ModalLogin = ({
   toggleRegistrationModal,
   setAuthorization,
 }) => {
+  const { t } = useTranslation();
   const { theme } = useContext(ThemeContext);
 
   const registrationClick = () => {
@@ -18,14 +21,14 @@ const ModalLogin = ({
   return (
     <article className={isLoginModal ? `modal visible ${theme}` : 'modal'}>
       <div className="close" role="presentation" onClick={toggleLoginModal} />
-      <h2 className="subtitle">Already Registered? Enter your data:</h2>
+      <h2 className="subtitle">{t('modal-login.title')}</h2>
       <LoginForm toggleLoginModal={toggleLoginModal} setAuthorization={setAuthorization} />
       <h2
         className="subtitle modal__registration-link"
         role="presentation"
         onClick={registrationClick}
       >
-        Not Registered? Click me
+        {t('modal-login.link')}
       </h2>
     </article>
   );
