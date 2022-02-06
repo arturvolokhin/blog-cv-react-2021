@@ -1,6 +1,13 @@
 import React, { useState, useMemo } from 'react';
 
-const ThemeContext = React.createContext();
+const ThemeContext = React.createContext({
+  theme: '',
+  subtheme: '',
+  text: '',
+  background: '',
+  button: '',
+  toggle: () => null,
+});
 
 const ThemeProvider = ({ children }) => {
   const themeDark = {
@@ -40,7 +47,7 @@ const ThemeProvider = ({ children }) => {
       button: themeParams.button,
       toggle: toggleTheme,
     }),
-    [],
+    [themeParams],
   );
 
   return <ThemeContext.Provider value={contextValues}>{children}</ThemeContext.Provider>;

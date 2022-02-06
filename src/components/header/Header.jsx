@@ -9,7 +9,7 @@ import LangList from './LangSwitcher';
 
 const Header = ({ authorization, setAuthorization, toggleLoginModal }) => {
   const { theme } = useContext(ThemeContext);
-
+  console.log(theme, 'theme header');
   return (
     <header className={`header ${theme}`}>
       <Title icon={icon} />
